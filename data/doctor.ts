@@ -19,24 +19,25 @@ export const doctor = {
       "Professional affiliation. This website is Dr. Pradyumna R's personal brand—not Manipal Hospitals' website.",
   },
 
-  overview: `Dr. Pradyumna R is an accomplished orthopaedic surgeon practising as Consultant – Shoulder and Sports Medicine at Manipal Hospital, Kanakapura Road, Bengaluru. He is recognised for expertise in shoulder and elbow surgery, sports injury management, and arthroscopic procedures of the knee, shoulder and hip.`,
+  overview: `Dr. Pradyumna R is a Consultant, Shoulder and Sports Medicine at Manipal Hospital, Kanakapura Road, Bengaluru, specialising in shoulder and elbow surgery, sports injury management and arthroscopic procedures of the shoulder, knee and hip.`,
+  approach: `His approach to orthopaedic care is centred on accurate assessment, personalised treatment and restoring movement, helping patients move forward with confidence.`,
 
   experienceNote:
     "With over 13+ years of experience (as stated on the official hospital profile).",
 
   qualifications: [
     "MBBS",
-    "MS - Orthopaedics",
-    "Fellowship in Arthroscopy & Sports Medicine (ISAKOS)",
-    "Fellowship in Shoulder & Elbow Surgery (Germany)",
-    "Fellowship in Complex Shoulder Arthroscopy & Arthroplasty (South Korea)",
+    "MS – Orthopaedics",
+    "Fellowship in Arthroscopy & Sports Medicine — ISAKOS",
+    "Fellowship in Shoulder & Elbow Surgery — Germany",
+    "Fellowship in Complex Shoulder Arthroscopy & Arthroplasty — South Korea",
     "FIFA Diploma in Football Medicine",
   ] as const,
 
   fellowships: [
-    "International Fellowship in Arthroscopy of Knee, Shoulder and Sports Medicine under ISAKOS",
-    "Shoulder and Elbow Surgery at TUM, Munich, Germany",
-    "Complex Shoulder Arthroscopy and Arthroplasty at SNUBH, Seoul, South Korea",
+    "International Fellowship in Arthroscopy of Knee, Shoulder & Sports Medicine under ISAKOS",
+    "Shoulder & Elbow Surgery at TUM, Munich, Germany",
+    "Complex Shoulder Arthroscopy & Arthroplasty at SNUBH, Seoul, South Korea",
     "FIFA Diploma in Football Medicine",
   ] as const,
 
@@ -58,9 +59,9 @@ export const doctor = {
   ] as const,
 
   publicationsSummary: [
-    "Peer-reviewed papers including studies on proximal humerus fractures and femur fracture outcomes.",
-    "Research on bioinductive collagen patches in rotator cuff repair.",
-    "Biomechanical insights related to degenerative shoulder arthritis and humeroscapular alignment.",
+    "Peer-reviewed research including studies on proximal humerus fractures and femur fracture outcomes",
+    "Research exploring bioinductive collagen patches in rotator cuff repair",
+    "Biomechanical research related to degenerative shoulder arthritis and humeroscapular alignment",
   ] as const,
 
   booking: {

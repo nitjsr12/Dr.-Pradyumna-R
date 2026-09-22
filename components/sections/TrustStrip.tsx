@@ -1,47 +1,74 @@
-import { Activity, HeartPulse, Stethoscope, TrendingUp } from "lucide-react";
-import { Container } from "@/components/ui/Container";
+import {
+  Activity,
+  Bone,
+  Building2,
+  ClipboardCheck,
+  DoorOpen,
+  HeartHandshake,
+  HeartPulse,
+  Smile,
+  Stethoscope,
+  TrendingUp,
+  Video,
+} from "lucide-react";
 
 const items = [
-  { label: "ORTHOPAEDICS", icon: Stethoscope },
-  { label: "SPORTS MEDICINE", icon: Activity },
-  { label: "PATIENT-CENTRED CARE", icon: HeartPulse },
-  { label: "MOVEMENT & RECOVERY", icon: TrendingUp },
+  { label: "2K+ Shoulder Arthroscopy", icon: Activity },
+  { label: "Hospital", icon: Building2 },
+  { label: "Entering the Hospital", icon: DoorOpen },
+  { label: "Consultation", icon: Stethoscope },
+  { label: "Examining the Patient", icon: ClipboardCheck },
+  { label: "Surgery", icon: Video },
+  { label: "Knee Replacement", icon: Bone },
+  { label: "Happy Patients", icon: Smile },
+  { label: "Recovery", icon: HeartHandshake },
+  { label: "Orthopaedics", icon: Bone },
+  { label: "Sports Medicine", icon: Activity },
+  { label: "Patient-Centred Care", icon: HeartPulse },
+  { label: "Movement & Recovery", icon: TrendingUp },
 ] as const;
+
+function StripRow({ hidden }: { hidden?: boolean }) {
+  return (
+    <ul className="flex shrink-0 items-center" aria-hidden={hidden || undefined}>
+      {items.map((item) => {
+        const Icon = item.icon;
+        return (
+          <li key={item.label} className="flex items-center">
+            <span className="inline-flex items-center gap-2.5 px-3 md:px-4">
+              <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-mint text-teal">
+                <Icon className="size-3.5" strokeWidth={2} aria-hidden />
+              </span>
+              <span className="whitespace-nowrap text-[11px] font-bold tracking-[0.12em] text-navy md:text-xs">
+                {item.label}
+              </span>
+            </span>
+            <span className="size-1 shrink-0 rounded-full bg-gold/70" aria-hidden />
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
 
 export function TrustStrip() {
   return (
     <section
-      className="border-y border-border-subtle bg-surface py-6"
-      aria-label="Focus areas"
+      className="trust-marquee relative overflow-hidden border-y border-border-subtle bg-surface py-5"
+      aria-label="Care highlights"
     >
-      <Container>
-        <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 md:gap-x-12">
-          {items.map((item, i) => {
-            const Icon = item.icon;
-            return (
-              <span
-                key={item.label}
-                className="inline-flex items-center gap-8 md:gap-12"
-              >
-                {i > 0 && (
-                  <span
-                    className="hidden size-1 rounded-full bg-gold/60 sm:inline"
-                    aria-hidden
-                  />
-                )}
-                <span className="inline-flex items-center gap-2.5">
-                  <span className="flex size-8 items-center justify-center rounded-full bg-mint text-teal">
-                    <Icon className="size-3.5" strokeWidth={2} aria-hidden />
-                  </span>
-                  <span className="text-[11px] font-bold tracking-[0.12em] text-navy md:text-xs">
-                    {item.label}
-                  </span>
-                </span>
-              </span>
-            );
-          })}
-        </div>
-      </Container>
+      <div
+        className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-surface to-transparent md:w-24"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-surface to-transparent md:w-24"
+        aria-hidden
+      />
+      <div className="trust-track flex w-max">
+        <StripRow />
+        <StripRow hidden />
+      </div>
     </section>
   );
 }

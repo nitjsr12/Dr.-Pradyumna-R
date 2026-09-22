@@ -2,12 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
-import {
-  AnimatePresence,
-  motion,
-  useReducedMotion,
-} from "framer-motion";
+import { useCallback, useRef, useState, type AnimationEvent } from "react";
+import { useReducedMotion } from "framer-motion";
 import { ArrowRight, ChevronLeft, ChevronRight, MapPin } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/button";
@@ -16,143 +12,82 @@ import {
   HERO_SLIDE_INTERVAL_MS,
   type HeroSlide,
 } from "@/data/hero-slides";
-import { easeOut } from "@/lib/animations";
 import { cn } from "@/lib/utils";
 
-function HeroSlideImage({ slide }: { slide: HeroSlide }) {
-  const isBanner = slide.imageLayout === "banner";
+const themes: Record<
+  string,
+  {
+    wash: string;
+    orb: string;
+    orbAlt: string;
+    frame: string;
+    chip: string;
+    label: string;
+  }
+> = {
+  movement: {
+    wash: "from-teal/25 via-mint/80 to-bg-warm",
+    orb: "bg-teal-bright/35",
+    orbAlt: "bg-navy/10",
+    frame: "from-teal-bright via-white to-navy/25",
+    chip: "bg-teal text-white",
+    label: "Move",
+  },
+  "sports-medicine": {
+    wash: "from-teal-bright/20 via-[#e7f7f4] to-bg-warm",
+    orb: "bg-teal/30",
+    orbAlt: "bg-gold/25",
+    frame: "from-teal via-mint to-gold/40",
+    chip: "bg-navy text-white",
+    label: "Movement",
+  },
+  musculoskeletal: {
+    wash: "from-navy/10 via-gold/15 to-bg-warm",
+    orb: "bg-gold/30",
+    orbAlt: "bg-teal/20",
+    frame: "from-gold via-white to-teal-bright/50",
+    chip: "bg-navy text-white",
+    label: "Precision",
+  },
+};
 
-  return (
-    <div className="relative h-full w-full">
-      <div
-        className={cn(
-          "relative w-full overflow-hidden bg-navy/5 shadow-[0_24px_64px_rgba(11,31,51,0.12)]",
-          isBanner
-            ? "aspect-[4/3] rounded-[var(--radius-lg)] sm:aspect-[16/11] lg:aspect-[4/5] lg:min-h-[480px] lg:max-h-[560px]"
-            : "aspect-[4/5] max-h-[420px] rounded-[var(--radius-lg)] sm:max-h-[480px] lg:max-h-[560px] lg:min-h-[480px]"
-        )}
-      >
-        <Image
-          src={slide.image}
-          alt={slide.imageAlt}
-          fill
-          priority={slide.id === "movement"}
-          className={cn(
-            "object-cover",
-            slide.imagePosition === "top" && "object-top",
-            slide.imagePosition === "right" && "object-right",
-            isBanner && "object-[75%_center] lg:object-right"
-          )}
-          sizes="(max-width: 1024px) 100vw, 520px"
-        />
-        <div
-          className={cn(
-            "pointer-events-none absolute inset-0",
-            isBanner
-              ? "bg-gradient-to-r from-navy/30 via-transparent to-transparent lg:from-transparent"
-              : "bg-gradient-to-t from-navy/15 via-transparent to-transparent"
-          )}
-          aria-hidden
-        />
-      </div>
-
-      <div className="absolute bottom-5 left-4 right-4 mx-auto max-w-xs rounded-2xl border border-[rgba(11,31,51,0.08)] bg-white/95 px-5 py-3.5 shadow-[var(--shadow-soft)] backdrop-blur-sm sm:left-5 sm:right-auto lg:bottom-8">
-        <div className="flex items-center gap-3">
-          <div className="flex flex-col gap-0.5">
-            <p className="text-[10px] font-bold tracking-[0.16em] text-navy sm:text-[11px]">
-              {slide.tagLabel}
-            </p>
-            {slide.tagSublabel && (
-              <p className="text-[10px] font-bold tracking-[0.16em] text-navy sm:text-[11px]">
-                {slide.tagSublabel}
-              </p>
-            )}
-          </div>
-          <span className="text-lg font-light text-teal" aria-hidden>
-            +
-          </span>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function HeroSlideContent({ slide }: { slide: HeroSlide }) {
-  return (
-    <div className="flex flex-col">
-      <p className="label-caps">{slide.eyebrow}</p>
-
-      <h1 className="display-hero-home mt-4 lg:mt-5">
-        {slide.headline.map((line) => (
-          <span
-            key={line.text}
-            className={`block ${line.accent ? "text-accent-bright" : ""}`}
-          >
-            {line.text}
-          </span>
-        ))}
-      </h1>
-
-      <p className="text-body mt-6 max-w-lg lg:mt-8">
-        {slide.description}
-      </p>
-
-      <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap lg:mt-10">
-        <Button asChild size="lg" className="w-full sm:w-auto">
-          <Link href={slide.primaryCta.href}>{slide.primaryCta.label}</Link>
-        </Button>
-        <Button asChild variant="secondary" size="lg" className="w-full sm:w-auto">
-          <Link href={slide.secondaryCta.href}>
-            {slide.secondaryCta.label}
-            <ArrowRight className="transition-transform group-hover:translate-x-1" />
-          </Link>
-        </Button>
-      </div>
-
-      {slide.id === "movement" && (
-        <div className="text-secondary mt-10 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-border/80 pt-8">
-          <span className="inline-flex items-center gap-1.5 font-medium text-text">
-            <MapPin className="size-4 text-teal" aria-hidden />
-            Bengaluru
-          </span>
-          <span className="hidden h-4 w-px bg-border sm:block" aria-hidden />
-          <Link
-            href="/contact"
-            className="link-underline font-medium text-navy hover:text-teal"
-          >
-            Consultation information
-          </Link>
-        </div>
-      )}
-    </div>
-  );
+function themeFor(id: string) {
+  return themes[id] ?? themes.movement;
 }
 
 export function DoctorHero() {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
-  const reduce = useReducedMotion();
-  const slide = heroSlides[index];
   const count = heroSlides.length;
+  const reduce = useReducedMotion();
+  const lock = useRef(false);
+  const slide = heroSlides[index];
+  const theme = themeFor(slide.id);
 
   const goTo = useCallback(
     (next: number) => {
-      setIndex((next + count) % count);
+      lock.current = true;
+      setIndex(((next % count) + count) % count);
+      window.setTimeout(() => {
+        lock.current = false;
+      }, 80);
     },
     [count]
   );
 
-  useEffect(() => {
-    if (reduce || paused) return;
-    const id = window.setInterval(() => {
-      setIndex((i) => (i + 1) % count);
-    }, HERO_SLIDE_INTERVAL_MS);
-    return () => window.clearInterval(id);
-  }, [paused, reduce, count]);
+  const onProgressEnd = (event: AnimationEvent<HTMLSpanElement>) => {
+    if (event.animationName !== "hero-progress") return;
+    if (paused || reduce || lock.current) return;
+    lock.current = true;
+    setIndex((current) => (current + 1) % count);
+    window.setTimeout(() => {
+      lock.current = false;
+    }, 80);
+  };
 
   return (
     <section
-      className="relative overflow-hidden bg-bg-warm pt-[4.25rem] pattern-dots lg:pt-[5rem]"
+      className="relative overflow-hidden pt-[4.25rem] lg:pt-[5rem]"
       aria-roledescription="carousel"
       aria-label="Featured highlights"
       onMouseEnter={() => setPaused(true)}
@@ -165,52 +100,166 @@ export function DoctorHero() {
       }}
     >
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_70%_20%,rgba(12,127,130,0.07),transparent_55%),radial-gradient(ellipse_60%_50%_at_10%_80%,rgba(10,30,50,0.03),transparent_50%)]"
+        className={cn(
+          "pointer-events-none absolute inset-0 bg-gradient-to-br transition-all duration-700",
+          theme.wash
+        )}
+        aria-hidden
+      />
+      <div
+        className={cn(
+          "pointer-events-none absolute -left-16 top-24 size-72 rounded-full blur-3xl transition-colors duration-700",
+          theme.orb
+        )}
+        style={reduce ? undefined : { animation: "hero-drift 16s ease-in-out infinite" }}
+        aria-hidden
+      />
+      <div
+        className={cn(
+          "pointer-events-none absolute -right-10 bottom-10 size-80 rounded-full blur-3xl transition-colors duration-700",
+          theme.orbAlt
+        )}
+        style={reduce ? undefined : { animation: "hero-drift-alt 18s ease-in-out infinite" }}
         aria-hidden
       />
 
-      <Container className="relative grid items-center gap-10 pb-14 pt-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-14 lg:pb-16 lg:pt-10">
-        <div className="order-2 lg:order-1">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={slide.id}
-              className="flex flex-col"
-              initial={reduce ? false : { opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={reduce ? undefined : { opacity: 0, y: -12 }}
-              transition={{ duration: 0.55, ease: easeOut }}
-            >
-              <HeroSlideContent slide={slide} />
-            </motion.div>
-          </AnimatePresence>
-
-          <div className="mt-10 flex flex-wrap items-center gap-4">
-            <div
-              className="flex items-center gap-2"
-              role="tablist"
-              aria-label="Choose slide"
-            >
-              {heroSlides.map((s, i) => (
-                <button
-                  key={s.id}
-                  type="button"
-                  role="tab"
-                  aria-selected={i === index}
-                  aria-label={`Slide ${i + 1}: ${s.tagLabel}`}
-                  onClick={() => goTo(i)}
-                  className={cn(
-                    "focus-ring h-2 rounded-full transition-all duration-300",
-                    i === index ? "w-8 bg-teal" : "w-2 bg-border hover:bg-teal/40"
-                  )}
-                />
+      <Container className="relative pb-12 pt-6 lg:pb-16 lg:pt-8">
+        <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.9fr)] lg:gap-12">
+          <div>
+            <div className="grid">
+              {heroSlides.map((item, i) => (
+                <SlideCopy key={item.id} slide={item} active={i === index} />
               ))}
             </div>
 
-            <div className="flex gap-1">
+            <div
+              className="mt-8 grid grid-cols-3 gap-2 sm:mt-10"
+              role="tablist"
+              aria-label="Choose slide"
+            >
+              {heroSlides.map((item, i) => {
+                const selected = i === index;
+                const itemTheme = themeFor(item.id);
+                return (
+                  <button
+                    key={item.id}
+                    type="button"
+                    role="tab"
+                    aria-selected={selected}
+                    aria-label={`Slide ${i + 1}: ${item.tagLabel}`}
+                    onClick={() => goTo(i)}
+                    className={cn(
+                      "focus-ring relative overflow-hidden rounded-2xl border px-3 py-3 text-left transition-all duration-500",
+                      selected
+                        ? "border-transparent text-white shadow-[0_12px_30px_rgba(10,30,50,0.16)]"
+                        : "border-white/70 bg-white/55 text-navy hover:bg-white"
+                    )}
+                  >
+                    {selected && (
+                      <span className={cn("absolute inset-0", itemTheme.chip)} aria-hidden />
+                    )}
+                    {selected && !reduce && (
+                      <span
+                        key={`${item.id}-${index}`}
+                        className="absolute inset-y-0 left-0 w-full origin-left bg-white/25"
+                        style={{
+                          animationName: "hero-progress",
+                          animationDuration: `${HERO_SLIDE_INTERVAL_MS}ms`,
+                          animationTimingFunction: "linear",
+                          animationFillMode: "forwards",
+                          animationPlayState: paused ? "paused" : "running",
+                        }}
+                        onAnimationEnd={onProgressEnd}
+                      />
+                    )}
+                    <span className="relative flex items-center gap-2">
+                      <span className="text-[11px] font-bold tabular-nums tracking-[0.14em]">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span className="hidden text-xs font-semibold sm:inline">
+                        {itemTheme.label}
+                      </span>
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="relative mx-auto w-full max-w-md lg:mx-0 lg:max-w-none">
+            <div
+              className={cn(
+                "pointer-events-none absolute -inset-4 rounded-[36px] bg-gradient-to-br opacity-80 blur-sm transition-all duration-700",
+                theme.frame
+              )}
+              aria-hidden
+            />
+            <div
+              className={cn(
+                "relative rounded-[30px] bg-gradient-to-br p-[3px] shadow-[0_28px_70px_rgba(10,30,50,0.16)] transition-all duration-700",
+                theme.frame
+              )}
+            >
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[27px] bg-[#d7e4ea] sm:aspect-[5/6] lg:max-h-[560px]">
+                {heroSlides.map((item, i) => (
+                  <div
+                    key={item.id}
+                    className={cn(
+                      "absolute inset-0 transition-opacity duration-700 ease-in-out",
+                      i === index ? "z-10 opacity-100" : "z-0 opacity-0"
+                    )}
+                    aria-hidden={i !== index}
+                  >
+                    <Image
+                      src={item.image}
+                      alt={i === index ? item.imageAlt : ""}
+                      fill
+                      priority={i === 0}
+                      quality={90}
+                      sizes="(max-width: 1024px) 90vw, 560px"
+                      className={cn(
+                        "object-cover",
+                        item.imagePosition === "right"
+                          ? "object-[70%_center]"
+                          : "object-center"
+                      )}
+                    />
+                  </div>
+                ))}
+                <div
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy/45 via-transparent to-white/10"
+                  aria-hidden
+                />
+                <div className="absolute bottom-4 left-4 right-4 z-20">
+                  <div className="inline-flex max-w-full items-center gap-3 rounded-2xl border border-white/30 bg-white/90 px-4 py-3 shadow-lg backdrop-blur-md">
+                    <span
+                      className={cn(
+                        "flex size-8 shrink-0 items-center justify-center rounded-full text-xs font-bold",
+                        theme.chip
+                      )}
+                    >
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <span className="min-w-0">
+                      <span className="block truncate text-[11px] font-bold tracking-[0.14em] text-navy">
+                        {slide.tagLabel}
+                      </span>
+                      {slide.tagSublabel && (
+                        <span className="block truncate text-[11px] font-semibold tracking-[0.12em] text-teal">
+                          {slide.tagSublabel}
+                        </span>
+                      )}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="absolute -bottom-4 right-4 z-20 flex gap-2 lg:-left-5 lg:right-auto lg:bottom-8">
               <button
                 type="button"
                 onClick={() => goTo(index - 1)}
-                className="focus-ring inline-flex h-9 w-9 items-center justify-center rounded-full border border-border text-navy hover:border-teal hover:text-teal"
+                className="focus-ring inline-flex size-11 items-center justify-center rounded-full border border-white/80 bg-white text-navy shadow-lg transition-colors hover:bg-navy hover:text-white"
                 aria-label="Previous slide"
               >
                 <ChevronLeft className="size-4" />
@@ -218,53 +267,90 @@ export function DoctorHero() {
               <button
                 type="button"
                 onClick={() => goTo(index + 1)}
-                className="focus-ring inline-flex h-9 w-9 items-center justify-center rounded-full border border-border text-navy hover:border-teal hover:text-teal"
+                className="focus-ring inline-flex size-11 items-center justify-center rounded-full bg-navy text-white shadow-lg transition-colors hover:bg-teal"
                 aria-label="Next slide"
               >
                 <ChevronRight className="size-4" />
               </button>
             </div>
-
-            <span className="text-xs tabular-nums text-muted">
-              {String(index + 1).padStart(2, "0")} / {String(count).padStart(2, "0")}
-            </span>
-          </div>
-        </div>
-
-        <div className="relative order-1 lg:order-2">
-          <div
-            className="pointer-events-none absolute left-1/2 top-1/2 h-[min(100%,520px)] w-[min(90%,420px)] -translate-x-1/2 -translate-y-[45%] rounded-full bg-gradient-to-br from-teal/20 via-mint/40 to-transparent blur-2xl lg:left-auto lg:right-0 lg:translate-x-[10%]"
-            aria-hidden
-          />
-          <svg
-            className="pointer-events-none absolute -right-2 top-[18%] hidden w-[85%] opacity-[0.14] lg:block"
-            viewBox="0 0 240 120"
-            aria-hidden
-          >
-            <path
-              d="M8 96 Q120 12 232 64"
-              fill="none"
-              stroke="#0F8B8D"
-              strokeWidth="1.25"
-            />
-          </svg>
-
-          <div className="relative mx-auto max-w-md lg:mx-0 lg:ml-auto lg:max-w-none">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={slide.id}
-                className="relative h-full w-full"
-                initial={reduce ? false : { opacity: 0, scale: 1.04, x: 20 }}
-                animate={{ opacity: 1, scale: 1, x: 0 }}
-                exit={reduce ? undefined : { opacity: 0, scale: 0.98, x: -16 }}
-                transition={{ duration: 0.75, ease: easeOut }}
-              >
-                <HeroSlideImage slide={slide} />
-              </motion.div>
-            </AnimatePresence>
           </div>
         </div>
       </Container>
     </section>
+  );
+}
+
+function SlideCopy({ slide, active }: { slide: HeroSlide; active: boolean }) {
+  const TitleTag = active ? "h1" : "p";
+  const theme = themeFor(slide.id);
+
+  return (
+    <div
+      className={cn(
+        "col-start-1 row-start-1 transition-all duration-700 ease-out",
+        active ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-4 opacity-0"
+      )}
+      aria-hidden={!active}
+    >
+      <p
+        className={cn(
+          "inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-[11px] font-bold tracking-[0.14em]",
+          theme.chip
+        )}
+      >
+        <span className="size-1.5 rounded-full bg-white" aria-hidden />
+        {slide.eyebrow}
+      </p>
+
+      <TitleTag className="display-hero-home mt-5 lg:mt-6">
+        {slide.headline.map((line) => (
+          <span
+            key={line.text}
+            className={cn(
+              "block",
+              line.accent &&
+                "bg-gradient-to-r from-teal to-teal-bright bg-clip-text text-transparent"
+            )}
+          >
+            {line.text}
+          </span>
+        ))}
+      </TitleTag>
+
+      <p className="text-body mt-5 max-w-xl lg:mt-6">{slide.description}</p>
+
+      <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+        <Button asChild size="lg" className="w-full sm:w-auto" tabIndex={active ? 0 : -1}>
+          <Link href={slide.primaryCta.href}>{slide.primaryCta.label}</Link>
+        </Button>
+        <Button
+          asChild
+          variant="secondary"
+          size="lg"
+          className="w-full border-white/80 bg-white/70 sm:w-auto"
+          tabIndex={active ? 0 : -1}
+        >
+          <Link href={slide.secondaryCta.href}>
+            {slide.secondaryCta.label}
+            <ArrowRight className="transition-transform group-hover:translate-x-1" />
+          </Link>
+        </Button>
+      </div>
+
+      <p className="text-secondary mt-6 inline-flex items-center gap-2 font-medium">
+        <MapPin className="size-4 text-teal" aria-hidden />
+        Bengaluru
+        <span className="text-border" aria-hidden>
+          /
+        </span>
+        <Link
+          href="/contact"
+          tabIndex={active ? 0 : -1}
+          className="text-link"
+        >
+          Consultation information
+        </Link>
+      </p>
+    </div>
   );
 }

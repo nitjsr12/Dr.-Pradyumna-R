@@ -13,20 +13,29 @@ export function OrthopaedicsSection() {
           label="Orthopaedics"
           title={
             <>
-              Orthopaedic care for{" "}
-              <span className="text-accent">everyday movement.</span>
+              When movement changes,{" "}
+              <span className="text-accent">care should move with you.</span>
             </>
           }
+          description="Orthopaedic care is about more than treating pain. It begins with understanding what is limiting your movement, how it affects your everyday life, and what can help you move forward."
         />
+        <p className="text-secondary mt-4 max-w-2xl">
+          From joint and musculoskeletal concerns to sports injuries and
+          recovery, care is shaped around your condition, clinical assessment
+          and individual goals.
+        </p>
         <Stagger className="mt-12 space-y-3">
           {orthopaedicCards.map((card) => (
             <StaggerChild key={card.title}>
               <Link
                 href={card.href}
-                className="group focus-ring flex items-center justify-between gap-6 rounded-[var(--radius-md)] border border-border-subtle bg-surface px-6 py-5 shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-0.5 hover:border-teal/20 hover:shadow-[var(--shadow-soft)]"
+                className="group focus-ring flex items-center justify-between gap-6 rounded-[var(--radius-md)] border border-border-subtle bg-surface px-6 py-5 shadow-[var(--shadow-card)] transition-all duration-500 ease-out hover:-translate-y-1 hover:border-teal/20 hover:shadow-[var(--shadow-soft)]"
               >
                 <div>
-                  <h3 className="text-base font-bold text-navy lg:text-lg">
+                  <p className="text-[11px] font-bold tracking-[0.14em] text-teal">
+                    {card.number}
+                  </p>
+                  <h3 className="mt-1 text-base font-bold text-navy lg:text-lg">
                     {card.title}
                   </h3>
                   <p className="mt-1.5 text-[15px] text-muted">

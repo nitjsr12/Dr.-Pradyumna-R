@@ -15,11 +15,16 @@ export function Footer() {
             {doctor.shortName}
           </p>
           <p className="mt-2 text-[11px] tracking-[0.1em] text-white/55">
-            ORTHOPAEDICS • SPORTS MEDICINE
+            ORTHOPAEDICS • SHOULDER • SPORTS MEDICINE
           </p>
           <p className="mt-6 max-w-xs text-sm leading-relaxed text-white/55">
-            Personal brand website. Professional affiliation:{" "}
-            {doctor.affiliation.name}.
+            Specialist practice focused on shoulder and elbow surgery, sports
+            injuries, arthroscopy and orthopaedic conditions.
+          </p>
+          <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/70">
+            <span className="text-white/45">Professional affiliation</span>
+            <br />
+            {doctor.affiliation.name}, {doctor.city}
           </p>
         </div>
         <div className="md:col-span-2">
@@ -38,7 +43,7 @@ export function Footer() {
           </ul>
         </div>
         <div className="md:col-span-2">
-          <p className="footer-heading">Resources</p>
+          <p className="footer-heading">Patient Information</p>
           <ul className="mt-5 space-y-2.5">
             {footerResources.map((l) => (
               <li key={l.href + l.label}>
@@ -59,7 +64,7 @@ export function Footer() {
             href="/book-appointment"
             className="focus-ring mt-5 inline-flex items-center gap-1 text-sm font-semibold text-teal-bright transition-opacity hover:opacity-90"
           >
-            Book Appointment →
+            Book an Appointment →
           </Link>
         </div>
       </div>

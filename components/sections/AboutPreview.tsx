@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { doctor } from "@/data/doctor";
 import { Container } from "@/components/ui/Container";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
+import { FadeIn } from "@/components/animations/Reveal";
 import { images } from "@/lib/images";
 
 export function AboutPreview() {
@@ -21,22 +22,22 @@ export function AboutPreview() {
             aspectRatio="aspect-[4/5]"
           />
         </div>
-        <div className="lg:col-span-7">
+        <FadeIn className="lg:col-span-7">
           <p className="label-caps">About Dr. Pradyumna R</p>
           <h2 className="title-section mt-5 text-balance">
-            A specialist approach to{" "}
-            <span className="text-accent">movement</span> and musculoskeletal
-            health.
+            Specialist care.{" "}
+            <span className="text-accent">Focused on movement.</span>
           </h2>
           <p className="text-body mt-6">{doctor.overview}</p>
+          <p className="text-body mt-4">{doctor.approach}</p>
           <Link
             href="/about"
             className="link-underline focus-ring mt-10 inline-flex items-center gap-2 text-sm font-semibold text-navy"
           >
             Meet Dr. Pradyumna
-            <ArrowRight className="h-4 w-4 transition-transform hover:translate-x-1" />
+            <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
-        </div>
+        </FadeIn>
       </Container>
     </section>
   );

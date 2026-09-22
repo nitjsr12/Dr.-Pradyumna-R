@@ -8,11 +8,31 @@ import { Button } from "@/components/ui/button";
 import { FadeIn, Stagger, StaggerChild } from "@/components/animations/Reveal";
 
 const journey = [
-  { step: "01", label: "Assess" },
-  { step: "02", label: "Understand" },
-  { step: "03", label: "Treat" },
-  { step: "04", label: "Recover" },
-  { step: "05", label: "Return to Activity" },
+  {
+    step: "01",
+    label: "Assess",
+    text: "Understand the injury, symptoms and movement patterns through a focused clinical assessment.",
+  },
+  {
+    step: "02",
+    label: "Understand",
+    text: "Clear guidance on your condition, treatment options and expected recovery journey.",
+  },
+  {
+    step: "03",
+    label: "Treat",
+    text: "A personalised treatment approach based on your condition, activity and clinical needs.",
+  },
+  {
+    step: "04",
+    label: "Recover",
+    text: "Focused recovery to help improve function and support a safe progression back to activity.",
+  },
+  {
+    step: "05",
+    label: "Return to Activity",
+    text: "A structured return to everyday activity, training or sport — with recovery guiding every step.",
+  },
 ] as const;
 
 export function SportsMedicineFeature() {
@@ -47,27 +67,24 @@ export function SportsMedicineFeature() {
             title={
               <>
                 Built around{" "}
-                <span className="text-teal-bright">movement.</span>
+                <span className="text-teal-bright">how you move.</span>
               </>
             }
-            description="Sports medicine is about more than treating an injury. It is about understanding movement, activity and the individual goals behind recovery."
+            description="Sports medicine goes beyond treating an injury. It’s about understanding your movement, your sport, your goals and what it takes to get you back to doing what you love."
           />
         </FadeIn>
         <Stagger className="mt-14 grid gap-4 sm:grid-cols-2 lg:mt-16 lg:grid-cols-5 lg:gap-3">
-          {journey.map((j, i) => (
-            <StaggerChild key={j.step}>
-              <div className="relative rounded-[var(--radius-md)] border border-white/10 bg-white/[0.04] px-4 py-5 backdrop-blur-sm transition-colors hover:border-teal-bright/30 hover:bg-white/[0.07] lg:text-left">
-                {i < journey.length - 1 && (
-                  <span
-                    className="absolute -right-2 top-1/2 hidden h-px w-4 bg-teal-bright/30 lg:block"
-                    aria-hidden
-                  />
-                )}
+          {journey.map((j) => (
+            <StaggerChild key={j.step} className="h-full">
+              <div className="relative h-full rounded-[var(--radius-md)] border border-white/10 bg-white/[0.05] px-4 py-5 backdrop-blur-sm transition-all duration-500 ease-out hover:-translate-y-1 hover:border-teal-bright/40 hover:bg-white/[0.09]">
                 <p className="text-xs font-bold tabular-nums text-teal-bright">
                   {j.step}
                 </p>
-                <p className="mt-2 text-sm font-semibold leading-snug tracking-wide text-white/95">
+                <p className="mt-2 text-sm font-semibold leading-snug tracking-wide text-white">
                   {j.label}
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-white/65">
+                  {j.text}
                 </p>
               </div>
             </StaggerChild>

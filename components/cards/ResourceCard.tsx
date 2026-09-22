@@ -59,7 +59,7 @@ export function ResourceCard({
           isDark ? "text-teal-bright" : "text-teal"
         )}
       >
-        Read guide
+        Read the Guide
         <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
       </span>
     </Link>

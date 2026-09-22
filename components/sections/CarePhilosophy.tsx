@@ -12,8 +12,9 @@ export function CarePhilosophy() {
         <FadeIn>
           <p className="label-caps mx-auto justify-center">Care philosophy</p>
           <blockquote className="mt-10 font-editorial text-[clamp(1.35rem,3vw,1.75rem)] leading-[1.45] text-navy">
-            &ldquo;Good healthcare starts with listening, understanding and
-            creating a clear path forward.&rdquo;
+            &ldquo;The goal isn’t simply to treat where it hurts. It’s to
+            understand what’s stopping you from moving well — and help you move
+            forward.&rdquo;
           </blockquote>
           <div
             className="mx-auto mt-8 h-px w-12 bg-gold/60"

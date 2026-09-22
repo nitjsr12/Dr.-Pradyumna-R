@@ -4,11 +4,31 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/button";
 
 const steps = [
-  { n: "01", title: "BOOK", text: "Schedule a consultation." },
-  { n: "02", title: "ASSESS", text: "Discuss symptoms, activity and concerns." },
-  { n: "03", title: "UNDERSTAND", text: "Understand your condition and options." },
-  { n: "04", title: "PLAN", text: "Discuss an appropriate care pathway." },
-  { n: "05", title: "FOLLOW UP", text: "Continue care based on individual needs." },
+  {
+    n: "01",
+    title: "BOOK",
+    text: "Schedule your consultation and take the first step towards understanding your concern.",
+  },
+  {
+    n: "02",
+    title: "ASSESS",
+    text: "Discuss your pain, movement, activity, injury history and concerns through a focused clinical assessment.",
+  },
+  {
+    n: "03",
+    title: "UNDERSTAND",
+    text: "Understand your condition, diagnosis and the treatment options relevant to your situation.",
+  },
+  {
+    n: "04",
+    title: "PLAN",
+    text: "Discuss an appropriate care approach based on your clinical needs, goals and recovery.",
+  },
+  {
+    n: "05",
+    title: "MOVE FORWARD",
+    text: "Follow-up and guidance based on how your recovery develops, with focus on function and return to activity.",
+  },
 ] as const;
 
 export function PatientJourney() {
@@ -19,10 +39,11 @@ export function PatientJourney() {
           label="Your journey"
           title={
             <>
-              Your consultation,{" "}
-              <span className="text-accent">simplified.</span>
+              From first conversation to{" "}
+              <span className="text-accent">moving forward.</span>
             </>
           }
+          description="A consultation should leave you with more than answers. It should leave you with clarity about what comes next."
         />
         <ol className="relative mt-14 hidden lg:grid lg:grid-cols-5 lg:gap-4">
           <span

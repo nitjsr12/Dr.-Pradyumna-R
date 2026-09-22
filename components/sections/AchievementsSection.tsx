@@ -21,25 +21,29 @@ const blocks = [
   },
   {
     id: "fellowships",
-    title: "Fellowships & diploma",
+    title: "Fellowships & Advanced Training",
+    lead: "Specialised training. International exposure. Focused expertise.",
     icon: Globe2,
     items: doctor.fellowships,
   },
   {
     id: "memberships",
-    title: "Professional memberships",
+    title: "Professional Memberships",
+    lead: "Connected to the wider orthopaedic community.",
     icon: ShieldCheck,
     items: doctor.memberships,
   },
   {
     id: "research",
-    title: "Research & publications",
+    title: "Research & Publications",
+    lead: "A practice shaped by clinical learning and research.",
     icon: BookOpen,
     items: doctor.publicationsSummary,
   },
   {
     id: "languages",
     title: "Languages",
+    lead: "Clear communication. Personalised care.",
     icon: Languages,
     items: doctor.languages,
   },
@@ -54,11 +58,11 @@ export function AchievementsSection() {
             label="Credentials"
             title={
               <>
-                Achievements &{" "}
-                <span className="text-accent">recognition.</span>
+                Expertise backed by{" "}
+                <span className="text-accent">training & experience.</span>
               </>
             }
-            description="Listed on the official hospital profile. Not an exhaustive CV—details are confirmed during consultation."
+            description="A closer look at the qualifications, specialised fellowships, professional memberships and research that shape Dr. Pradyumna R’s approach to orthopaedic, shoulder and sports medicine care."
           />
         </FadeIn>
 
@@ -77,6 +81,11 @@ export function AchievementsSection() {
                     </span>
                     <h3 className="text-lg font-bold text-navy">{block.title}</h3>
                   </div>
+                  {"lead" in block && (
+                    <p className="mt-4 text-sm font-medium text-navy/80">
+                      {block.lead}
+                    </p>
+                  )}
                   <ul className="mt-5 space-y-2.5">
                     {block.items.map((line) => (
                       <li

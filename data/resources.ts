@@ -2,22 +2,22 @@ export const resourceSections = [
   {
     id: "before-appointment",
     title: "Before Your Appointment",
-    body: "Review what to expect and how to prepare for a productive consultation.",
+    body: "A simple guide to preparing for your consultation and making the most of your time with the specialist.",
   },
   {
     id: "what-to-bring",
     title: "What to Bring",
-    body: "Relevant medical records, prior imaging, medication lists, insurance details and referral documents where applicable (per hospital guidance).",
+    body: "Bring relevant reports, previous imaging, medication details, referral documents and other information that may help your clinician understand your history.",
   },
   {
     id: "questions",
-    title: "Questions to Ask",
-    body: "Consider asking about diagnosis, options, recovery expectations, follow-up and activity modification.",
+    title: "Questions Worth Asking",
+    body: "From diagnosis and treatment options to recovery timelines and activity restrictions, know what you may want to discuss during your consultation.",
   },
   {
     id: "understanding-diagnosis",
     title: "Understanding Your Diagnosis",
-    body: "Plain-language context on common orthopaedic terms to support conversations with your clinician.",
+    body: "Explore explanations of commonly used orthopaedic terms so you can better understand your diagnosis and discuss your options with confidence.",
   },
   {
     id: "recovery",

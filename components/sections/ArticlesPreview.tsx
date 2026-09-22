@@ -10,20 +10,20 @@ export function ArticlesPreview() {
       <Container>
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <SectionHeading
-            label="Articles"
+            label="Journal & patient resources"
             title={
               <>
-                Move better.{" "}
-                <span className="text-accent">Know better.</span>
+                Clarity for every{" "}
+                <span className="text-accent">step of your care.</span>
               </>
             }
-            description="Sample educational titles for layout only—not published articles."
+            description="Medical information can often feel complicated. This space brings together practical insights on orthopaedics, sports medicine, injuries, joint health and recovery — explained in a way that is useful, accessible and easy to understand."
           />
           <Link
             href="/articles"
             className="link-underline shrink-0 text-sm font-semibold text-teal"
           >
-            View all
+            View All Articles →
           </Link>
         </div>
         <div className="mt-12 grid gap-6 md:grid-cols-3 lg:gap-8">

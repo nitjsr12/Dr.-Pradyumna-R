@@ -9,14 +9,15 @@ export function ResourcesPreview() {
     <section className="section-y surface-dark relative overflow-hidden bg-navy mesh-navy">
       <Container className="relative">
         <SectionHeading
-          label="Resources"
+          label="Patient resources"
           dark
           title={
             <>
-              Patient <span className="text-teal-bright">resources</span>
+              Come informed.{" "}
+              <span className="text-teal-bright">Ask better questions.</span>
             </>
           }
-          description="Prepare for informed conversations with your clinician."
+          description="A good consultation starts before you enter the clinic. Use these resources to prepare for your appointment, organise relevant information and understand the conversations that matter."
         />
         <ul className="mt-12 grid gap-5 sm:grid-cols-2">
           {resourceSections.slice(0, 4).map((r) => (
@@ -29,7 +30,7 @@ export function ResourcesPreview() {
           href="/patient-resources"
           className="link-underline mt-10 inline-block text-sm font-semibold text-teal-bright"
         >
-          View all resources →
+          Explore Patient Resources →
         </Link>
         <p className="text-caption mt-10 max-w-2xl">
           {disclaimer}

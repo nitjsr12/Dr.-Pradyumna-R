@@ -11,19 +11,19 @@ const steps: ApproachStep[] = [
   {
     n: "01",
     title: "UNDERSTAND",
-    text: "Clear conversations about symptoms, diagnosis and available options.",
+    text: "A clear clinical assessment of your symptoms, movement and condition, with straightforward answers about your diagnosis and treatment options.",
     icon: "activity",
   },
   {
     n: "02",
     title: "PLAN",
-    text: "Treatment planning based on individual needs and clinical assessment.",
+    text: "From shoulder and knee conditions to ankle injuries, treatment is guided by your clinical needs, goals and recovery — not a one-size-fits-all approach.",
     icon: "badge",
   },
   {
     n: "03",
     title: "MOVE FORWARD",
-    text: "Support focused on recovery, function and returning to meaningful activity.",
+    text: "Focused care to restore movement, improve function and support your return to the activities, sport and everyday life you value.",
     icon: "award",
   },
 ];
@@ -46,8 +46,10 @@ export function ApproachSection() {
             <span className="text-accent">beyond the pain.</span>
           </h2>
           <p className="text-body mt-6 max-w-xl lg:mt-7">
-            Orthopaedic and sports medicine care begins with understanding how an
-            injury, condition or pain affects movement and everyday life.
+            Orthopaedic and sports medicine care is about more than treating
+            symptoms. It’s about understanding how a shoulder, knee or ankle
+            condition affects the way you move, work, play and live, then
+            building care around your individual needs.
           </p>
         </FadeIn>
 

@@ -26,11 +26,11 @@ export function ProfessionalTimeline() {
             label="Professional journey"
             title={
               <>
-                Training, focus and{" "}
+                Training, expertise &{" "}
                 <span className="text-teal-bright">global experience.</span>
               </>
             }
-            description="Summarised from the official Manipal Hospitals doctor profile."
+            description="A career shaped by specialised orthopaedic training, international exposure and a focused interest in shoulder, knee and sports medicine."
           />
         </FadeIn>
 

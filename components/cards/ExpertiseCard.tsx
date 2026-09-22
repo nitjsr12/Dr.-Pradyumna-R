@@ -7,7 +7,7 @@ export function ExpertiseCard({ item }: { item: ExpertiseItem }) {
   return (
     <Link
       href={item.href}
-      className="group focus-ring relative flex h-full flex-col overflow-hidden rounded-[var(--radius-lg)] border border-border-subtle bg-surface p-8 shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1 hover:border-teal/25 hover:shadow-[var(--shadow-soft)]"
+      className="group focus-ring relative flex h-full flex-col overflow-hidden rounded-[var(--radius-lg)] border border-border-subtle bg-surface p-8 shadow-[var(--shadow-card)] transition-all duration-500 ease-out hover:-translate-y-1.5 hover:border-teal/25 hover:shadow-[var(--shadow-soft)]"
     >
       <div
         className="pointer-events-none absolute inset-0 bg-gradient-to-br from-mint/0 to-mint/0 transition-colors duration-300 group-hover:from-mint/40 group-hover:to-transparent"
@@ -24,6 +24,9 @@ export function ExpertiseCard({ item }: { item: ExpertiseItem }) {
       <h3 className="relative mt-6 text-lg font-bold tracking-tight text-navy lg:text-xl">
         {item.title}
       </h3>
+      {item.kicker && (
+        <p className="relative mt-2 text-sm font-semibold text-teal">{item.kicker}</p>
+      )}
       <p className="relative mt-3 flex-1 text-[15px] leading-relaxed text-muted">
         {item.description}
       </p>

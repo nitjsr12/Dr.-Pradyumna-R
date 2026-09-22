@@ -19,8 +19,8 @@ export const mobileNav = [
 ] as const;
 
 export const footerExplore = [
-  { href: "/about", label: "About" },
-  { href: "/expertise", label: "Expertise" },
+  { href: "/about", label: "About Dr. Pradyumna" },
+  { href: "/expertise", label: "Areas of Expertise" },
   { href: "/sports-medicine", label: "Sports Medicine" },
   { href: "/orthopaedics", label: "Orthopaedics" },
 ] as const;

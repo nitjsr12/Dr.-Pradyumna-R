@@ -6,41 +6,44 @@
 export const professionalTimeline = [
   {
     id: "foundation",
-    title: "Medical & orthopaedic training",
-    detail: "MBBS and MS – Orthopaedics.",
+    title: "Medical & Orthopaedic Training",
+    detail:
+      "MBBS & MS – Orthopaedics. A strong foundation in medical and orthopaedic training, supporting focused care across musculoskeletal conditions.",
     icon: "graduation" as const,
   },
   {
     id: "isakos",
-    title: "ISAKOS sports medicine fellowship",
+    title: "ISAKOS Sports Medicine Fellowship",
     detail:
-      "International Fellowship in Arthroscopy of Knee, Shoulder and Sports Medicine under ISAKOS.",
+      "International Fellowship in Arthroscopy of Knee, Shoulder & Sports Medicine. Specialised fellowship training focused on knee and shoulder arthroscopy, sports injuries and sports medicine under ISAKOS.",
     icon: "activity" as const,
   },
   {
     id: "germany",
-    title: "Shoulder & elbow surgery — Germany",
-    detail: "Advanced training at TUM, Munich, Germany.",
+    title: "Advanced Shoulder & Elbow Training",
+    detail:
+      "TUM, Munich, Germany. Advanced training focused on shoulder and elbow surgery, strengthening expertise in complex upper-limb conditions.",
     icon: "globe" as const,
   },
   {
     id: "korea",
-    title: "Complex shoulder — South Korea",
+    title: "Complex Shoulder Arthroscopy & Arthroplasty",
     detail:
-      "Complex Shoulder Arthroscopy and Arthroplasty at SNUBH, Seoul.",
+      "SNUBH, Seoul, South Korea. Specialised exposure to complex shoulder arthroscopy and arthroplasty, with an emphasis on advanced shoulder care.",
     icon: "globe" as const,
   },
   {
     id: "fifa",
     title: "FIFA Diploma in Football Medicine",
-    detail: "Football medicine credential listed on official profile.",
+    detail:
+      "Football Medicine. A specialised qualification reflecting focused training in the assessment and management of football-related sports injuries.",
     icon: "trophy" as const,
   },
   {
     id: "practice",
-    title: "Consultant — Bengaluru",
+    title: "Consultant, Bengaluru",
     detail:
-      "Consultant – Shoulder and Sports Medicine, Manipal Hospital, Kanakapura Road.",
+      "Shoulder & Sports Medicine. Consultant at Manipal Hospital, Kanakapura Road, Bengaluru, with a specialist focus on shoulder, knee and sports medicine.",
     icon: "hospital" as const,
   },
 ] as const;
@@ -48,29 +51,29 @@ export const professionalTimeline = [
 export const credentialHighlights = [
   {
     id: "experience",
-    label: "Experience",
+    label: "Clinical Experience",
     value: "13+ years",
     note: "As stated on official hospital profile",
     icon: "clock" as const,
   },
   {
     id: "degrees",
-    label: "Qualifications",
+    label: "Qualifications & Fellowships",
     value: "6+ credentials",
     note: "Including fellowships & diploma",
     icon: "graduation" as const,
   },
   {
     id: "global",
-    label: "International training",
+    label: "International Training",
     value: "3 regions",
     note: "ISAKOS · Germany · South Korea",
     icon: "globe" as const,
   },
   {
     id: "bodies",
-    label: "Professional bodies",
-    value: "6 memberships",
+    label: "Professional Orthopaedic Bodies",
+    value: "6+ memberships",
     note: "ISAKOS, SICOT, ESSKSA & more",
     icon: "badge" as const,
   },

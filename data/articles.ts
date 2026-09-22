@@ -23,7 +23,7 @@ export const sampleArticles: SampleArticle[] = [
     category: "Sports Medicine",
     title: "Understanding Sports Injuries",
     excerpt:
-      "Sample educational overview of how sports injuries are commonly assessed.",
+      "An injury can affect more than performance. Learn how sports injuries are assessed, what factors influence treatment, and what recovery can involve.",
     readingTime: "5 min",
     featured: true,
     isSample: true,
@@ -31,16 +31,18 @@ export const sampleArticles: SampleArticle[] = [
   {
     slug: "joint-pain-evaluation",
     category: "Orthopaedics",
-    title: "When Should Joint Pain Be Evaluated?",
-    excerpt: "Sample guide on when to seek specialist input for joint pain.",
+    title: "When Does Joint Pain Need Attention?",
+    excerpt:
+      "Occasional discomfort may settle on its own. Persistent pain, restricted movement or recurring symptoms may need a closer look. Learn what to consider before seeking specialist advice.",
     readingTime: "6 min",
     isSample: true,
   },
   {
     slug: "return-to-activity",
     category: "Recovery",
-    title: "Returning to Activity After an Injury",
-    excerpt: "Sample notes on phased return—individual plans vary.",
+    title: "Getting Back to Activity After an Injury",
+    excerpt:
+      "Returning to exercise or sport is rarely about simply waiting for pain to disappear. Explore the principles behind a gradual and appropriate return to activity.",
     readingTime: "7 min",
     isSample: true,
   },

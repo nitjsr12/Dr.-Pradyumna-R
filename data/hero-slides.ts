@@ -1,6 +1,6 @@
 /**
- * Sample hero slides — educational positioning only.
- * Replace imagery with approved professional photography when available.
+ * Homepage hero slides.
+ * Images are local, higher-resolution crops so the slider does not upscale a tiny region.
  */
 
 export type HeroSlide = {
@@ -10,9 +10,8 @@ export type HeroSlide = {
   description: string;
   image: string;
   imageAlt: string;
-  /** portrait = rounded card; banner = wide clinical style */
-  imageLayout: "portrait" | "banner";
-  imagePosition?: "center" | "top" | "right";
+  /** Where the subject sits inside the frame */
+  imagePosition: "center" | "right";
   tagLabel: string;
   tagSublabel?: string;
   primaryCta: { label: string; href: string };
@@ -29,11 +28,10 @@ export const heroSlides: HeroSlide[] = [
       { text: "Live Fully.", accent: true },
     ],
     description:
-      "Personalised orthopaedic and sports medicine care focused on understanding your condition, restoring movement and helping you return to the activities that matter to you.",
-    image: "https://www.drpradyumna.com/images/B2/dr-Pradyumna-r-photo-3107074.webp",
-    imageAlt: "Dr. Pradyumna R — orthopaedic and sports medicine specialist",
-    imageLayout: "portrait",
-    imagePosition: "top",
+      "Personalised orthopaedic and sports medicine care for shoulder, knee and ankle conditions, guided by detailed clinical assessment and focused on restoring movement, supporting recovery and helping you return to the activities that matter most.",
+    image: "/images/hero/slide-movement.jpg",
+    imageAlt: "Dr. Pradyumna R with the clinical team",
+    imagePosition: "right",
     tagLabel: "SPORTS MEDICINE",
     tagSublabel: "ORTHOPAEDICS",
     primaryCta: { label: "Book a Consultation", href: "/book-appointment" },
@@ -43,32 +41,30 @@ export const heroSlides: HeroSlide[] = [
     id: "sports-medicine",
     eyebrow: "SPORTS MEDICINE • BENGALURU",
     headline: [
-      { text: "Built around" },
-      { text: "movement.", accent: true },
+      { text: "Built Around" },
+      { text: "Your Movement.", accent: true },
     ],
     description:
-      "Sample slide — sports medicine care that considers your sport, goals and clinical assessment, from injury evaluation through return to activity.",
-    image: "/images/hero/slide-clinical-banner.jpg", // TODO: replace with approved brand photography
-    imageAlt: "Clinical care environment — illustrative sample image",
-    imageLayout: "banner",
-    imagePosition: "right",
+      "Personalised sports medicine care for shoulder, knee and ankle conditions, from expert injury assessment and treatment to a confident return to activity.",
+    image: "/images/hero/slide-sports.jpg",
+    imageAlt: "Athlete during sport, illustrating a return to activity",
+    imagePosition: "center",
     tagLabel: "ASSESS • TREAT • RECOVER",
     primaryCta: { label: "Sports Medicine", href: "/sports-medicine" },
     secondaryCta: { label: "Book a Consultation", href: "/book-appointment" },
   },
   {
-    id: "shoulder-knee",
-    eyebrow: "SHOULDER • KNEE • HIP",
+    id: "musculoskeletal",
+    eyebrow: "SHOULDER • KNEE • ANKLE",
     headline: [
       { text: "Precision in" },
-      { text: "musculoskeletal care.", accent: true },
+      { text: "Musculoskeletal Care.", accent: true },
     ],
     description:
-      "Sample slide — expertise in shoulder, knee and sports-related conditions. Specific treatments are discussed only after individual clinical assessment.",
-    image: "https://www.drpradyumna.com/images/B2/dr-Pradyumna-r-photo-3107074.webp",
-    imageAlt: "Dr. Pradyumna R professional portrait",
-    imageLayout: "portrait",
-    imagePosition: "top",
+      "Expert orthopaedic care for shoulder, knee and ankle conditions, with every treatment plan guided by detailed clinical assessment and individual needs.",
+    image: "/images/hero/slide-precision.jpg",
+    imageAlt: "Two people walking outdoors, illustrating restored movement",
+    imagePosition: "center",
     tagLabel: "ORTHOPAEDICS",
     tagSublabel: "PATIENT-CENTRED",
     primaryCta: { label: "View Expertise", href: "/expertise" },
@@ -76,4 +72,4 @@ export const heroSlides: HeroSlide[] = [
   },
 ];
 
-export const HERO_SLIDE_INTERVAL_MS = 7000;
+export const HERO_SLIDE_INTERVAL_MS = 6500;
