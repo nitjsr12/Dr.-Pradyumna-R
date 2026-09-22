@@ -14,6 +14,7 @@ import { CarePhilosophy } from "@/components/sections/CarePhilosophy";
 import { ArticlesPreview } from "@/components/sections/ArticlesPreview";
 import { ResourcesPreview } from "@/components/sections/ResourcesPreview";
 import { ConsultationCTA } from "@/components/sections/ConsultationCTA";
+import { GoogleReviews } from "@/components/sections/GoogleReviews";
 
 export default function HomePage() {
   return (
@@ -34,6 +35,7 @@ export default function HomePage() {
       <ArticlesPreview />
       <ResourcesPreview />
       <ConsultationCTA />
+      <GoogleReviews />
     </>
   );
 }
