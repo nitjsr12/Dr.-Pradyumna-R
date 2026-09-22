@@ -13,7 +13,9 @@ const posters = [
   { src: "/images/hero/slide-movement.jpg", position: "object-[70%_center]" },
   { src: "/images/hero/slide-sports.jpg", position: "object-center" },
   { src: "/images/hero/slide-precision.jpg", position: "object-center" },
-  { src: "/images/hero/slide-movement.jpg", position: "object-[30%_center]" },
+  { src: "/images/hero/slide-movement.jpg", position: "object-[28%_center]" },
+  { src: "/images/hero/slide-sports.jpg", position: "object-[40%_center]" },
+  { src: "/images/hero/slide-precision.jpg", position: "object-[60%_center]" },
 ] as const;
 
 const washes = [
@@ -21,10 +23,12 @@ const washes = [
   "from-teal/75 via-navy/20 to-transparent",
   "from-[#0d6b62]/75 via-navy/15 to-transparent",
   "from-navy/75 via-navy/20 to-gold/25",
+  "from-[#145a7a]/75 via-teal/20 to-transparent",
+  "from-[#0a4a55]/80 via-navy/20 to-gold/15",
 ] as const;
 
 function figureOf(value: string) {
-  const match = value.match(/^[\d+]+\+?/);
+  const match = value.match(/^[\d,.]+K?\+/i);
   return match ? match[0] : value;
 }
 
@@ -43,7 +47,7 @@ export function CredentialsBar() {
           <p className="label-caps mb-8 md:mb-10">Verified professional profile</p>
         </FadeIn>
 
-        <Stagger className="grid gap-4 sm:grid-cols-2 lg:gap-5">
+        <Stagger className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
           {credentialHighlights.map((item, i) => {
             const poster = posters[i % posters.length];
             const figure = figureOf(item.value);

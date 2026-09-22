@@ -62,12 +62,12 @@ export const heroSlides: HeroSlide[] = [
     ],
     description:
       "Expert orthopaedic care for shoulder, knee and ankle conditions, with every treatment plan guided by detailed clinical assessment and individual needs.",
-    image: "/images/hero/slide-precision.jpg",
-    imageAlt: "Two people walking outdoors, illustrating restored movement",
+    image: "/images/hero/slide-doctor.jpg",
+    imageAlt: "Dr. Pradyumna R in clinical scrubs",
     imagePosition: "center",
     tagLabel: "ORTHOPAEDICS",
     tagSublabel: "PATIENT-CENTRED",
-    primaryCta: { label: "View Expertise", href: "/expertise" },
+    primaryCta: { label: "Book a Consultation", href: "/book-appointment" },
     secondaryCta: { label: "Patient Resources", href: "/patient-resources" },
   },
 ];
