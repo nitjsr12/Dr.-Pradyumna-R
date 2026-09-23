@@ -12,6 +12,8 @@ export type HeroSlide = {
   imageAlt: string;
   /** Where the subject sits inside the frame */
   imagePosition: "center" | "right";
+  /** Muted autoplay. YouTube is embedded; a file path is a local mp4. */
+  video?: { type: "youtube"; id: string } | { type: "file"; src: string };
   tagLabel: string;
   tagSublabel?: string;
   primaryCta: { label: string; href: string };
@@ -32,6 +34,7 @@ export const heroSlides: HeroSlide[] = [
     image: "/images/hero/slide-movement.jpg",
     imageAlt: "Dr. Pradyumna R with the clinical team",
     imagePosition: "right",
+    video: { type: "file", src: "/videos/hero-movement.mp4" },
     tagLabel: "SPORTS MEDICINE",
     tagSublabel: "ORTHOPAEDICS",
     primaryCta: { label: "Book a Consultation", href: "/book-appointment" },
@@ -49,6 +52,7 @@ export const heroSlides: HeroSlide[] = [
     image: "/images/hero/slide-sports.jpg",
     imageAlt: "Athlete during sport, illustrating a return to activity",
     imagePosition: "center",
+    video: { type: "file", src: "/videos/hero-sports.mp4" },
     tagLabel: "ASSESS • TREAT • RECOVER",
     primaryCta: { label: "Sports Medicine", href: "/sports-medicine" },
     secondaryCta: { label: "Book a Consultation", href: "/book-appointment" },
@@ -65,10 +69,11 @@ export const heroSlides: HeroSlide[] = [
     image: "/images/hero/slide-doctor.jpg",
     imageAlt: "Dr. Pradyumna R in clinical scrubs",
     imagePosition: "center",
+    video: { type: "youtube", id: "56LvLRi3_iA" },
     tagLabel: "ORTHOPAEDICS",
     tagSublabel: "PATIENT-CENTRED",
     primaryCta: { label: "Book a Consultation", href: "/book-appointment" },
-    secondaryCta: { label: "Patient Resources", href: "/patient-resources" },
+    secondaryCta: { label: "Gallery", href: "/gallery" },
   },
 ];
 

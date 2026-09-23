@@ -9,6 +9,7 @@ const routes = [
   "/sports-medicine",
   "/orthopaedics",
   "/patient-resources",
+  "/gallery",
   "/articles",
   "/contact",
   "/book-appointment",

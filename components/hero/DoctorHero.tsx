@@ -1,8 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import { useCallback, useRef, useState, type AnimationEvent } from "react";
+import { useCallback, useEffect, useRef, useState, type AnimationEvent } from "react";
 import { useReducedMotion } from "framer-motion";
 import { ArrowRight, ChevronLeft, ChevronRight, MapPin } from "lucide-react";
 import { Container } from "@/components/ui/Container";
@@ -34,11 +33,11 @@ const themes: Record<
     label: "Move",
   },
   "sports-medicine": {
-    wash: "from-teal-bright/20 via-[#e7f7f4] to-bg-warm",
-    orb: "bg-teal/30",
-    orbAlt: "bg-gold/25",
-    frame: "from-teal via-mint to-gold/40",
-    chip: "bg-navy text-white",
+    wash: "from-teal/25 via-mint/80 to-bg-warm",
+    orb: "bg-teal-bright/35",
+    orbAlt: "bg-navy/10",
+    frame: "from-teal-bright via-white to-navy/25",
+    chip: "bg-teal text-white",
     label: "Movement",
   },
   musculoskeletal: {
@@ -58,8 +57,13 @@ function themeFor(id: string) {
 export function DoctorHero() {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [canPlay, setCanPlay] = useState(false);
   const count = heroSlides.length;
   const reduce = useReducedMotion();
+
+  useEffect(() => {
+    setCanPlay(true);
+  }, []);
   const lock = useRef(false);
   const slide = heroSlides[index];
   const theme = themeFor(slide.id);
@@ -156,7 +160,7 @@ export function DoctorHero() {
                     )}
                   >
                     {selected && (
-                      <span className={cn("absolute inset-0", itemTheme.chip)} aria-hidden />
+                      <span className="absolute inset-0 bg-teal" aria-hidden />
                     )}
                     {selected && !reduce && (
                       <span
@@ -200,31 +204,14 @@ export function DoctorHero() {
                 theme.frame
               )}
             >
-              <div className="relative aspect-[4/5] overflow-hidden rounded-[27px] bg-[#d7e4ea] sm:aspect-[5/6] lg:max-h-[560px]">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[27px] bg-navy sm:aspect-[5/6] lg:max-h-[560px]">
                 {heroSlides.map((item, i) => (
-                  <div
+                  <SlideMedia
                     key={item.id}
-                    className={cn(
-                      "absolute inset-0 transition-opacity duration-700 ease-in-out",
-                      i === index ? "z-10 opacity-100" : "z-0 opacity-0"
-                    )}
-                    aria-hidden={i !== index}
-                  >
-                    <Image
-                      src={item.image}
-                      alt={i === index ? item.imageAlt : ""}
-                      fill
-                      priority={i === 0}
-                      quality={90}
-                      sizes="(max-width: 1024px) 90vw, 560px"
-                      className={cn(
-                        "object-cover",
-                        item.imagePosition === "right"
-                          ? "object-[70%_center]"
-                          : "object-center"
-                      )}
-                    />
-                  </div>
+                    slide={item}
+                    active={i === index}
+                    play={canPlay && !reduce}
+                  />
                 ))}
                 <div
                   className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy/45 via-transparent to-white/10"
@@ -277,6 +264,109 @@ export function DoctorHero() {
         </div>
       </Container>
     </section>
+  );
+}
+
+function youtubeSrc(id: string) {
+  const params = new URLSearchParams({
+    autoplay: "1",
+    mute: "1",
+    loop: "1",
+    playlist: id,
+    controls: "0",
+    modestbranding: "1",
+    playsinline: "1",
+    rel: "0",
+    disablekb: "1",
+    fs: "0",
+    iv_load_policy: "3",
+  });
+  return `https://www.youtube-nocookie.com/embed/${id}?${params.toString()}`;
+}
+
+function SlideMedia({
+  slide,
+  active,
+  play,
+}: {
+  slide: HeroSlide;
+  active: boolean;
+  play: boolean;
+}) {
+  const video = slide.video;
+  if (!video) return null;
+
+  return (
+    <div
+      className={cn(
+        "absolute inset-0 transition-opacity duration-700 ease-in-out",
+        active ? "z-10 opacity-100" : "z-0 opacity-0"
+      )}
+      aria-hidden={!active}
+    >
+      {video.type === "youtube" && active && play && (
+        <iframe
+          key={video.id}
+          src={youtubeSrc(video.id)}
+          title={slide.imageAlt}
+          allow="autoplay; encrypted-media; picture-in-picture"
+          referrerPolicy="origin"
+          tabIndex={-1}
+          className="absolute left-1/2 top-1/2 aspect-video h-full w-auto min-w-full -translate-x-1/2 -translate-y-1/2 border-0"
+        />
+      )}
+      {video.type === "file" && (
+        <FileVideo
+          src={video.src}
+          active={active && play}
+          label={slide.imageAlt}
+          position={slide.imagePosition}
+        />
+      )}
+    </div>
+  );
+}
+
+function FileVideo({
+  src,
+  active,
+  label,
+  position,
+}: {
+  src: string;
+  active: boolean;
+  label: string;
+  position: HeroSlide["imagePosition"];
+}) {
+  const ref = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    el.muted = true;
+    if (!active) {
+      el.pause();
+      return;
+    }
+    const pending = el.play();
+    if (pending) pending.catch(() => undefined);
+  }, [src, active]);
+
+  return (
+    <video
+      ref={ref}
+      src={src}
+      muted
+      autoPlay={active}
+      loop
+      playsInline
+      preload="auto"
+      aria-label={label}
+      className={cn(
+        "absolute inset-0 size-full object-cover",
+        position === "right" ? "object-[70%_center]" : "object-center"
+      )}
+    />
   );
 }
 
