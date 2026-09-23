@@ -55,6 +55,7 @@ export const credentialHighlights = [
     value: "15+",
     note: "Years of clinical experience",
     icon: "clock" as const,
+    video: "/videos/credentials/experience.mp4",
   },
   {
     id: "patients",
@@ -62,6 +63,7 @@ export const credentialHighlights = [
     value: "20K+",
     note: "Patients cared for",
     icon: "badge" as const,
+    video: "/videos/credentials/patients.mp4",
   },
   {
     id: "knee-arthroscopy",
@@ -69,6 +71,7 @@ export const credentialHighlights = [
     value: "5K+",
     note: "Knee arthroscopy procedures",
     icon: "activity" as const,
+    video: "/videos/credentials/knee-arthroscopy.mp4",
   },
   {
     id: "knee-replacement",
@@ -76,6 +79,7 @@ export const credentialHighlights = [
     value: "1,500+",
     note: "Total and partial knee replacement",
     icon: "award" as const,
+    video: "/videos/credentials/knee-replacement.mp4",
   },
   {
     id: "orthopaedic",
@@ -83,6 +87,7 @@ export const credentialHighlights = [
     value: "5K+",
     note: "Orthopaedic surgery",
     icon: "graduation" as const,
+    video: "/videos/credentials/orthopaedic.mp4",
   },
   {
     id: "shoulder",
@@ -90,5 +95,6 @@ export const credentialHighlights = [
     value: "2K+",
     note: "Shoulder arthroscopy surgery",
     icon: "globe" as const,
+    video: "/videos/credentials/shoulder.mp4",
   },
 ] as const;

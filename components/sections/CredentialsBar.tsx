@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Play, X } from "lucide-react";
 import { credentialHighlights } from "@/data/journey";
@@ -32,10 +32,40 @@ function figureOf(value: string) {
   return match ? match[0] : value;
 }
 
+function credentialVideoSrc(item: (typeof credentialHighlights)[number]) {
+  return "video" in item ? item.video : undefined;
+}
+
+function CardVideo({ src, position }: { src: string; position: string }) {
+  const ref = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    el.muted = true;
+    const pending = el.play();
+    if (pending) pending.catch(() => undefined);
+  }, [src]);
+
+  return (
+    <video
+      ref={ref}
+      src={src}
+      muted
+      autoPlay
+      loop
+      playsInline
+      preload="auto"
+      className={cn("absolute inset-0 size-full object-cover", position)}
+    />
+  );
+}
+
 export function CredentialsBar() {
   const [active, setActive] = useState<number | null>(null);
   const reduce = useReducedMotion();
   const selected = active === null ? null : credentialHighlights[active];
+  const selectedVideo = selected ? credentialVideoSrc(selected) : undefined;
 
   return (
     <section
@@ -51,31 +81,39 @@ export function CredentialsBar() {
           {credentialHighlights.map((item, i) => {
             const poster = posters[i % posters.length];
             const figure = figureOf(item.value);
+            const videoSrc = credentialVideoSrc(item);
+            const showVideo = Boolean(videoSrc && !reduce);
             return (
               <StaggerChild key={item.id}>
                 <button
                   type="button"
                   onClick={() => setActive(i)}
                   className="group focus-ring relative block w-full overflow-hidden rounded-[22px] text-left shadow-[0_16px_40px_rgba(10,30,50,0.12)] transition-all duration-500 ease-out hover:-translate-y-1.5 hover:shadow-[0_28px_60px_rgba(10,30,50,0.2)]"
-                  aria-label={`Play video placeholder: ${item.value}`}
+                  aria-label={`Play video: ${item.label}`}
                 >
                   <span className="relative block aspect-[16/10] overflow-hidden bg-navy">
-                    <Image
-                      src={poster.src}
-                      alt=""
-                      fill
-                      quality={90}
-                      sizes="(max-width: 640px) 100vw, 50vw"
-                      className={cn(
-                        "object-cover transition-transform duration-700 ease-out",
-                        poster.position,
-                        !reduce && "group-hover:scale-[1.06]"
-                      )}
-                    />
+                    {!showVideo && (
+                      <Image
+                        src={poster.src}
+                        alt=""
+                        fill
+                        quality={90}
+                        sizes="(max-width: 640px) 100vw, 50vw"
+                        className={cn(
+                          "object-cover transition-transform duration-700 ease-out",
+                          poster.position,
+                          !reduce && "group-hover:scale-[1.06]"
+                        )}
+                      />
+                    )}
+                    {showVideo && videoSrc && (
+                      <CardVideo src={videoSrc} position={poster.position} />
+                    )}
                     <span
                       className={cn(
                         "absolute inset-0 bg-gradient-to-t transition-opacity duration-500 group-hover:opacity-90",
-                        washes[i % washes.length]
+                        washes[i % washes.length],
+                        showVideo && "from-navy/70 via-navy/20 to-transparent opacity-85"
                       )}
                       aria-hidden
                     />
@@ -112,7 +150,7 @@ export function CredentialsBar() {
             <motion.div
               role="dialog"
               aria-modal="true"
-              aria-label={`YouTube placeholder for ${selected.label}`}
+              aria-label={selected.label}
               className="relative w-full max-w-3xl overflow-hidden rounded-2xl bg-navy shadow-2xl"
               initial={reduce ? false : { opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
@@ -124,26 +162,36 @@ export function CredentialsBar() {
                 type="button"
                 onClick={() => setActive(null)}
                 className="focus-ring absolute right-3 top-3 z-10 inline-flex size-9 items-center justify-center rounded-full bg-white/15 text-white transition-colors hover:bg-white/25"
-                aria-label="Close video placeholder"
+                aria-label="Close video"
               >
                 <X className="size-4" />
               </button>
-              <div className="relative aspect-video bg-gradient-to-br from-navy via-[#12324d] to-teal/40">
-                <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center text-white">
-                  <span className="mb-4 flex size-16 items-center justify-center rounded-full bg-[#ff0033] shadow-lg">
-                    <Play className="ml-1 size-7 fill-white text-white" aria-hidden />
-                  </span>
-                  <p className="text-[11px] font-bold tracking-[0.16em] text-white/70">
-                    YOUTUBE VIDEO
-                  </p>
-                  <p className="mt-2 font-heading text-2xl font-bold">
-                    {figureOf(selected.value)}
-                  </p>
-                  <p className="mt-1 text-sm text-white/80">{selected.label}</p>
-                  <p className="mt-4 max-w-sm text-sm text-white/60">
-                    Placeholder — the YouTube film for this highlight will play here.
-                  </p>
-                </div>
+              <div className="relative aspect-video bg-navy">
+                {selectedVideo ? (
+                  <video
+                    src={selectedVideo}
+                    controls
+                    autoPlay
+                    playsInline
+                    className="absolute inset-0 size-full bg-black object-contain"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-navy via-[#12324d] to-teal/40 px-6 text-center text-white">
+                    <span className="mb-4 flex size-16 items-center justify-center rounded-full bg-[#ff0033] shadow-lg">
+                      <Play className="ml-1 size-7 fill-white text-white" aria-hidden />
+                    </span>
+                    <p className="text-[11px] font-bold tracking-[0.16em] text-white/70">
+                      YOUTUBE VIDEO
+                    </p>
+                    <p className="mt-2 font-heading text-2xl font-bold">
+                      {figureOf(selected.value)}
+                    </p>
+                    <p className="mt-1 text-sm text-white/80">{selected.label}</p>
+                    <p className="mt-4 max-w-sm text-sm text-white/60">
+                      Placeholder — the YouTube film for this highlight will play here.
+                    </p>
+                  </div>
+                )}
               </div>
             </motion.div>
           </motion.div>

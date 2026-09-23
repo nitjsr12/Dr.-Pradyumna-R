@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/button";
-import { FadeIn, Stagger, StaggerChild } from "@/components/animations/Reveal";
+import { FadeIn } from "@/components/animations/Reveal";
 
 const journey = [
   {
@@ -36,29 +37,10 @@ const journey = [
 ] as const;
 
 export function SportsMedicineFeature() {
+  const reduce = useReducedMotion();
+
   return (
     <section className="section-y surface-dark relative overflow-hidden bg-navy mesh-navy">
-      <div
-        className="pointer-events-none absolute inset-0 opacity-40"
-        aria-hidden
-      >
-        <svg className="h-full w-full" preserveAspectRatio="none">
-          <path
-            d="M0 420 Q480 180 1320 320"
-            fill="none"
-            stroke="#14A9A1"
-            strokeWidth="1"
-            opacity="0.35"
-          />
-          <path
-            d="M0 480 Q600 350 1320 400"
-            fill="none"
-            stroke="#14A9A1"
-            strokeWidth="0.75"
-            opacity="0.2"
-          />
-        </svg>
-      </div>
       <Container className="relative">
         <FadeIn>
           <SectionHeading
@@ -73,23 +55,50 @@ export function SportsMedicineFeature() {
             description="Sports medicine goes beyond treating an injury. It’s about understanding your movement, your sport, your goals and what it takes to get you back to doing what you love."
           />
         </FadeIn>
-        <Stagger className="mt-14 grid gap-4 sm:grid-cols-2 lg:mt-16 lg:grid-cols-5 lg:gap-3">
-          {journey.map((j) => (
-            <StaggerChild key={j.step} className="h-full">
-              <div className="relative h-full rounded-[var(--radius-md)] border border-white/10 bg-white/[0.05] px-4 py-5 backdrop-blur-sm transition-all duration-500 ease-out hover:-translate-y-1 hover:border-teal-bright/40 hover:bg-white/[0.09]">
-                <p className="text-xs font-bold tabular-nums text-teal-bright">
-                  {j.step}
-                </p>
-                <p className="mt-2 text-sm font-semibold leading-snug tracking-wide text-white">
-                  {j.label}
-                </p>
-                <p className="mt-2 text-sm leading-relaxed text-white/65">
-                  {j.text}
-                </p>
-              </div>
-            </StaggerChild>
+
+        <ol className="relative mt-14 hidden lg:grid lg:grid-cols-5 lg:gap-6">
+          <motion.span
+            className="absolute left-[8%] right-[8%] top-5 h-px origin-left bg-gradient-to-r from-teal-bright via-teal-bright to-teal-bright/30"
+            initial={reduce ? false : { scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            aria-hidden
+          />
+          {journey.map((item, index) => (
+            <motion.li
+              key={item.step}
+              className="relative"
+              initial={reduce ? false : { opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: reduce ? 0 : 0.12 * index }}
+            >
+              <span className="relative z-10 flex size-10 items-center justify-center rounded-full bg-navy text-xs font-bold text-teal-bright ring-2 ring-teal-bright">
+                {item.step}
+              </span>
+              <p className="mt-6 text-base font-semibold text-white">{item.label}</p>
+              <p className="mt-2 text-sm leading-relaxed text-white/85">{item.text}</p>
+            </motion.li>
           ))}
-        </Stagger>
+        </ol>
+
+        <ol className="relative mt-12 space-y-8 lg:hidden">
+          <span
+            className="absolute bottom-6 left-5 top-5 w-px bg-gradient-to-b from-teal-bright to-teal-bright/20"
+            aria-hidden
+          />
+          {journey.map((item) => (
+            <li key={item.step} className="relative pl-16">
+              <span className="absolute left-0 top-0 flex size-10 items-center justify-center rounded-full bg-navy text-xs font-bold text-teal-bright ring-2 ring-teal-bright">
+                {item.step}
+              </span>
+              <p className="text-base font-semibold text-white">{item.label}</p>
+              <p className="mt-2 text-sm leading-relaxed text-white/85">{item.text}</p>
+            </li>
+          ))}
+        </ol>
+
         <Button asChild variant="outlineLight" className="mt-12">
           <Link href="/sports-medicine">
             Explore Sports Medicine

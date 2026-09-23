@@ -1,105 +1,73 @@
 "use client";
 
-import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import { professionalTimeline } from "@/data/journey";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { IconBadge, type IconBadgeName } from "@/components/ui/IconBadge";
 import { FadeIn, Stagger, StaggerChild } from "@/components/animations/Reveal";
-import { easeOut } from "@/lib/animations";
 
 export function ProfessionalTimeline() {
-  const reduce = useReducedMotion();
-
   return (
-    <section className="section-y surface-dark relative overflow-hidden bg-navy mesh-navy">
+    <section className="section-y relative overflow-hidden bg-gradient-to-b from-mint via-white to-bg-warm">
       <div
-        className="pattern-dots-dark pointer-events-none absolute inset-0 opacity-50"
+        className="pointer-events-none absolute -left-20 top-16 size-72 rounded-full bg-teal/10 blur-3xl"
         aria-hidden
       />
       <Container className="relative">
         <FadeIn>
           <SectionHeading
-            dark
             label="Professional journey"
             title={
               <>
                 Training, expertise &{" "}
-                <span className="text-teal-bright">global experience.</span>
+                <span className="text-accent">global experience.</span>
               </>
             }
             description="A career shaped by specialised orthopaedic training, international exposure and a focused interest in shoulder, knee and sports medicine."
           />
         </FadeIn>
 
-        <div className="relative mt-14 pl-4 sm:pl-0 lg:mt-16">
-          <motion.div
-            className="absolute bottom-2 left-[1.65rem] top-2 w-px origin-top bg-gradient-to-b from-teal-bright via-teal-bright/30 to-transparent sm:left-6 lg:left-1/2 lg:-ml-px"
-            initial={reduce ? false : { scaleY: 0 }}
-            whileInView={{ scaleY: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, ease: easeOut }}
-            aria-hidden
-          />
-
-          <Stagger className="space-y-6 lg:space-y-10">
-            {professionalTimeline.map((item, i) => (
-              <StaggerChild key={item.id}>
-                <div
-                  className={`relative lg:flex lg:items-stretch lg:gap-8 ${
-                    i % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-                  }`}
+        <Stagger className="mt-12 grid gap-5 md:grid-cols-2 lg:mt-14">
+          {professionalTimeline.map((item, index) => {
+            const current = index === professionalTimeline.length - 1;
+            return (
+              <StaggerChild key={item.id} className={current ? "md:col-span-2" : undefined}>
+                <article
+                  className={
+                    current
+                      ? "flex h-full flex-col gap-4 rounded-[28px] bg-navy p-6 text-white shadow-[var(--shadow-soft)] sm:flex-row sm:items-start sm:gap-6 sm:p-8"
+                      : "flex h-full flex-col rounded-[28px] border border-white bg-white p-6 shadow-[var(--shadow-card)]"
+                  }
                 >
-                  <article
-                    className={`relative ml-10 rounded-[var(--radius-lg)] border border-white/10 bg-white/[0.07] p-5 backdrop-blur-sm sm:ml-14 lg:ml-0 lg:w-[calc(50%-2.5rem)] ${
-                      i % 2 === 0 ? "lg:mr-auto" : "lg:ml-auto"
-                    }`}
-                  >
-                    <h3 className="text-base font-bold text-white sm:text-lg">
+                  <div className="flex items-center gap-3">
+                    <IconBadge
+                      name={item.icon as IconBadgeName}
+                      size="sm"
+                      className={current ? "border-white/15 bg-white/10 text-teal-bright" : undefined}
+                    />
+                    <span
+                      className={
+                        current
+                          ? "text-[11px] font-bold tabular-nums tracking-[0.16em] text-teal-bright"
+                          : "text-[11px] font-bold tabular-nums tracking-[0.16em] text-teal"
+                      }
+                    >
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                  </div>
+                  <div>
+                    <h3 className={current ? "text-lg font-bold text-white" : "mt-5 text-lg font-bold text-navy"}>
                       {item.title}
                     </h3>
-                    <p className="text-secondary mt-2">
+                    <p className={current ? "mt-2 max-w-3xl text-[15px] leading-relaxed text-white/75" : "mt-2 text-[15px] leading-relaxed text-muted"}>
                       {item.detail}
                     </p>
-                  </article>
-
-                  <div
-                    className="absolute left-0 top-5 sm:left-2 lg:left-1/2 lg:-translate-x-1/2"
-                    aria-hidden
-                  >
-                    <motion.span
-                      className="flex size-10 items-center justify-center rounded-full border-2 border-teal-bright/60 bg-navy-deep sm:size-11"
-                      initial={reduce ? false : { scale: 0 }}
-                      whileInView={{ scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.05 * i, type: "spring", stiffness: 420, damping: 22 }}
-                    >
-                      <IconBadge
-                        name={item.icon as IconBadgeName}
-                        size="sm"
-                        className="size-8 rounded-full border-0 bg-transparent text-teal-bright shadow-none sm:size-9"
-                      />
-                    </motion.span>
                   </div>
-
-                  <div className="hidden flex-1 lg:block" aria-hidden />
-                </div>
+                </article>
               </StaggerChild>
-            ))}
-          </Stagger>
-        </div>
-
-        <FadeIn className="mt-12 text-center lg:mt-14" delay={0.15}>
-          <Link
-            href="/about"
-            className="focus-ring inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold transition-colors hover:border-teal-bright/40 hover:bg-white/10"
-          >
-            Full professional overview
-            <ArrowRight className="size-4 text-teal-bright" />
-          </Link>
-        </FadeIn>
+            );
+          })}
+        </Stagger>
       </Container>
     </section>
   );

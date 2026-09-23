@@ -13,18 +13,24 @@ const steps: ApproachStep[] = [
     title: "UNDERSTAND",
     text: "A clear clinical assessment of your symptoms, movement and condition, with straightforward answers about your diagnosis and treatment options.",
     icon: "activity",
+    image: "/images/hero/slide-doctor.jpg",
+    imagePosition: "object-[center_18%]",
   },
   {
     n: "02",
     title: "PLAN",
     text: "From shoulder and knee conditions to ankle injuries, treatment is guided by your clinical needs, goals and recovery — not a one-size-fits-all approach.",
     icon: "badge",
+    image: "/images/hero/slide-movement.jpg",
+    imagePosition: "object-[68%_center]",
   },
   {
     n: "03",
     title: "MOVE FORWARD",
     text: "Focused care to restore movement, improve function and support your return to the activities, sport and everyday life you value.",
     icon: "award",
+    image: "/images/hero/slide-sports.jpg",
+    imagePosition: "object-center",
   },
 ];
 

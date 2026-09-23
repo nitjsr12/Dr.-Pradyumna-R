@@ -69,7 +69,7 @@ export const heroSlides: HeroSlide[] = [
     image: "/images/hero/slide-doctor.jpg",
     imageAlt: "Dr. Pradyumna R in clinical scrubs",
     imagePosition: "center",
-    video: { type: "youtube", id: "56LvLRi3_iA" },
+    video: { type: "file", src: "/videos/hero-musculoskeletal.mp4" },
     tagLabel: "ORTHOPAEDICS",
     tagSublabel: "PATIENT-CENTRED",
     primaryCta: { label: "Book a Consultation", href: "/book-appointment" },

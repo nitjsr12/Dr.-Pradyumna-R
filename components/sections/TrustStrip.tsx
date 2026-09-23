@@ -6,10 +6,10 @@ import {
   DoorOpen,
   HeartHandshake,
   HeartPulse,
+  Scissors,
   Smile,
   Stethoscope,
   TrendingUp,
-  Video,
 } from "lucide-react";
 
 const items = [
@@ -18,7 +18,7 @@ const items = [
   { label: "Entering the Hospital", icon: DoorOpen },
   { label: "Consultation", icon: Stethoscope },
   { label: "Examining the Patient", icon: ClipboardCheck },
-  { label: "Surgery", icon: Video },
+  { label: "Surgery", icon: Scissors },
   { label: "Knee Replacement", icon: Bone },
   { label: "Happy Patients", icon: Smile },
   { label: "Recovery", icon: HeartHandshake },

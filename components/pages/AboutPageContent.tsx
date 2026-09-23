@@ -14,6 +14,7 @@ import { PageBlock } from "@/components/ui/PageBlock";
 import { Container } from "@/components/ui/Container";
 import { ProfessionalTimeline } from "@/components/sections/ProfessionalTimeline";
 import { AchievementsSection } from "@/components/sections/AchievementsSection";
+import { OrthopaedicsSection } from "@/components/sections/OrthopaedicsSection";
 import { FadeIn, Stagger, StaggerChild } from "@/components/animations/Reveal";
 import { images } from "@/lib/images";
 
@@ -107,6 +108,7 @@ export function AboutPageContent() {
         </Stagger>
       </Container>
       <ProfessionalTimeline />
+      <OrthopaedicsSection />
       <AchievementsSection />
     </>
   );
