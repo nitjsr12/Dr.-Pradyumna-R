@@ -44,6 +44,10 @@ export default function RootLayout({
         <JsonLd data={[websiteJsonLd(), medicalDoctorJsonLd()]} />
         <Navbar />
         <main id="main-content">{children}</main>
+        <div
+          className="bg-gradient-to-b from-bg-warm via-mint/30 to-bg-warm py-10 md:py-12 lg:py-14"
+          aria-hidden
+        />
         <Footer />
         <MobileStickyCta />
       </body>

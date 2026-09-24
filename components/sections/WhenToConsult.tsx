@@ -87,7 +87,7 @@ export function WhenToConsult() {
       />
       <div className="pattern-dots-dark pointer-events-none absolute inset-0 opacity-30" aria-hidden />
 
-      <Container className="relative py-16 md:py-20 lg:py-24">
+      <Container className="relative py-20 md:py-24 lg:py-28">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <motion.header
             className="max-w-2xl"

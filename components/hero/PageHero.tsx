@@ -46,7 +46,8 @@ export function PageHero({
         {description && (
           <p
             className={cn(
-              "text-body mt-5 max-w-2xl"
+              "text-body mt-5 max-w-2xl",
+              isDark && "text-white/80"
             )}
           >
             {description}

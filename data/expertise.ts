@@ -17,6 +17,9 @@ export type ExpertiseItem = {
   kicker?: string;
   concerns?: string[];
   whenToConsult?: string;
+  image?: string;
+  imagePosition?: string;
+  imageAlt?: string;
 };
 
 export const homeExpertise: ExpertiseItem[] = [
@@ -76,16 +79,101 @@ export const homeExpertise: ExpertiseItem[] = [
   },
 ];
 
-export const expertisePages = homeExpertise.map((item) => ({
-  ...item,
-  concerns: [
-    "Symptoms affecting sport or daily activity",
-    "Pain or instability after injury",
-    "Need for specialist assessment",
-  ],
-  whenToConsult:
-    "When symptoms persist, affect movement, or you need clarity on treatment options—after appropriate primary care where needed.",
-}));
+const expertisePageDetails: Record<
+  string,
+  {
+    image: string;
+    imagePosition: string;
+    imageAlt: string;
+    concerns: string[];
+    whenToConsult: string;
+  }
+> = {
+  "Sports Medicine": {
+    image: "/images/expertise/sports-medicine.webp",
+    imagePosition: "object-center",
+    imageAlt: "Sports medicine and knee injury assessment",
+    concerns: [
+      "Activity-related pain or instability",
+      "Return-to-sport planning after injury",
+      "Overuse or training-related symptoms",
+    ],
+    whenToConsult:
+      "When pain or injury is limiting sport, exercise or daily movement and you need a specialist assessment.",
+  },
+  Orthopaedics: {
+    image: "/images/expertise/knee.webp",
+    imagePosition: "object-center",
+    imageAlt: "Orthopaedic and knee care",
+    concerns: [
+      "Joint, bone and musculoskeletal symptoms",
+      "Persistent pain affecting everyday function",
+      "Need for surgical or non-surgical treatment guidance",
+    ],
+    whenToConsult:
+      "When orthopaedic symptoms continue despite rest or basic care, or when function and quality of life are affected.",
+  },
+  "Sports Injuries": {
+    image: "/images/expertise/shoulder.webp",
+    imagePosition: "object-[center_20%]",
+    imageAlt: "Shoulder and sports injury care",
+    concerns: [
+      "Acute injuries from sport or exercise",
+      "Shoulder, knee, hip or ankle symptoms after impact",
+      "Recurrent sprains, strains or instability",
+    ],
+    whenToConsult:
+      "After an injury that changes how you move, or when symptoms do not settle with initial rest and care.",
+  },
+  "Musculoskeletal Care": {
+    image: "/images/expertise/doctor.webp",
+    imagePosition: "object-[center_12%]",
+    imageAlt: "Musculoskeletal clinical assessment",
+    concerns: [
+      "Soft-tissue and joint-related discomfort",
+      "Movement limitations during work or daily tasks",
+      "Symptoms linked to loading, posture or repetition",
+    ],
+    whenToConsult:
+      "When musculoskeletal symptoms persist and you need a clear diagnosis and personalised treatment plan.",
+  },
+  "Movement & Recovery": {
+    image: "/images/hero/slide-sports.jpg",
+    imagePosition: "object-center",
+    imageAlt: "Recovery and return to activity",
+    concerns: [
+      "Rehabilitation after injury or surgery",
+      "Gradual return to training or sport",
+      "Ongoing stiffness, weakness or fear of re-injury",
+    ],
+    whenToConsult:
+      "When you are recovering from treatment and need structured guidance to restore strength and confidence in movement.",
+  },
+  "Patient Education": {
+    image: "/images/expertise/clinic.webp",
+    imagePosition: "object-center",
+    imageAlt: "Bangalore orthopaedic clinic consultation",
+    concerns: [
+      "Understanding your condition before treatment",
+      "Preparing questions for a specialist visit",
+      "Learning about recovery timelines and self-care",
+    ],
+    whenToConsult:
+      "Whenever you want clearer information about orthopaedic or sports medicine conditions alongside clinical care.",
+  },
+};
+
+export const expertisePages = homeExpertise.map((item) => {
+  const detail = expertisePageDetails[item.title];
+  return {
+    ...item,
+    image: detail.image,
+    imagePosition: detail.imagePosition,
+    imageAlt: detail.imageAlt,
+    concerns: detail.concerns,
+    whenToConsult: detail.whenToConsult,
+  };
+});
 
 export const orthopaedicCards = [
   {

@@ -20,13 +20,15 @@ export default function ExpertisePage() {
         ])}
       />
       <PageHero
+        variant="dark"
         label="Expertise"
         title={
           <>
             Expertise focused on{" "}
-            <span className="text-accent">movement.</span>
+            <span className="text-teal-bright">movement.</span>
           </>
         }
+        description="Sports medicine, orthopaedics and musculoskeletal care — personalised assessment and treatment in Bengaluru."
       />
       <ExpertisePageContent />
       <ConsultationCTA />

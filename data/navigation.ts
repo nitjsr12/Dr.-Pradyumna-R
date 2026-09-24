@@ -2,8 +2,7 @@ export const mainNav = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/expertise", label: "Expertise" },
-  { href: "/patient-resources", label: "Patient Resources" },
-  { href: "/articles", label: "Articles" },
+  { href: "/articles", label: "Blogs" },
   { href: "/contact", label: "Contact" },
 ] as const;
 
@@ -11,8 +10,7 @@ export const mobileNav = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/expertise", label: "Expertise" },
-  { href: "/patient-resources", label: "Resources" },
-  { href: "/articles", label: "Articles" },
+  { href: "/articles", label: "Blogs" },
   { href: "/contact", label: "Contact" },
 ] as const;
 
@@ -24,7 +22,6 @@ export const footerExplore = [
 ] as const;
 
 export const footerResources = [
-  { href: "/patient-resources", label: "Patient Resources" },
-  { href: "/articles", label: "Articles" },
+  { href: "/articles", label: "Blogs" },
   { href: "/faqs", label: "FAQs" },
 ] as const;

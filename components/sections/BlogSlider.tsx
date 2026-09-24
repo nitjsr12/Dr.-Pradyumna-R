@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { sampleArticles } from "@/data/articles";
+import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/Container";
 import { cn } from "@/lib/utils";
 
@@ -75,12 +76,12 @@ export function BlogSlider() {
             </p>
           </div>
           <div className="flex shrink-0 flex-wrap items-center gap-3">
-            <Link
-              href="/articles"
-              className="link-underline text-sm font-semibold text-teal"
-            >
-              View all articles
-            </Link>
+            <Button variant="secondary" size="sm" asChild className="hover:translate-y-0">
+              <Link href="/articles">
+                View all articles
+                <ArrowRight className="size-4" aria-hidden />
+              </Link>
+            </Button>
             <button
               type="button"
               onClick={() => go(index - 1)}

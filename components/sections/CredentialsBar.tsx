@@ -89,7 +89,7 @@ export function CredentialsBar() {
                   type="button"
                   onClick={() => setActive(i)}
                   className="group focus-ring relative block w-full overflow-hidden rounded-[22px] text-left shadow-[0_16px_40px_rgba(10,30,50,0.12)] transition-all duration-500 ease-out hover:-translate-y-1.5 hover:shadow-[0_28px_60px_rgba(10,30,50,0.2)]"
-                  aria-label={`Play video: ${item.label}`}
+                  aria-label={`View ${item.label}`}
                 >
                   <span className="relative block aspect-[16/10] overflow-hidden bg-navy">
                     {!showVideo && (
@@ -117,9 +117,6 @@ export function CredentialsBar() {
                       )}
                       aria-hidden
                     />
-                    <span className="absolute left-1/2 top-[38%] flex size-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/95 text-[#ff0033] shadow-[0_10px_30px_rgba(0,0,0,0.28)] transition-all duration-500 ease-out group-hover:scale-110 group-hover:bg-[#ff0033] group-hover:text-white">
-                      <Play className="ml-0.5 size-6 fill-current" aria-hidden />
-                    </span>
                     <span className="absolute inset-x-0 bottom-0 px-4 pb-5 text-center sm:pb-6">
                       <span className="block font-heading text-4xl font-bold tracking-tight text-white sm:text-5xl">
                         {figure}

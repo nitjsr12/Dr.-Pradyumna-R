@@ -23,6 +23,10 @@ export default function HomePage() {
       <AchievementsSection />
       <ExpertiseGrid />
       <SportsMedicineFeature />
+      <div
+        className="bg-bg-warm py-10 md:py-12 lg:py-16"
+        aria-hidden
+      />
       <WhenToConsult />
       <BlogSlider />
       <ConsultationCTA />

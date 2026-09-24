@@ -21,15 +21,23 @@ export default function AboutPage() {
         ])}
       />
       <PageHero
+        variant="mesh"
         label="About"
         title={
           <>
             Meet <span className="text-accent">Dr. Pradyumna R</span>
           </>
         }
-        description={doctor.descriptor + " · " + doctor.city}
+        description={
+          "Consultant — arthroscopy, knee & shoulder surgery, robotic joint replacement and sports medicine · " +
+          doctor.city
+        }
       />
       <AboutPageContent />
+      <div
+        className="bg-bg-warm py-10 md:py-12 lg:py-16"
+        aria-hidden
+      />
       <ConsultationCTA />
     </>
   );

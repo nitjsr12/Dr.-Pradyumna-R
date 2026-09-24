@@ -205,7 +205,7 @@ export function AchievementsSection() {
         </AnimatePresence>
       </div>
 
-      <Container className="pb-12 pt-2 lg:pb-16">
+      <Container className="pb-14 pt-2 lg:pb-20">
         <div className="h-px bg-white/10" aria-hidden />
         <div className="mt-5 flex gap-6 overflow-x-auto" role="tablist" aria-label="Credential slides">
           {slides.map((item, itemIndex) => {

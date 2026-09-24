@@ -4,7 +4,7 @@ import { doctor } from "@/data/doctor";
 
 export function Footer() {
   return (
-    <footer className="surface-dark relative bg-navy-deep pt-16 pb-[calc(4rem+env(safe-area-inset-bottom))] md:pb-14">
+    <footer className="surface-dark relative bg-navy-deep pt-20 pb-[calc(4rem+env(safe-area-inset-bottom))] md:pt-24 md:pb-14">
       <div
         className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-teal-bright/40 to-transparent"
         aria-hidden
