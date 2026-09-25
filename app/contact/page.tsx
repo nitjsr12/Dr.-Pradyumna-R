@@ -12,6 +12,7 @@ export default function ContactPage() {
   return (
     <>
       <PageHero
+        variant="dark"
         label="Contact"
         title={
           <>
@@ -19,6 +20,7 @@ export default function ContactPage() {
             <span className="text-accent">conversation.</span>
           </>
         }
+        description="Clinic line, hospital location and enquiry form — we’ll guide you to the right next step."
       />
       <ContactPageContent />
     </>

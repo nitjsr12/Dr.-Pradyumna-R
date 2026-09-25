@@ -31,7 +31,7 @@ export function AboutProfileSection() {
 
   return (
     <section
-      className="relative overflow-hidden bg-gradient-to-b from-bg-warm via-mint/20 to-bg-warm py-14 md:py-20 lg:py-24"
+      className="relative overflow-hidden bg-gradient-to-b from-bg-warm via-mint/20 to-bg-warm py-10 md:py-14 lg:py-16"
       aria-roledescription="carousel"
       aria-label="Doctor profile"
       onMouseEnter={() => setPaused(true)}

@@ -10,26 +10,29 @@ import { FadeIn, Stagger, StaggerChild } from "@/components/animations/Reveal";
 const steps: ApproachStep[] = [
   {
     n: "01",
-    title: "UNDERSTAND",
-    text: "A clear clinical assessment of your symptoms, movement and condition, with straightforward answers about your diagnosis and treatment options.",
+    title: "CLARITY FIRST",
+    subtitle: "Understand",
+    text: "Every consultation begins with a thorough examination, a careful look at your scans, and a plain-language explanation of what's really behind your knee pain, shoulder pain or sports injury. No jargon, no rushing.",
     icon: "activity",
     image: "/images/hero/slide-doctor.jpg",
     imagePosition: "object-[center_18%]",
   },
   {
     n: "02",
-    title: "PLAN",
-    text: "From shoulder and knee conditions to ankle injuries, treatment is guided by your clinical needs, goals and recovery — not a one-size-fits-all approach.",
+    title: "CARE THAT FITS",
+    subtitle: "Plan",
+    text: "Surgery is never the default. Your plan may be physiotherapy, PRP therapy, keyhole (arthroscopic) repair or robotic knee replacement, chosen for your body, your goals and your recovery. Never one-size-fits-all.",
     icon: "badge",
     image: "/images/hero/slide-movement.jpg",
     imagePosition: "object-[68%_center]",
   },
   {
     n: "03",
-    title: "MOVE FORWARD",
-    text: "Focused care to restore movement, improve function and support your return to the activities, sport and everyday life you value.",
+    title: "BACK IN THE GAME",
+    subtitle: "Move Forward",
+    text: "Structured rehab and close follow-ups guide every step, whether you're a runner returning after ACL reconstruction or a parent who wants to climb stairs pain-free again. The goal: movement you can trust.",
     icon: "award",
-    image: "/images/hero/slide-sports.jpg",
+    image: "/images/expertise/sports-medicine.webp",
     imagePosition: "object-center",
   },
 ];
@@ -46,16 +49,16 @@ export function ApproachSection() {
       />
       <Container className="relative">
         <FadeIn className="max-w-2xl">
-          <p className="label-caps">The approach</p>
+          <p className="label-caps">The Pradyumna approach</p>
           <h2 id="approach-heading" className="title-section mt-5 text-balance">
             Care that looks{" "}
             <span className="text-accent">beyond the pain.</span>
           </h2>
           <p className="text-body mt-6 max-w-xl lg:mt-7">
-            Orthopaedic and sports medicine care is about more than treating
-            symptoms. It’s about understanding how a shoulder, knee or ankle
-            condition affects the way you move, work, play and live, then
-            building care around your individual needs.
+            An X-ray shows the injury. It doesn&apos;t show the morning run you&apos;ve given up,
+            the stairs you now dread, or the shoulder that wakes you at night. As an orthopaedic
+            and sports medicine specialist in Bangalore, Dr. Pradyumna R treats the whole picture,
+            building every plan around how you want to move, work, play and live.
           </p>
         </FadeIn>
 

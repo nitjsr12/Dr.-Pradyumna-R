@@ -82,7 +82,7 @@ export function GoogleReviews() {
 
   return (
     <section
-      className="relative overflow-hidden bg-bg-warm py-14 md:py-16 lg:py-20"
+      className="relative overflow-hidden bg-bg-warm py-10 md:py-12 lg:py-14"
       aria-roledescription="carousel"
       aria-label="Testimonials"
       onMouseEnter={() => setPaused(true)}

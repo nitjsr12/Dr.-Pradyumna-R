@@ -35,7 +35,7 @@ export default function AboutPage() {
       />
       <AboutPageContent />
       <div
-        className="bg-bg-warm py-10 md:py-12 lg:py-16"
+        className="bg-bg-warm py-5 md:py-6 lg:py-8"
         aria-hidden
       />
       <ConsultationCTA />

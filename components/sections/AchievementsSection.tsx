@@ -6,70 +6,30 @@ import {
   BookOpen,
   Globe2,
   GraduationCap,
+  Handshake,
   Languages,
-  ShieldCheck,
 } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { doctor } from "@/data/doctor";
+import { credentialsSlides } from "@/data/credentials-slides";
 import { Container } from "@/components/ui/Container";
 import { cn } from "@/lib/utils";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 const SLIDE_MS = 5600;
 
-type IconType = ComponentType<{ className?: string; strokeWidth?: number; "aria-hidden"?: boolean }>;
+type IconType = ComponentType<{
+  className?: string;
+  strokeWidth?: number;
+  "aria-hidden"?: boolean;
+}>;
 
-const slides = [
-  {
-    id: "qualifications",
-    title: "Qualifications",
-    icon: GraduationCap,
-    image: "/images/hero/slide-doctor.jpg",
-    imagePosition: "object-[22%_center]",
-    items: doctor.qualifications,
-    layout: "list",
-  },
-  {
-    id: "fellowships",
-    title: "Fellowships & Advanced Training",
-    lead: "Specialised training. International exposure. Focused expertise.",
-    icon: Globe2,
-    image: "/images/hero/slide-movement.jpg",
-    imagePosition: "object-[74%_center]",
-    items: doctor.fellowships,
-    layout: "list",
-  },
-  {
-    id: "memberships",
-    title: "Professional Memberships",
-    lead: "Connected to the wider orthopaedic community.",
-    icon: ShieldCheck,
-    image: "/images/hero/slide-sports.jpg",
-    imagePosition: "object-center",
-    items: doctor.memberships,
-    layout: "line",
-  },
-  {
-    id: "languages",
-    title: "Languages",
-    lead: "Clear communication. Personalised care.",
-    icon: Languages,
-    image: "/images/hero/slide-precision.jpg",
-    imagePosition: "object-[30%_center]",
-    items: doctor.languages,
-    layout: "line",
-  },
-  {
-    id: "research",
-    title: "Research & Publications",
-    lead: "A practice shaped by clinical learning and research.",
-    icon: BookOpen,
-    image: "/images/hero/slide-movement.jpg",
-    imagePosition: "object-[18%_center]",
-    items: doctor.publicationsSummary,
-    layout: "list",
-  },
-] as const;
+const slideIcons: Record<(typeof credentialsSlides)[number]["id"], IconType> = {
+  qualifications: GraduationCap,
+  fellowships: Globe2,
+  memberships: Handshake,
+  languages: Languages,
+  research: BookOpen,
+};
 
 function SlideImage({
   src,
@@ -105,11 +65,16 @@ function SlideImage({
       ) : (
         <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-teal/80 via-navy to-navy-deep px-8 text-center text-white">
           <Icon className="size-10 text-teal-bright" strokeWidth={1.5} aria-hidden />
-          <p className="mt-5 text-[11px] font-bold tracking-[0.18em] text-teal-bright">IMAGE PLACEHOLDER</p>
+          <p className="mt-5 text-[11px] font-bold tracking-[0.18em] text-teal-bright">
+            IMAGE PLACEHOLDER
+          </p>
           <p className="mt-2 text-sm text-white/70">{label}</p>
         </div>
       )}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-navy/30 lg:to-navy" aria-hidden />
+      <div
+        className="pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-navy/30 lg:to-navy"
+        aria-hidden
+      />
     </div>
   );
 }
@@ -118,13 +83,13 @@ export function AchievementsSection() {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const reduce = useReducedMotion();
-  const slide = slides[index];
-  const Icon = slide.icon;
+  const slide = credentialsSlides[index];
+  const Icon = slideIcons[slide.id];
 
   useEffect(() => {
     if (reduce || paused) return;
     const id = window.setTimeout(() => {
-      setIndex((current) => (current + 1) % slides.length);
+      setIndex((current) => (current + 1) % credentialsSlides.length);
     }, SLIDE_MS);
     return () => window.clearTimeout(id);
   }, [reduce, paused, index]);
@@ -143,7 +108,7 @@ export function AchievementsSection() {
         }
       }}
     >
-      <Container className="relative pt-16 md:pt-20 lg:pt-24">
+      <Container className="relative pt-10 md:pt-14 lg:pt-16">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-xl">
             <p className="label-caps-on-dark">Credentials</p>
@@ -154,7 +119,7 @@ export function AchievementsSection() {
           </div>
           <p className="font-heading text-sm font-semibold tabular-nums tracking-[0.18em] text-white/80">
             <span className="text-teal-bright">{String(index + 1).padStart(2, "0")}</span>
-            <span> / {String(slides.length).padStart(2, "0")}</span>
+            <span> / {String(credentialsSlides.length).padStart(2, "0")}</span>
           </p>
         </div>
       </Container>
@@ -183,32 +148,31 @@ export function AchievementsSection() {
               <h3 className="mt-5 font-heading text-3xl font-bold tracking-tight !text-white sm:text-4xl">
                 {slide.title}
               </h3>
-              {"lead" in slide && (
-                <p className="mt-4 max-w-lg text-base font-medium text-teal-bright">{slide.lead}</p>
-              )}
-              {slide.layout === "line" ? (
-                <p className="mt-8 max-w-lg text-lg leading-relaxed text-white">
-                  {slide.items.join("   ·   ")}
-                </p>
-              ) : (
-                <ul className="mt-8 max-w-lg space-y-3">
-                  {slide.items.map((line) => (
-                    <li key={line} className="flex gap-3 text-[15px] leading-relaxed text-white">
-                      <span className="mt-2 size-1.5 shrink-0 rounded-full bg-teal-bright" aria-hidden />
-                      <span>{line}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
+              <p className="mt-4 max-w-lg text-base font-medium text-teal-bright">{slide.intro}</p>
+              <ul className="mt-8 max-w-lg space-y-3">
+                {slide.items.map((line) => (
+                  <li key={line} className="flex gap-3 text-[15px] leading-relaxed text-white">
+                    <span
+                      className="mt-2 size-1.5 shrink-0 rounded-full bg-teal-bright"
+                      aria-hidden
+                    />
+                    <span>{line}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </motion.div>
         </AnimatePresence>
       </div>
 
-      <Container className="pb-14 pt-2 lg:pb-20">
+      <Container className="pb-10 pt-2 lg:pb-14">
         <div className="h-px bg-white/10" aria-hidden />
-        <div className="mt-5 flex gap-6 overflow-x-auto" role="tablist" aria-label="Credential slides">
-          {slides.map((item, itemIndex) => {
+        <div
+          className="mt-5 flex gap-6 overflow-x-auto"
+          role="tablist"
+          aria-label="Credential slides"
+        >
+          {credentialsSlides.map((item, itemIndex) => {
             const selected = itemIndex === index;
             return (
               <button
@@ -249,9 +213,18 @@ export function AchievementsSection() {
             );
           })}
         </div>
-        <p className="mt-6 text-xs leading-relaxed text-white/75">
-          {doctor.experienceNote} Source: official Manipal Hospitals doctor profile.
-        </p>
+        <AnimatePresence mode="wait">
+          <motion.p
+            key={slide.id}
+            className="mt-6 max-w-3xl text-sm leading-relaxed text-white/75"
+            initial={reduce ? false : { opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={reduce ? undefined : { opacity: 0, y: -6 }}
+            transition={{ duration: 0.35, ease }}
+          >
+            {slide.caption}
+          </motion.p>
+        </AnimatePresence>
       </Container>
     </section>
   );

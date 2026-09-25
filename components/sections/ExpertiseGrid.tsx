@@ -41,7 +41,7 @@ export function ExpertiseGrid() {
 
   return (
     <section
-      className="overflow-hidden bg-bg-warm py-16 md:py-20 lg:py-24"
+      className="overflow-hidden bg-bg-warm py-10 md:py-14 lg:py-16"
       aria-roledescription="carousel"
       aria-label="Areas of expertise"
       onMouseEnter={() => setPaused(true)}
@@ -105,11 +105,7 @@ export function ExpertiseGrid() {
               </div>
 
               <div className="lg:col-span-6">
-                <p className="text-sm font-bold tabular-nums tracking-[0.16em] text-teal">
-                  {item.number}
-                  <span className="ml-2 text-navy/35">/ {String(count).padStart(2, "0")}</span>
-                </p>
-                <h3 className="mt-3 font-heading text-3xl font-bold tracking-tight text-navy sm:text-4xl">
+                <h3 className="font-heading text-3xl font-bold tracking-tight text-navy sm:text-4xl">
                   {item.title}
                 </h3>
                 {item.kicker && (

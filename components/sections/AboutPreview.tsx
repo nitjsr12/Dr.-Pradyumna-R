@@ -31,7 +31,7 @@ export function AboutPreview() {
             <div className="relative aspect-[4/5] overflow-hidden rounded-[29px] bg-navy">
               <Image
                 src="/images/hero/slide-movement.jpg"
-                alt="Dr. Pradyumna R with the clinical team"
+                alt="Dr. Pradyumna R, orthopaedic surgeon and sports medicine specialist in Bangalore"
                 fill
                 quality={90}
                 sizes="(max-width: 1024px) 92vw, 480px"
@@ -55,13 +55,16 @@ export function AboutPreview() {
         </div>
 
         <FadeIn className="lg:col-span-7">
-          <p className="label-caps">About Dr. Pradyumna R</p>
+          <p className="label-caps">Meet your surgeon</p>
           <h2 className="title-section mt-5 text-balance">
-            Specialist care.{" "}
-            <span className="text-accent">Focused on movement.</span>
+            <span className="block">Trained in Munich &amp; Seoul.</span>
+            <span className="block text-accent">Trusted in Bangalore.</span>
           </h2>
-          <p className="text-body mt-6">{doctor.overview}</p>
-          <p className="text-body mt-4">{doctor.approach}</p>
+          <p className="text-body mt-6 max-w-xl">
+            13+ years, three international fellowships and thousands of keyhole surgeries later,
+            one belief still drives Dr. Pradyumna R: every patient deserves world-class orthopaedic
+            care, explained simply and delivered with heart.
+          </p>
           <Link
             href="/about"
             className="group link-underline focus-ring mt-10 inline-flex items-center gap-2 text-sm font-semibold text-navy"

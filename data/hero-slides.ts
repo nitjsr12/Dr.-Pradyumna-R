@@ -1,3 +1,5 @@
+import { bookAppointmentUrl } from "@/lib/whatsapp";
+
 /**
  * Homepage hero slides.
  * Images are local, higher-resolution crops so the slider does not upscale a tiny region.
@@ -22,58 +24,59 @@ export type HeroSlide = {
 
 export const heroSlides: HeroSlide[] = [
   {
-    id: "movement",
-    eyebrow: "ORTHOPAEDICS • SPORTS MEDICINE",
+    id: "precision",
+    eyebrow: "ORTHOPEDIC SURGEON IN BANGALORE • SPORTS MEDICINE",
     headline: [
       { text: "Move Better." },
       { text: "Recover Stronger." },
       { text: "Live Fully.", accent: true },
     ],
     description:
-      "Personalised orthopaedic and sports medicine care for shoulder, knee and ankle conditions, guided by detailed clinical assessment and focused on restoring movement, supporting recovery and helping you return to the activities that matter most.",
+      "Dr. Pradyumna R is a fellowship-trained orthopedic surgeon in Bangalore, trained in Munich, Seoul and under ISAKOS. With 2,000+ shoulder and 2,000+ knee arthroscopies, he treats ACL, meniscus, rotator cuff and sports injuries through keyhole surgery, so you can return to the activities that matter most.",
     image: "/images/hero/slide-movement.jpg",
-    imageAlt: "Dr. Pradyumna R with the clinical team",
+    imageAlt: "Keyhole orthopaedic surgery in progress",
     imagePosition: "right",
     video: { type: "file", src: "/videos/hero-sports.mp4" },
-    tagLabel: "SPORTS MEDICINE",
-    tagSublabel: "ORTHOPAEDICS",
-    primaryCta: { label: "Book a Consultation", href: "/book-appointment" },
-    secondaryCta: { label: "Explore Expertise", href: "/expertise" },
+    tagLabel: "KEYHOLE SURGERY",
+    tagSublabel: "ACL • MENISCUS • ROTATOR CUFF",
+    primaryCta: { label: "Book a Consultation", href: bookAppointmentUrl },
+    secondaryCta: { label: "Explore Treatments", href: "/treatments" },
   },
   {
-    id: "sports-medicine",
-    eyebrow: "SPORTS MEDICINE • BENGALURU",
+    id: "recovery",
+    eyebrow: "ROBOTIC KNEE REPLACEMENT • JOINT CARE",
     headline: [
-      { text: "Built Around" },
-      { text: "Your Movement.", accent: true },
+      { text: "Back on Your Feet." },
+      { text: "Step by Step.", accent: true },
     ],
     description:
-      "Personalised sports medicine care for shoulder, knee and ankle conditions, from expert injury assessment and treatment to a confident return to activity.",
+      "Joint specialist care in Bangalore for knee arthritis and damaged joints, including MAKO robotic knee replacement for precise implant alignment and 100+ shoulder replacements performed. Recovery is planned from day one, with assisted walking and physiotherapy paced around your age, health and lifestyle.",
     image: "/images/hero/slide-sports.jpg",
-    imageAlt: "Athlete during sport, illustrating a return to activity",
+    imageAlt: "Patient recovery and assisted walking after joint care",
     imagePosition: "center",
     video: { type: "file", src: "/videos/hero-movement.mp4" },
-    tagLabel: "ASSESS • TREAT • RECOVER",
-    primaryCta: { label: "Sports Medicine", href: "/sports-medicine" },
-    secondaryCta: { label: "Book a Consultation", href: "/book-appointment" },
+    tagLabel: "ROBOTIC KNEE REPLACEMENT",
+    tagSublabel: "ASSESS • TREAT • RECOVER",
+    primaryCta: { label: "Book a Consultation", href: bookAppointmentUrl },
+    secondaryCta: { label: "Knee Replacement & Costs", href: "/treatments" },
   },
   {
-    id: "musculoskeletal",
-    eyebrow: "SHOULDER • KNEE • ANKLE",
+    id: "your-doctor",
+    eyebrow: "OUTLOOK HEALTH AWARDS 2024 & 2025",
     headline: [
-      { text: "Precision in" },
-      { text: "Musculoskeletal Care.", accent: true },
+      { text: "Surgery Only" },
+      { text: "When You Need It.", accent: true },
     ],
     description:
-      "Expert orthopaedic care for shoulder, knee and ankle conditions, with every treatment plan guided by detailed clinical assessment and individual needs.",
+      "Not every joint problem needs an operation. Dr. Pradyumna starts with a detailed assessment, explains your diagnosis clearly, and where suitable offers non-surgical care like PRP therapy and physiotherapy. Consult him at Manipal Hospitals, Kanakapura Road or Jayanagar, in English, Kannada, Hindi, Telugu or Tamil.",
     image: "/images/hero/slide-doctor.jpg",
-    imageAlt: "Dr. Pradyumna R in clinical scrubs",
+    imageAlt: "Dr. Pradyumna R speaking with a patient",
     imagePosition: "center",
     video: { type: "file", src: "/videos/hero-musculoskeletal.mp4" },
-    tagLabel: "ORTHOPAEDICS",
-    tagSublabel: "PATIENT-CENTRED",
-    primaryCta: { label: "Book a Consultation", href: "/book-appointment" },
-    secondaryCta: { label: "Gallery", href: "/gallery" },
+    tagLabel: "DR. PRADYUMNA R",
+    tagSublabel: "FIFA DIPLOMA • ISAKOS FELLOW",
+    primaryCta: { label: "Book a Consultation", href: bookAppointmentUrl },
+    secondaryCta: { label: "Meet Dr. Pradyumna", href: "/about" },
   },
 ];
 

@@ -16,7 +16,7 @@ export default function SportsMedicinePage() {
   return (
     <>
       <div className="surface-dark relative overflow-hidden bg-navy pt-[4.75rem] mesh-navy pattern-dots-dark lg:pt-[5.5rem]">
-        <Container className="relative py-14 md:py-20">
+        <Container className="relative py-10 md:py-14">
           <p className="label-caps-on-dark">Sports medicine</p>
           <h1 className="title-page mt-5 max-w-3xl text-balance text-white">
             Movement is part of the{" "}

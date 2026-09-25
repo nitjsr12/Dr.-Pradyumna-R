@@ -109,7 +109,14 @@ export function BookingWizard() {
             </Link>
           </Button>
           <p className="text-xs text-muted-light">
-            Architecture supports Calendly, custom API or other providers later.
+            Prefer to speak first? Call{" "}
+            <a
+              href={`tel:+91${doctor.booking.clinicPhone}`}
+              className="font-semibold text-teal hover:underline"
+            >
+              {doctor.booking.clinicPhoneDisplay}
+            </a>
+            .
           </p>
           <Button
             type="button"

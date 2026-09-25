@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { BookAppointmentLink } from "@/components/layout/BookAppointmentLink";
 import {
   Building2,
   Calendar,
@@ -13,19 +14,39 @@ import { ContactForm } from "@/components/contact/ContactForm";
 import { Container } from "@/components/ui/Container";
 import { FadeIn, Stagger, StaggerChild } from "@/components/animations/Reveal";
 
+const clinicTel = `+91${doctor.booking.clinicPhone}`;
+
 const info = [
+  {
+    icon: Phone,
+    title: "Clinic line",
+    body: (
+      <>
+        <a
+          href={`tel:${clinicTel}`}
+          className="text-lg font-bold text-navy hover:text-teal"
+        >
+          {doctor.booking.clinicPhoneDisplay}
+        </a>
+        <span className="mt-2 block text-sm text-muted-light">
+          Hospital desk {doctor.booking.hospitalLine} · Central{" "}
+          <a
+            href={`tel:${doctor.booking.centralPhone.replace(/\s/g, "")}`}
+            className="font-semibold text-teal hover:underline"
+          >
+            {doctor.booking.centralPhone}
+          </a>
+        </span>
+      </>
+    ),
+  },
   {
     icon: Calendar,
     title: "Consultation",
     body: (
       <>
-        Book via the official Manipal Hospitals profile or central line:{" "}
-        <a
-          href={`tel:${doctor.booking.centralPhone.replace(/\s/g, "")}`}
-          className="font-semibold text-teal hover:underline"
-        >
-          {doctor.booking.centralPhone}
-        </a>
+        Book via this site, the official Manipal Hospitals profile, or call the clinic line
+        above.
       </>
     ),
   },
@@ -80,13 +101,10 @@ export function ContactPageContent() {
             Official hospital profile
             <ExternalLink className="size-4" />
           </Link>
-          <Link
-            href="/book-appointment"
-            className="focus-ring mt-4 flex items-center gap-2 text-sm font-semibold text-navy hover:text-teal"
-          >
+          <BookAppointmentLink className="focus-ring mt-4 flex items-center gap-2 text-sm font-semibold text-navy hover:text-teal">
             <Phone className="size-4" />
-            Book appointment →
-          </Link>
+            Book appointment on WhatsApp →
+          </BookAppointmentLink>
         </FadeIn>
       </Stagger>
       <FadeIn delay={0.1}>

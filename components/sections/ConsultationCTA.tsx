@@ -2,111 +2,235 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { BookAppointmentLink } from "@/components/layout/BookAppointmentLink";
+import { bookAppointmentUrl } from "@/lib/whatsapp";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowUpRight, MapPin, Phone } from "lucide-react";
+import {
+  ArrowUpRight,
+  Calendar,
+  MapPin,
+  Navigation,
+  Phone,
+} from "lucide-react";
 import { doctor } from "@/data/doctor";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 const ease = [0.22, 1, 0.36, 1] as const;
+
+const clinicTel = `+91${doctor.booking.clinicPhone}`;
+const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(doctor.booking.mapsQuery)}`;
+
+function QuickAction({
+  href,
+  external,
+  icon: Icon,
+  label,
+  sub,
+  highlight,
+}: {
+  href: string;
+  external?: boolean;
+  icon: typeof Phone;
+  label: string;
+  sub: string;
+  highlight?: boolean;
+}) {
+  const className = cn(
+    "focus-ring group flex flex-col gap-2 rounded-2xl border p-4 transition-all duration-300",
+    highlight
+      ? "border-teal-bright/40 bg-teal-bright/15 hover:border-teal-bright/60 hover:bg-teal-bright/20"
+      : "border-white/12 bg-white/[0.07] hover:border-white/25 hover:bg-white/10"
+  );
+
+  const inner = (
+    <>
+      <span
+        className={cn(
+          "flex size-10 items-center justify-center rounded-xl",
+          highlight ? "bg-teal-bright text-navy" : "bg-white/10 text-teal-bright"
+        )}
+      >
+        <Icon className="size-5" aria-hidden />
+      </span>
+      <span>
+        <span className="block text-sm font-bold text-white">{label}</span>
+        <span className="mt-0.5 block text-xs leading-snug text-white/65 group-hover:text-white/80">
+          {sub}
+        </span>
+      </span>
+    </>
+  );
+
+  if (external) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" className={className}>
+        {inner}
+      </a>
+    );
+  }
+
+  return (
+    <Link href={href} className={className}>
+      {inner}
+    </Link>
+  );
+}
 
 export function ConsultationCTA() {
   const reduce = useReducedMotion();
 
   return (
-    <section className="relative overflow-hidden bg-navy">
-      <motion.div
-        className="absolute inset-0"
-        initial={false}
-        animate={reduce ? undefined : { scale: [1, 1.06, 1] }}
-        transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
-        aria-hidden
-      >
+    <section className="relative overflow-hidden bg-navy-deep" aria-labelledby="consult-cta-heading">
+      <div className="absolute inset-0" aria-hidden>
         <Image
-          src="/images/hero/slide-movement.jpg"
+          src="/images/hero/slide-doctor.jpg"
           alt=""
           fill
           quality={90}
           sizes="100vw"
-          className="object-cover object-[72%_center]"
+          className="object-cover object-[55%_20%] opacity-35 mix-blend-luminosity"
         />
-      </motion.div>
-      <div
-        className="absolute inset-0 bg-gradient-to-r from-navy via-navy/92 to-navy/55 lg:from-navy lg:via-navy/88 lg:to-transparent"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute -left-24 top-1/4 size-96 rounded-full bg-teal-bright/25 blur-3xl"
-        style={reduce ? undefined : { animation: "hero-drift 16s ease-in-out infinite" }}
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute -right-16 bottom-0 size-80 rounded-full bg-gold/20 blur-3xl"
-        style={reduce ? undefined : { animation: "hero-drift-alt 18s ease-in-out infinite" }}
-        aria-hidden
-      />
-      <div className="pattern-dots-dark pointer-events-none absolute inset-0 opacity-25" aria-hidden />
+        <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy/95 to-navy/80" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_20%_50%,rgba(45,212,191,0.18),transparent_55%)]" />
+      </div>
 
-      <Container className="relative py-16 md:py-20 lg:py-24">
-        <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
+      <div
+        className="pointer-events-none absolute -left-32 top-0 size-[28rem] rounded-full bg-teal-bright/20 blur-3xl"
+        style={reduce ? undefined : { animation: "hero-drift 20s ease-in-out infinite" }}
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute -right-24 bottom-0 size-96 rounded-full bg-gold/15 blur-3xl"
+        style={reduce ? undefined : { animation: "hero-drift-alt 22s ease-in-out infinite" }}
+        aria-hidden
+      />
+      <div className="pattern-dots-dark pointer-events-none absolute inset-0 opacity-20" aria-hidden />
+
+      <Container className="relative py-12 md:py-16 lg:py-20">
+        <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-14 xl:gap-20">
           <motion.div
-            className="lg:col-span-7"
-            initial={reduce ? false : { opacity: 0, y: 24 }}
+            className="lg:col-span-6 xl:col-span-7"
+            initial={reduce ? false : { opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.55, ease }}
           >
-            <p className="label-caps-on-dark">Your health, your questions</p>
-            <h2 className="title-section mt-5 max-w-xl text-balance !text-white">
-              Start with a <span className="text-teal-bright">conversation.</span>
+            <p className="label-caps-on-dark">Your recovery starts here</p>
+            <h2
+              id="consult-cta-heading"
+              className="title-section mt-5 max-w-xl text-balance !text-white"
+            >
+              Your first step{" "}
+              <span className="text-teal-bright">back to movement.</span>
             </h2>
-            <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-white lg:text-base">
-              Whether you’re experiencing persistent joint pain, recovering from a sports injury or
-              seeking clarity about an orthopaedic condition, a consultation is an opportunity to
-              understand what’s happening and discuss the appropriate next steps.
+            <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-white/80 lg:text-base">
+              Whether it&apos;s joint pain that won&apos;t settle, a sports injury holding you
+              back, or a surgery decision you&apos;re unsure about, one honest conversation can
+              change everything. Meet Dr. Pradyumna R, orthopedic doctor on Kanakapura Road, for
+              a clear diagnosis and a treatment plan built around your life.
             </p>
+
             <div className="mt-10 flex flex-wrap gap-3">
-              <Button asChild size="lg" variant="teal" className="shadow-lg shadow-teal/25">
-                <Link href="/book-appointment">
+              <Button asChild size="lg" variant="teal" className="shadow-lg shadow-teal/30">
+                <BookAppointmentLink>
                   Book a Consultation
                   <ArrowUpRight className="opacity-90" />
-                </Link>
+                </BookAppointmentLink>
               </Button>
               <Button asChild size="lg" variant="outlineLight">
-                <Link href="/contact">Contact the Clinic</Link>
+                <a href={`tel:${clinicTel}`} aria-label={`Talk to the clinic — ${doctor.booking.clinicPhoneDisplay}`}>
+                  <Phone className="size-4" aria-hidden />
+                  Talk to the Clinic
+                </a>
               </Button>
             </div>
           </motion.div>
 
           <motion.div
-            className="grid gap-4 sm:grid-cols-2 lg:col-span-5 lg:grid-cols-1"
-            initial={reduce ? false : { opacity: 0, y: 28 }}
+            className="lg:col-span-6 xl:col-span-5"
+            initial={reduce ? false : { opacity: 0, y: 32 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.55, delay: 0.1, ease }}
+            transition={{ duration: 0.55, delay: 0.08, ease }}
           >
-            <div className="rounded-[24px] border border-white/15 bg-white/10 p-5 backdrop-blur-md">
-              <span className="flex size-10 items-center justify-center rounded-xl bg-teal-bright/20 text-teal-bright">
-                <MapPin className="size-5" aria-hidden />
-              </span>
-              <p className="mt-4 text-sm font-bold text-white">{doctor.affiliation.name}</p>
-              <p className="mt-2 text-sm leading-relaxed text-white/75">{doctor.city}</p>
-              <p className="mt-1 text-xs text-teal-bright">{doctor.address.landmark}</p>
+            <div className="relative mx-auto max-w-md lg:max-w-none">
+              <div
+                className="absolute -inset-1 rounded-[28px] bg-gradient-to-br from-teal-bright/50 via-white/10 to-gold/30 opacity-80 blur-sm"
+                aria-hidden
+              />
+              <div className="relative overflow-hidden rounded-[26px] border border-white/15 bg-navy/40 shadow-2xl backdrop-blur-sm">
+                <div className="relative aspect-[4/5] max-h-[420px] w-full sm:max-h-none">
+                  <Image
+                    src="/images/hero/slide-doctor.jpg"
+                    alt=""
+                    fill
+                    quality={90}
+                    sizes="(max-width: 1024px) 400px, 480px"
+                    className="object-cover object-[50%_15%]"
+                  />
+                  <div
+                    className="absolute inset-0 bg-gradient-to-t from-navy via-navy/20 to-transparent"
+                    aria-hidden
+                  />
+                  <div className="absolute bottom-0 inset-x-0 p-5 sm:p-6">
+                    <div className="rounded-2xl border border-white/15 bg-navy/75 p-4 backdrop-blur-md sm:p-5">
+                      <div className="flex items-start gap-3">
+                        <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-teal-bright/20 text-teal-bright">
+                          <MapPin className="size-5" aria-hidden />
+                        </span>
+                        <div className="min-w-0">
+                          <p className="text-sm font-bold text-white">{doctor.affiliation.name}</p>
+                          <p className="mt-1 text-sm text-white/75">{doctor.city}</p>
+                          <p className="mt-1 text-xs font-medium text-teal-bright">
+                            Near {doctor.address.landmark}
+                          </p>
+                        </div>
+                      </div>
+                      <div className="mt-4 border-t border-white/10 pt-4">
+                        <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-white/50">
+                          Clinic line
+                        </p>
+                        <a
+                          href={`tel:${clinicTel}`}
+                          className="focus-ring mt-1 inline-flex items-baseline gap-2 text-2xl font-bold tracking-tight text-teal-bright hover:text-white"
+                        >
+                          {doctor.booking.clinicPhoneDisplay}
+                        </a>
+                        <p className="mt-2 text-xs leading-relaxed text-white/55">
+                          Hospital desk {doctor.booking.hospitalLine} · Manipal central{" "}
+                          {doctor.booking.centralPhone}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="rounded-[24px] border border-white/15 bg-white/10 p-5 backdrop-blur-md">
-              <span className="flex size-10 items-center justify-center rounded-xl bg-teal-bright/20 text-teal-bright">
-                <Phone className="size-5" aria-hidden />
-              </span>
-              <p className="mt-4 text-sm font-bold text-white">Clinic line</p>
-              <a
-                href={`tel:${doctor.booking.hospitalLine.replace(/\s/g, "")}`}
-                className="focus-ring mt-2 inline-block text-lg font-semibold text-teal-bright hover:text-white"
-              >
-                {doctor.booking.hospitalLine}
-              </a>
-              <p className="mt-3 text-xs leading-relaxed text-white/65">
-                Manipal Hospitals central: {doctor.booking.centralPhone}
-              </p>
+
+            <div className="mt-5 grid gap-3 sm:grid-cols-3">
+              <QuickAction
+                href={`tel:${clinicTel}`}
+                icon={Phone}
+                label="Call now"
+                sub={doctor.booking.clinicPhoneDisplay}
+                highlight
+              />
+              <QuickAction
+                href={bookAppointmentUrl}
+                external
+                icon={Calendar}
+                label="Book on WhatsApp"
+                sub="Consultation request"
+              />
+              <QuickAction
+                href={mapsHref}
+                external
+                icon={Navigation}
+                label="Directions"
+                sub="Open in Maps"
+              />
             </div>
           </motion.div>
         </div>

@@ -29,7 +29,7 @@ export function PageHero({
         className
       )}
     >
-      <Container className="relative pb-12 pt-8 lg:pb-14 lg:pt-10">
+      <Container className="relative pb-8 pt-8 lg:pb-10 lg:pt-10">
         {label && (
           <p className={cn(isDark ? "label-caps-on-dark" : "label-caps")}>
             {label}

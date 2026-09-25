@@ -11,7 +11,41 @@ import {
   HERO_SLIDE_INTERVAL_MS,
   type HeroSlide,
 } from "@/data/hero-slides";
+import { doctor } from "@/data/doctor";
 import { cn } from "@/lib/utils";
+import { isExternalHref } from "@/lib/whatsapp";
+import type { ReactNode } from "react";
+
+function SlideCtaLink({
+  href,
+  children,
+  className,
+  tabIndex,
+}: {
+  href: string;
+  children: ReactNode;
+  className?: string;
+  tabIndex?: number;
+}) {
+  if (isExternalHref(href)) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={className}
+        tabIndex={tabIndex}
+      >
+        {children}
+      </a>
+    );
+  }
+  return (
+    <Link href={href} className={className} tabIndex={tabIndex}>
+      {children}
+    </Link>
+  );
+}
 
 const themes: Record<
   string,
@@ -24,34 +58,36 @@ const themes: Record<
     label: string;
   }
 > = {
-  movement: {
+  precision: {
     wash: "from-teal/25 via-mint/80 to-bg-warm",
     orb: "bg-teal-bright/35",
     orbAlt: "bg-navy/10",
     frame: "from-teal-bright via-white to-navy/25",
     chip: "bg-teal text-white",
-    label: "Move",
+    label: "Precision",
   },
-  "sports-medicine": {
-    wash: "from-teal/25 via-mint/80 to-bg-warm",
-    orb: "bg-teal-bright/35",
+  recovery: {
+    wash: "from-teal/20 via-mint/70 to-bg-warm",
+    orb: "bg-teal-bright/30",
     orbAlt: "bg-navy/10",
-    frame: "from-teal-bright via-white to-navy/25",
+    frame: "from-teal-bright via-white to-navy/20",
     chip: "bg-teal text-white",
-    label: "Movement",
+    label: "Recovery",
   },
-  musculoskeletal: {
+  "your-doctor": {
     wash: "from-navy/10 via-gold/15 to-bg-warm",
     orb: "bg-gold/30",
     orbAlt: "bg-teal/20",
     frame: "from-gold via-white to-teal-bright/50",
     chip: "bg-navy text-white",
-    label: "Precision",
+    label: "Your Doctor",
   },
 };
 
+const mapsDirectionsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(doctor.booking.mapsQuery)}`;
+
 function themeFor(id: string) {
-  return themes[id] ?? themes.movement;
+  return themes[id] ?? themes.precision;
 }
 
 export function DoctorHero() {
@@ -411,7 +447,7 @@ function SlideCopy({ slide, active }: { slide: HeroSlide; active: boolean }) {
 
       <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
         <Button asChild size="lg" className="w-full sm:w-auto" tabIndex={active ? 0 : -1}>
-          <Link href={slide.primaryCta.href}>{slide.primaryCta.label}</Link>
+          <SlideCtaLink href={slide.primaryCta.href}>{slide.primaryCta.label}</SlideCtaLink>
         </Button>
         <Button
           asChild
@@ -420,26 +456,28 @@ function SlideCopy({ slide, active }: { slide: HeroSlide; active: boolean }) {
           className="w-full border-white/80 bg-white/70 sm:w-auto"
           tabIndex={active ? 0 : -1}
         >
-          <Link href={slide.secondaryCta.href}>
+          <SlideCtaLink href={slide.secondaryCta.href}>
             {slide.secondaryCta.label}
             <ArrowRight className="transition-transform group-hover:translate-x-1" />
-          </Link>
+          </SlideCtaLink>
         </Button>
       </div>
 
-      <p className="text-secondary mt-6 inline-flex items-center gap-2 font-medium">
-        <MapPin className="size-4 text-teal" aria-hidden />
-        Bengaluru
+      <p className="text-secondary mt-6 flex flex-wrap items-center gap-x-2 gap-y-1 font-medium">
+        <MapPin className="size-4 shrink-0 text-teal" aria-hidden />
+        <span>Manipal Hospitals, Kanakapura Road (near JP Nagar)</span>
         <span className="text-border" aria-hidden>
           /
         </span>
-        <Link
-          href="/contact"
+        <a
+          href={mapsDirectionsHref}
+          target="_blank"
+          rel="noopener noreferrer"
           tabIndex={active ? 0 : -1}
-          className="text-link"
+          className="text-link focus-ring rounded-sm"
         >
-          Consultation information
-        </Link>
+          Get Directions
+        </a>
       </p>
     </div>
   );

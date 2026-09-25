@@ -67,9 +67,13 @@ export const doctor = {
   booking: {
     manipalProfileUrl:
       "https://www.manipalhospitals.com/kanakapuraroad/doctors/dr-pradyumna-r-sports-medicine-specialist/",
+    /** Primary clinic / appointment line (displayed on site CTAs). */
+    clinicPhone: "9113025188",
+    clinicPhoneDisplay: "91130 25188",
     centralPhone: "1800 102 5555",
     hospitalLine: "080-22221111",
     hospitalEmail: "info@manipalhospitals.com",
+    mapsQuery: "Manipal Hospital Kanakapura Road Bengaluru",
   },
 
   address: {

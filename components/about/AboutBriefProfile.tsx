@@ -99,7 +99,7 @@ function figureOf(value: string) {
 
 export function AboutBriefProfile() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-bg-warm via-mint/40 to-white py-16 md:py-20 lg:py-24">
+    <section className="relative overflow-hidden bg-gradient-to-b from-bg-warm via-mint/40 to-white py-10 md:py-14 lg:py-16">
       <div
         className="pointer-events-none absolute -left-16 top-1/4 size-80 rounded-full bg-teal/10 blur-3xl"
         aria-hidden

@@ -18,14 +18,15 @@ const posters = [
   { src: "/images/hero/slide-precision.jpg", position: "object-[60%_center]" },
 ] as const;
 
-const washes = [
-  "from-[#0a3a6b]/80 via-[#0a3a6b]/25 to-teal/20",
-  "from-teal/75 via-navy/20 to-transparent",
-  "from-[#0d6b62]/75 via-navy/15 to-transparent",
-  "from-navy/75 via-navy/20 to-gold/25",
-  "from-[#145a7a]/75 via-teal/20 to-transparent",
-  "from-[#0a4a55]/80 via-navy/20 to-gold/15",
-] as const;
+/** Reference: blue / teal alternating wash, bottom → mid then clear top half. */
+const washBlue =
+  "bg-[linear-gradient(to_top,rgba(32,82,130,0.97)_0%,rgba(32,82,130,0.78)_28%,rgba(32,82,130,0.42)_46%,rgba(32,82,130,0.08)_52%,transparent_56%)]";
+const washTeal =
+  "bg-[linear-gradient(to_top,rgba(14,118,108,0.97)_0%,rgba(14,118,108,0.76)_28%,rgba(14,118,108,0.4)_46%,rgba(14,118,108,0.07)_52%,transparent_56%)]";
+
+function cardWash(index: number) {
+  return index % 2 === 0 ? washBlue : washTeal;
+}
 
 function figureOf(value: string) {
   const match = value.match(/^[\d,.]+K?\+/i);
@@ -69,15 +70,21 @@ export function CredentialsBar() {
 
   return (
     <section
-      className="relative overflow-hidden bg-gradient-to-b from-mint/30 via-surface to-bg-warm py-12 md:py-16"
+      className="relative overflow-hidden bg-[#f4f7fa] py-8 md:py-12"
       aria-label="Professional credentials summary"
     >
-      <Container>
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-[linear-gradient(180deg,rgba(180,210,230,0.35)_0%,transparent_100%)]"
+        aria-hidden
+      />
+      <div className="pattern-grid pointer-events-none absolute inset-0 opacity-[0.35]" aria-hidden />
+
+      <Container className="relative">
         <FadeIn>
           <p className="label-caps mb-8 md:mb-10">Verified professional profile</p>
         </FadeIn>
 
-        <Stagger className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
+        <Stagger className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
           {credentialHighlights.map((item, i) => {
             const poster = posters[i % posters.length];
             const figure = figureOf(item.value);
@@ -88,10 +95,15 @@ export function CredentialsBar() {
                 <button
                   type="button"
                   onClick={() => setActive(i)}
-                  className="group focus-ring relative block w-full overflow-hidden rounded-[22px] text-left shadow-[0_16px_40px_rgba(10,30,50,0.12)] transition-all duration-500 ease-out hover:-translate-y-1.5 hover:shadow-[0_28px_60px_rgba(10,30,50,0.2)]"
+                  className={cn(
+                    "group focus-ring relative block w-full overflow-hidden rounded-[20px] text-left",
+                    "bg-white shadow-[0_8px_24px_rgba(15,45,75,0.12),0_16px_40px_rgba(15,45,75,0.08)]",
+                    "transition-all duration-500 ease-out",
+                    "hover:-translate-y-0.5 hover:shadow-[0_12px_32px_rgba(15,45,75,0.16),0_24px_48px_rgba(15,45,75,0.1)]"
+                  )}
                   aria-label={`View ${item.label}`}
                 >
-                  <span className="relative block aspect-[16/10] overflow-hidden bg-navy">
+                  <span className="relative block aspect-[4/3] overflow-hidden bg-navy sm:aspect-[16/11]">
                     {!showVideo && (
                       <Image
                         src={poster.src}
@@ -111,17 +123,16 @@ export function CredentialsBar() {
                     )}
                     <span
                       className={cn(
-                        "absolute inset-0 bg-gradient-to-t transition-opacity duration-500 group-hover:opacity-90",
-                        washes[i % washes.length],
-                        showVideo && "from-navy/70 via-navy/20 to-transparent opacity-85"
+                        "absolute inset-0 transition-opacity duration-500",
+                        cardWash(i)
                       )}
                       aria-hidden
                     />
-                    <span className="absolute inset-x-0 bottom-0 px-4 pb-5 text-center sm:pb-6">
-                      <span className="block font-heading text-4xl font-bold tracking-tight text-white sm:text-5xl">
+                    <span className="absolute inset-0 flex flex-col items-center justify-center px-5 text-center">
+                      <span className="block font-heading text-[2rem] font-bold leading-none tracking-tight text-white sm:text-[2.35rem] md:text-[2.5rem]">
                         {figure}
                       </span>
-                      <span className="mt-1 block text-sm font-medium text-white/90 sm:text-base">
+                      <span className="mt-2.5 max-w-[16rem] text-[13px] font-medium leading-snug text-white sm:text-sm">
                         {item.label}
                       </span>
                     </span>

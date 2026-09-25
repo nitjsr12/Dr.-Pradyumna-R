@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { BookAppointmentLink } from "@/components/layout/BookAppointmentLink";
 import { useEffect, useRef } from "react";
 import { ArrowRight, MapPin } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
@@ -33,7 +34,7 @@ export function AboutIntroHero() {
         aria-hidden
       />
 
-      <Container className="relative py-14 md:py-20 lg:py-24">
+      <Container className="relative py-10 md:py-14 lg:py-16">
         <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
           <motion.div
             className="lg:col-span-6"
@@ -96,10 +97,10 @@ export function AboutIntroHero() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild variant="teal" size="lg">
-                <Link href="/book-appointment">
+                <BookAppointmentLink>
                   Book a consultation
                   <ArrowRight className="opacity-90" />
-                </Link>
+                </BookAppointmentLink>
               </Button>
               <Button asChild variant="outlineLight" size="lg">
                 <Link href="/contact">Contact</Link>

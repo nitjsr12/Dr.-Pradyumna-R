@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { BookAppointmentLink } from "@/components/layout/BookAppointmentLink";
 import {
   Activity,
   ClipboardCheck,
@@ -69,7 +70,7 @@ export function SportsMedicineSections() {
         })}
       </Stagger>
       <Button asChild size="lg" className="mt-12">
-        <Link href="/book-appointment">Book Consultation</Link>
+        <BookAppointmentLink>Book Consultation</BookAppointmentLink>
       </Button>
     </Container>
   );

@@ -8,6 +8,8 @@ import { IconBadge, type IconBadgeName } from "@/components/ui/IconBadge";
 export type ApproachStep = {
   n: string;
   title: string;
+  /** Short teal subline under the card title (e.g. Understand, Plan). */
+  subtitle?: string;
   text: string;
   icon: IconBadgeName;
   image: string;
@@ -47,9 +49,6 @@ export function ApproachCard({
           )}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-navy/35 via-navy/10 to-white" />
-        <span className="absolute right-4 top-4 rounded-full bg-white/90 px-3 py-1 text-[11px] font-bold tabular-nums tracking-[0.14em] text-teal shadow-sm backdrop-blur-sm">
-          {step.n}
-        </span>
       </div>
 
       <div className="relative -mt-7 flex flex-1 flex-col px-7 pb-8 lg:px-8">
@@ -61,6 +60,11 @@ export function ApproachCard({
         <h3 className="mt-5 text-base font-bold tracking-[0.05em] text-navy lg:text-[17px]">
           {step.title}
         </h3>
+        {step.subtitle && (
+          <p className="mt-1.5 text-xs font-bold uppercase tracking-[0.14em] text-teal">
+            {step.subtitle}
+          </p>
+        )}
 
         <p className="mt-3.5 text-[15px] leading-[1.65] text-muted lg:text-base lg:leading-relaxed">
           {step.text}

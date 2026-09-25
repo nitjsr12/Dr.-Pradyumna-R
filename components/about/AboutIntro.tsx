@@ -12,7 +12,7 @@ export function AboutIntro() {
         aria-hidden
       />
 
-      <Container className="relative py-14 md:py-20 lg:py-24">
+      <Container className="relative py-10 md:py-14 lg:py-16">
         <div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-x-16 lg:gap-y-0">
           <FadeIn className="lg:col-span-5 lg:sticky lg:top-28">
             <figure className="relative mx-auto max-w-md lg:mx-0 lg:max-w-none">

@@ -13,7 +13,7 @@ export function AboutVisitMaps() {
   const active = aboutLocations.find((loc) => loc.id === activeId) ?? aboutLocations[0];
 
   return (
-    <section className="relative overflow-hidden bg-navy mesh-navy py-16 md:py-20 lg:py-24">
+    <section className="relative overflow-hidden bg-navy mesh-navy py-10 md:py-14 lg:py-16">
       <div
         className="pointer-events-none absolute -right-24 top-0 size-96 rounded-full bg-teal-bright/20 blur-3xl"
         aria-hidden

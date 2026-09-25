@@ -17,9 +17,7 @@ export function ArticleGrid({ articles }: Props) {
   return (
     <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
       {articles.map((a) => (
-        <article key={a.slug} id={a.slug}>
-          <ArticleCard article={a} />
-        </article>
+        <ArticleCard key={a.slug} article={a} />
       ))}
     </div>
   );

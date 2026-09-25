@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { BookAppointmentLink } from "@/components/layout/BookAppointmentLink";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { expertisePages } from "@/data/expertise";
@@ -26,7 +27,7 @@ function ExpertiseBlock({
   return (
     <section
       className={cn(
-        "relative overflow-hidden py-16 md:py-20 lg:py-24",
+        "relative overflow-hidden py-10 md:py-14 lg:py-16",
         tinted
           ? "bg-gradient-to-br from-mint/40 via-white to-bg-warm"
           : "bg-white"
@@ -126,10 +127,10 @@ function ExpertiseBlock({
 
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild>
-                <Link href="/book-appointment">
+                <BookAppointmentLink>
                   Book consultation
                   <ArrowRight className="size-4" />
-                </Link>
+                </BookAppointmentLink>
               </Button>
               {item.href !== "/expertise" && (
                 <Button asChild variant="secondary">

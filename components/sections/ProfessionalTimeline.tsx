@@ -18,7 +18,7 @@ export function ProfessionalTimeline({ variant = "grid" }: ProfessionalTimelineP
     <section
       className={
         vertical
-          ? "border-t border-border-subtle/80 bg-white py-14 md:py-20 lg:py-24"
+          ? "border-t border-border-subtle/80 bg-white py-10 md:py-14 lg:py-16"
           : "section-y relative overflow-hidden bg-gradient-to-b from-mint via-white to-bg-warm"
       }
     >

@@ -4,13 +4,13 @@ import { CredentialsBar } from "@/components/sections/CredentialsBar";
 import { ApproachSection } from "@/components/sections/ApproachSection";
 import { AboutPreview } from "@/components/sections/AboutPreview";
 import { AchievementsSection } from "@/components/sections/AchievementsSection";
-import { ExpertiseGrid } from "@/components/sections/ExpertiseGrid";
 import { SportsMedicineFeature } from "@/components/sections/SportsMedicineFeature";
 import { WhenToConsult } from "@/components/sections/WhenToConsult";
 import { BlogSlider } from "@/components/sections/BlogSlider";
 import { ConsultationCTA } from "@/components/sections/ConsultationCTA";
 import { GoogleReviews } from "@/components/sections/GoogleReviews";
 import { TestimonialVideos } from "@/components/sections/TestimonialVideos";
+import { FaqSection } from "@/components/sections/FaqSection";
 
 export default function HomePage() {
   return (
@@ -21,10 +21,9 @@ export default function HomePage() {
       <ApproachSection />
       <AboutPreview />
       <AchievementsSection />
-      <ExpertiseGrid />
       <SportsMedicineFeature />
       <div
-        className="bg-bg-warm py-10 md:py-12 lg:py-16"
+        className="bg-bg-warm py-5 md:py-6 lg:py-8"
         aria-hidden
       />
       <WhenToConsult />
@@ -32,6 +31,7 @@ export default function HomePage() {
       <ConsultationCTA />
       <GoogleReviews />
       <TestimonialVideos />
+      <FaqSection />
     </>
   );
 }

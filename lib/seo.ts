@@ -71,7 +71,7 @@ export function medicalDoctorJsonLd() {
         postalCode: "560062",
         addressCountry: "IN",
       },
-      telephone: doctor.booking.hospitalLine,
+      telephone: `+91-${doctor.booking.clinicPhone}`,
     },
     areaServed: { "@type": "City", name: "Bengaluru" },
     url: siteConfig.url,

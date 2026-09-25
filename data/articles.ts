@@ -1,4 +1,7 @@
-/** SAMPLE articles — not published medical content. */
+/** Educational articles — full guides live under `/blog/[slug]`. */
+import { blogPosts } from "@/data/blog";
+import type { BlogPost } from "@/data/blog/types";
+
 export const articleCategories = [
   "All",
   "Sports Medicine",
@@ -7,67 +10,53 @@ export const articleCategories = [
   "Patient Education",
 ] as const;
 
+/** Homepage blog strip filters (counts derived from articles). */
+export const blogTopics = [
+  { id: "all", label: "All Articles" },
+  { id: "knee", label: "Knee" },
+  { id: "shoulder", label: "Shoulder" },
+  { id: "hip", label: "Hip" },
+  { id: "ankle-foot", label: "Ankle & Foot" },
+  { id: "elbow", label: "Elbow" },
+  { id: "non-surgical", label: "Non-Surgical Care" },
+] as const;
+
+export type BlogTopicId = (typeof blogTopics)[number]["id"];
+export type BlogBodyTopic = Exclude<BlogTopicId, "all">;
+
 export type SampleArticle = {
   slug: string;
   category: Exclude<(typeof articleCategories)[number], "All">;
+  topic: BlogBodyTopic;
+  chipLabel: string;
+  conditionName: string;
   title: string;
   excerpt: string;
   readingTime: string;
+  coverImage: string;
+  coverPosition?: string;
   featured?: boolean;
+  /** Legacy flag — listing uses live blog guides. */
   isSample: true;
 };
 
-export const sampleArticles: SampleArticle[] = [
-  {
-    slug: "understanding-sports-injuries",
-    category: "Sports Medicine",
-    title: "Understanding Sports Injuries",
-    excerpt:
-      "An injury can affect more than performance. Learn how sports injuries are assessed, what factors influence treatment, and what recovery can involve.",
-    readingTime: "5 min",
-    featured: true,
+function toSampleArticle(post: BlogPost, featured?: boolean): SampleArticle {
+  return {
+    slug: post.slug,
+    category: post.category,
+    topic: post.topic,
+    chipLabel: post.chipLabel,
+    conditionName: post.conditionName,
+    title: post.title,
+    excerpt: post.excerpt,
+    readingTime: post.readingTime,
+    coverImage: post.coverImage,
+    coverPosition: post.coverPosition,
+    featured,
     isSample: true,
-  },
-  {
-    slug: "joint-pain-evaluation",
-    category: "Orthopaedics",
-    title: "When Does Joint Pain Need Attention?",
-    excerpt:
-      "Occasional discomfort may settle on its own. Persistent pain, restricted movement or recurring symptoms may need a closer look. Learn what to consider before seeking specialist advice.",
-    readingTime: "6 min",
-    isSample: true,
-  },
-  {
-    slug: "return-to-activity",
-    category: "Recovery",
-    title: "Getting Back to Activity After an Injury",
-    excerpt:
-      "Returning to exercise or sport is rarely about simply waiting for pain to disappear. Explore the principles behind a gradual and appropriate return to activity.",
-    readingTime: "7 min",
-    isSample: true,
-  },
-  {
-    slug: "musculoskeletal-pain",
-    category: "Orthopaedics",
-    title: "Understanding Musculoskeletal Pain",
-    excerpt: "Sample introduction to common musculoskeletal symptoms.",
-    readingTime: "5 min",
-    isSample: true,
-  },
-  {
-    slug: "movement-recovery",
-    category: "Recovery",
-    title: "How Movement Can Influence Recovery",
-    excerpt: "Sample educational content on movement and rehabilitation.",
-    readingTime: "6 min",
-    isSample: true,
-  },
-  {
-    slug: "patient-education-basics",
-    category: "Patient Education",
-    title: "Preparing for Your Orthopaedic Visit",
-    excerpt: "Sample checklist for consultation preparation.",
-    readingTime: "4 min",
-    isSample: true,
-  },
-];
+  };
+}
+
+export const sampleArticles: SampleArticle[] = blogPosts.map((post, i) =>
+  toSampleArticle(post, i === 0)
+);

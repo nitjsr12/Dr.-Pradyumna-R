@@ -46,7 +46,7 @@ export function ArticleListing() {
     <Container className="section-y">
       {featured && (
         <div className="mb-16 rounded-[var(--radius-lg)] border border-border bg-mint/30 p-8 md:p-12">
-          <p className="label-caps">Featured sample</p>
+          <p className="label-caps">Featured guide</p>
           <ArticleCard article={featured} />
         </div>
       )}

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BookAppointmentLink } from "@/components/layout/BookAppointmentLink";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/button";
 
@@ -31,7 +32,7 @@ export default function NotFound() {
           <Link href="/">Back Home</Link>
         </Button>
         <Button asChild variant="secondary">
-          <Link href="/book-appointment">Book Consultation</Link>
+          <BookAppointmentLink>Book Consultation</BookAppointmentLink>
         </Button>
       </div>
     </Container>

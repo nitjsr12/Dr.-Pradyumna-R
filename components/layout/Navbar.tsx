@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { BookAppointmentLink } from "@/components/layout/BookAppointmentLink";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Calendar, ArrowUpRight } from "lucide-react";
@@ -107,18 +108,17 @@ export function Navbar() {
                 size="default"
                 className="hidden shadow-[0_6px_20px_rgba(11,31,51,0.1)] md:inline-flex"
               >
-                <Link href="/book-appointment" className="gap-1.5 text-[15px]">
+                <BookAppointmentLink className="gap-1.5 text-[15px]">
                   Book Appointment
                   <ArrowUpRight className="size-4 opacity-80" />
-                </Link>
+                </BookAppointmentLink>
               </Button>
-              <Link
-                href="/book-appointment"
+              <BookAppointmentLink
                 className="focus-ring inline-flex h-10 w-10 items-center justify-center rounded-full border border-border/80 bg-white/90 md:hidden"
-                aria-label="Book appointment"
+                aria-label="Book appointment on WhatsApp"
               >
                 <Calendar className="size-[18px] text-navy" />
-              </Link>
+              </BookAppointmentLink>
               <MenuToggle open={open} onClick={() => setOpen((v) => !v)} />
             </div>
           </div>

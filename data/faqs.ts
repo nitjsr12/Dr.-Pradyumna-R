@@ -4,7 +4,7 @@ export const faqs = [
     id: "booking",
     question: "How do I book a consultation?",
     answer:
-      "Use the Book Appointment page on this site or the official Manipal Hospitals doctor profile and central appointment line listed on the Contact page. This website does not process live bookings yet.",
+      "Tap Book Appointment anywhere on this site to open WhatsApp with a pre-filled message, or call the clinic line on the Contact page. You can also use the official Manipal Hospitals doctor profile.",
   },
   {
     id: "first-visit",
@@ -31,3 +31,9 @@ export const faqs = [
       "No. For urgent or severe symptoms, go to the nearest emergency facility or call local emergency services immediately.",
   },
 ] as const;
+
+export type FaqItem = {
+  id: string;
+  question: string;
+  answer: string;
+};

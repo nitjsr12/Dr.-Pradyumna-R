@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { BookAppointmentLink } from "@/components/layout/BookAppointmentLink";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
@@ -94,10 +95,10 @@ export function MobileMenu({
 
             <div className="border-t border-border p-6 pb-[calc(1.5rem+env(safe-area-inset-bottom))]">
               <Button asChild size="lg" className="w-full">
-                <Link href="/book-appointment" onClick={onClose}>
+                <BookAppointmentLink onClick={onClose}>
                   Book Appointment
                   <ArrowUpRight className="size-4" />
-                </Link>
+                </BookAppointmentLink>
               </Button>
             </div>
           </motion.div>

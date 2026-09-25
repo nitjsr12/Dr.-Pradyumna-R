@@ -5,7 +5,7 @@ import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata(
   "Articles",
-  "Sample educational articles — not published medical advice.",
+  "Doctor-written guides on knee, shoulder, hip, ankle and elbow care in Bangalore.",
   "/articles"
 );
 
@@ -20,7 +20,7 @@ export default function ArticlesPage() {
             <span className="text-accent">Know better.</span>
           </>
         }
-        description="Sample editorial layout. Articles marked as sample content."
+        description="In-depth guides on common orthopaedic and sports medicine conditions — for education only, not medical advice."
       />
       <ArticleListing />
       <ConsultationCTA />
