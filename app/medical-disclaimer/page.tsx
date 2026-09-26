@@ -14,7 +14,6 @@ export default function MedicalDisclaimerPage() {
       <PageHero
         label="Legal"
         title="Medical Disclaimer"
-        variant="light"
         description="Please read this before relying on any information on this site."
       />
       <section className="section-y mesh-light pattern-grid">

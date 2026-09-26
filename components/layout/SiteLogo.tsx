@@ -1,10 +1,13 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { doctor } from "@/data/doctor";
 import { cn } from "@/lib/utils";
 import { easeOut } from "@/lib/animations";
+
+export const siteLogoSrc = "/images/logo.png";
 
 type Props = {
   className?: string;
@@ -32,30 +35,25 @@ export function SiteLogo({
       aria-label={`${doctor.name} — home`}
     >
       <motion.div
-        className="relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-[rgba(11,31,51,0.08)] bg-gradient-to-br from-mint/80 to-surface sm:h-11 sm:w-11 sm:rounded-2xl"
+        className={cn(
+          "relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-xl sm:h-11 sm:w-11 sm:rounded-2xl",
+          onDark
+            ? "bg-white shadow-sm ring-1 ring-white/20"
+            : "bg-white shadow-sm ring-1 ring-navy/5"
+        )}
         initial={reduce ? false : { opacity: 0, scale: 0.94 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.45, ease: easeOut }}
         whileHover={reduce ? undefined : { scale: 1.03 }}
       >
-        <svg
-          className="pointer-events-none absolute inset-0 h-full w-full text-teal/30"
-          viewBox="0 0 44 44"
-          aria-hidden
-        >
-          <motion.path
-            d="M6 32 Q22 8 38 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.25"
-            initial={reduce ? undefined : { pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 0.9, delay: 0.1, ease: easeOut }}
-          />
-        </svg>
-        <span className="relative z-[1] font-heading text-sm font-bold text-navy">
-          PR
-        </span>
+        <Image
+          src={siteLogoSrc}
+          alt=""
+          width={88}
+          height={88}
+          priority
+          className="h-[85%] w-[85%] object-contain"
+        />
       </motion.div>
 
       <div className="min-w-0 leading-tight">

@@ -14,7 +14,6 @@ export default function TermsPage() {
       <PageHero
         label="Legal"
         title="Terms of Use"
-        variant="light"
         description="By using this website, you agree to the following terms."
       />
       <section className="section-y mesh-light pattern-grid">

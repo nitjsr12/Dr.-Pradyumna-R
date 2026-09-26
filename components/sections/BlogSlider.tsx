@@ -7,6 +7,7 @@ import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { useReducedMotion } from "framer-motion";
 import {
   blogTopics,
+  articleHref,
   sampleArticles,
   type BlogTopicId,
   type SampleArticle,
@@ -25,7 +26,7 @@ function countForTopic(topicId: BlogTopicId) {
 function BlogGuideCard({ article }: { article: SampleArticle }) {
   return (
     <Link
-      href={`/blog/${article.slug}`}
+      href={articleHref(article.slug)}
       className="focus-ring group flex h-full flex-col overflow-hidden rounded-2xl border border-border-subtle bg-white shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-soft)]"
     >
       <div className="relative aspect-[16/10] overflow-hidden bg-mint/30">

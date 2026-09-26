@@ -328,6 +328,70 @@
       linear-gradient(90deg, rgba(10, 30, 50, 0.04) 1px, transparent 1px);
     background-size: 48px 48px;
   }
+
+  /** Page heroes over shared banner image */
+  .hero-banner {
+    color: rgba(255, 255, 255, 0.92);
+  }
+
+  .hero-banner .title-page,
+  .hero-banner .title-section,
+  .hero-banner .display-hero-home {
+    color: #ffffff;
+  }
+
+  .hero-banner .text-body {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .hero-banner .text-secondary,
+  .hero-banner .text-muted {
+    color: rgba(255, 255, 255, 0.72);
+  }
+
+  .hero-banner .text-accent {
+    color: var(--color-teal-bright);
+  }
+
+  /** Long-form treatment / article copy */
+  .blog-prose {
+    @apply space-y-6;
+    color: var(--color-body);
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  @media (min-width: 1024px) {
+    .blog-prose {
+      font-size: 1.0625rem;
+    }
+  }
+
+  .blog-prose > p {
+    color: var(--color-body);
+    line-height: 1.7;
+  }
+
+  .blog-prose > h2 {
+    @apply mt-10 font-heading text-2xl font-bold tracking-tight text-navy first:mt-0 md:text-3xl;
+  }
+
+  .blog-prose > h3 {
+    @apply mt-8 font-heading text-xl font-bold text-navy;
+  }
+
+  .blog-prose > ul {
+    @apply list-disc space-y-2.5 pl-5;
+    color: var(--color-muted);
+  }
+
+  .blog-prose > ul li {
+    line-height: 1.65;
+  }
+
+  .blog-prose .overflow-x-auto {
+    @apply -mx-1 px-1 sm:mx-0 sm:px-0;
+  }
 }
 
 @keyframes shimmer {

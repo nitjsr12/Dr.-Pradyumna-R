@@ -1,14 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import type { SampleArticle } from "@/data/articles";
+import { articleHref, type SampleArticle } from "@/data/articles";
 import { cn } from "@/lib/utils";
 
 export function ArticleCard({ article }: { article: SampleArticle }) {
   return (
     <Link
-      href={`/blog/${article.slug}`}
-      className="focus-ring group flex h-full flex-col overflow-hidden rounded-[var(--radius-md)] border border-border-subtle bg-surface shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1 hover:border-teal/15 hover:shadow-[var(--shadow-soft)]"
+      href={articleHref(article.slug)}
+      className="focus-ring group flex h-full flex-col overflow-hidden rounded-[24px] border border-border-subtle bg-white shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1 hover:border-teal/20 hover:shadow-[var(--shadow-soft)]"
     >
       <div className="relative aspect-[16/10] bg-mint/30">
         <Image
@@ -17,7 +17,10 @@ export function ArticleCard({ article }: { article: SampleArticle }) {
           fill
           quality={90}
           sizes="(max-width: 768px) 100vw, 400px"
-          className={cn("object-cover", article.coverPosition ?? "object-center")}
+          className={cn(
+            "object-cover transition-transform duration-700 group-hover:scale-105",
+            article.coverPosition ?? "object-center"
+          )}
         />
         <span className="absolute left-3 top-3 rounded-md bg-white/95 px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.12em] text-teal">
           {article.chipLabel}

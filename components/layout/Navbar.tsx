@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { MobileMenu } from "@/components/layout/MobileMenu";
 import { SiteLogo } from "@/components/layout/SiteLogo";
 import { NavLink } from "@/components/layout/NavLink";
+import { SpecialtiesMegaMenu } from "@/components/layout/SpecialtiesMegaMenu";
 import { MenuToggle } from "@/components/layout/MenuToggle";
 import { easeOut } from "@/lib/animations";
 
@@ -80,7 +81,7 @@ export function Navbar() {
             >
               {mainNav.map((link, i) => (
                 <motion.div
-                  key={link.href}
+                  key={link.href + link.label}
                   initial={reduce ? false : { opacity: 0, y: -6 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{
@@ -89,15 +90,19 @@ export function Navbar() {
                     ease: easeOut,
                   }}
                 >
-                  <NavLink
-                    href={link.href}
-                    label={link.label}
-                    active={
-                      link.href === "/"
-                        ? pathname === "/"
-                        : pathname.startsWith(link.href)
-                    }
-                  />
+                  {"type" in link && link.type === "specialties" ? (
+                    <SpecialtiesMegaMenu />
+                  ) : (
+                    <NavLink
+                      href={link.href}
+                      label={link.label}
+                      active={
+                        link.href === "/"
+                          ? pathname === "/"
+                          : pathname.startsWith(link.href)
+                      }
+                    />
+                  )}
                 </motion.div>
               ))}
             </nav>

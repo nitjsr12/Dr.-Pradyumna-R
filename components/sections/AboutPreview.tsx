@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, MapPin } from "lucide-react";
+import { aboutDoctorPhotoAlt } from "@/data/about-profile";
 import { doctor } from "@/data/doctor";
 import { Container } from "@/components/ui/Container";
 import { FadeIn } from "@/components/animations/Reveal";
@@ -31,7 +32,7 @@ export function AboutPreview() {
             <div className="relative aspect-[4/5] overflow-hidden rounded-[29px] bg-navy">
               <Image
                 src="/images/hero/slide-movement.jpg"
-                alt="Dr. Pradyumna R, orthopaedic surgeon and sports medicine specialist in Bangalore"
+                alt={aboutDoctorPhotoAlt}
                 fill
                 quality={90}
                 sizes="(max-width: 1024px) 92vw, 480px"

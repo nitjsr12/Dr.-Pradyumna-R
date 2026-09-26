@@ -41,10 +41,12 @@ export default function RootLayout({
       lang="en-IN"
       className={`${inter.variable} ${manrope.variable} ${dmSerif.variable}`}
     >
-      <body className="min-h-screen pb-[calc(4rem+env(safe-area-inset-bottom))] md:pb-0">
+      <body className="min-h-screen overflow-x-clip pb-[calc(4rem+env(safe-area-inset-bottom))] text-text antialiased md:pb-0">
         <JsonLd data={[websiteJsonLd(), medicalDoctorJsonLd()]} />
         <Navbar />
-        <main id="main-content">{children}</main>
+        <main id="main-content" className="min-w-0 overflow-x-clip">
+          {children}
+        </main>
         <Footer />
         <WhatsAppFab />
         <MobileStickyCta />

@@ -1,9 +1,10 @@
 "use client";
 
 import { AboutIntro } from "@/components/about/AboutIntro";
+import { AboutProfessionalOverview } from "@/components/about/AboutProfessionalOverview";
 import { AboutMediaSlider } from "@/components/about/AboutMediaSlider";
 import { AboutProfileSection } from "@/components/about/AboutProfileSection";
-import { ProfessionalTimeline } from "@/components/sections/ProfessionalTimeline";
+import { AboutVisitMaps } from "@/components/about/AboutVisitMaps";
 import { AchievementsSection } from "@/components/sections/AchievementsSection";
 
 export function AboutPageContent() {
@@ -11,9 +12,10 @@ export function AboutPageContent() {
     <>
       <AboutIntro />
       <AboutMediaSlider />
+      <AboutProfessionalOverview />
       <AboutProfileSection />
-      <ProfessionalTimeline variant="vertical" />
       <AchievementsSection />
+      <AboutVisitMaps />
     </>
   );
 }

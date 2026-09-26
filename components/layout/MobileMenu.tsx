@@ -4,8 +4,13 @@ import Link from "next/link";
 import { BookAppointmentLink } from "@/components/layout/BookAppointmentLink";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ChevronDown } from "lucide-react";
+import { useState } from "react";
 import { mobileNav } from "@/data/navigation";
+import {
+  specialtiesMegaMenuColumns,
+  specialtiesMenuItemHref,
+} from "@/data/area-of-specialties";
 import { Button } from "@/components/ui/button";
 import { SiteLogo } from "@/components/layout/SiteLogo";
 import { cn } from "@/lib/utils";
@@ -18,6 +23,7 @@ export function MobileMenu({
   open: boolean;
   onClose: () => void;
 }) {
+  const [specialtiesOpen, setSpecialtiesOpen] = useState(false);
   const pathname = usePathname();
   const reduce = useReducedMotion();
 
@@ -36,7 +42,7 @@ export function MobileMenu({
             onClick={onClose}
           />
           <motion.div
-            className="fixed inset-y-0 right-0 z-50 flex w-full max-w-md flex-col border-l border-border bg-surface shadow-[var(--shadow-soft)] xl:hidden"
+            className="fixed inset-y-0 right-0 z-50 flex w-full max-w-[min(100vw,28rem)] flex-col border-l border-border bg-surface pt-[env(safe-area-inset-top)] shadow-[var(--shadow-soft)] xl:hidden"
             initial={reduce ? false : { x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
@@ -48,9 +54,59 @@ export function MobileMenu({
             </div>
 
             <nav
-              className="flex flex-1 flex-col justify-center gap-1 px-6 pb-8"
+              className="flex flex-1 flex-col justify-center gap-1 overflow-y-auto px-6 pb-8"
               aria-label="Mobile"
             >
+              <div className="border-b border-border/80 py-3">
+                <button
+                  type="button"
+                  onClick={() => setSpecialtiesOpen((v) => !v)}
+                  className="focus-ring flex w-full items-center justify-between py-2 text-left"
+                  aria-expanded={specialtiesOpen}
+                >
+                  <span className="text-xl font-semibold tracking-tight text-navy">
+                    Area of Specialties
+                  </span>
+                  <ChevronDown
+                    className={cn(
+                      "size-5 text-muted transition-transform",
+                      specialtiesOpen && "rotate-180"
+                    )}
+                  />
+                </button>
+                {specialtiesOpen && (
+                  <div className="mt-2 space-y-4 pb-2 pl-1">
+                    {specialtiesMegaMenuColumns.map((column) => (
+                      <div key={column.id}>
+                        <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-teal">
+                          {column.title}
+                        </p>
+                        <ul className="mt-2 space-y-1.5">
+                          {column.items.map((item) => (
+                            <li key={item}>
+                              <Link
+                                href={specialtiesMenuItemHref(item, column)}
+                                onClick={onClose}
+                                className="text-sm font-medium text-navy/80 hover:text-teal"
+                              >
+                                {item}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                        <Link
+                          href={column.moreHref}
+                          onClick={onClose}
+                          className="mt-2 inline-block text-xs font-bold text-teal"
+                        >
+                          More procedures →
+                        </Link>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+
               {mobileNav.map((link, i) => {
                 const active =
                   link.href === "/"

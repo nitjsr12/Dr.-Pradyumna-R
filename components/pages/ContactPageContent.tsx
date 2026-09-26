@@ -1,115 +1,171 @@
 "use client";
 
 import Link from "next/link";
-import { BookAppointmentLink } from "@/components/layout/BookAppointmentLink";
 import {
   Building2,
   Calendar,
-  MapPin,
-  Phone,
+  Clock,
   ExternalLink,
+  MapPin,
+  MessageCircle,
+  Phone,
 } from "lucide-react";
-import { doctor } from "@/data/doctor";
+import { aboutLocations } from "@/data/about-locations";
 import { ContactForm } from "@/components/contact/ContactForm";
+import { BookAppointmentLink } from "@/components/layout/BookAppointmentLink";
 import { Container } from "@/components/ui/Container";
+import { Button } from "@/components/ui/button";
 import { FadeIn, Stagger, StaggerChild } from "@/components/animations/Reveal";
+import { doctor } from "@/data/doctor";
+import { bookAppointmentUrl } from "@/lib/whatsapp";
 
-const clinicTel = `+91${doctor.booking.clinicPhone}`;
+const clinicTel = `tel:+91${doctor.booking.clinicPhone}`;
 
-const info = [
+const quickActions = [
   {
     icon: Phone,
-    title: "Clinic line",
-    body: (
-      <>
-        <a
-          href={`tel:${clinicTel}`}
-          className="text-lg font-bold text-navy hover:text-teal"
-        >
-          {doctor.booking.clinicPhoneDisplay}
-        </a>
-        <span className="mt-2 block text-sm text-muted-light">
-          Hospital desk {doctor.booking.hospitalLine} · Central{" "}
-          <a
-            href={`tel:${doctor.booking.centralPhone.replace(/\s/g, "")}`}
-            className="font-semibold text-teal hover:underline"
-          >
-            {doctor.booking.centralPhone}
-          </a>
-        </span>
-      </>
-    ),
+    title: "Call the clinic",
+    highlight: doctor.booking.clinicPhoneDisplay,
+    href: clinicTel,
+    sub: `Hospital desk ${doctor.booking.hospitalLine}`,
+  },
+  {
+    icon: MessageCircle,
+    title: "WhatsApp booking",
+    highlight: "Open chat",
+    href: bookAppointmentUrl,
+    sub: "Fastest way to request a slot",
+    external: true,
   },
   {
     icon: Calendar,
-    title: "Consultation",
-    body: (
-      <>
-        Book via this site, the official Manipal Hospitals profile, or call the clinic line
-        above.
-      </>
-    ),
-  },
-  {
-    icon: MapPin,
-    title: "Location",
-    body: (
-      <>
-        {doctor.address.hospital}
-        <span className="mt-2 block text-sm text-muted-light">
-          Landmark: {doctor.address.landmark}
-        </span>
-      </>
-    ),
-  },
-  {
-    icon: Building2,
-    title: "Affiliation",
-    body: doctor.affiliation.name,
+    title: "Manipal profile",
+    highlight: "Book online",
+    href: doctor.booking.manipalProfileUrl,
+    sub: "Official hospital doctor page",
+    external: true,
   },
 ] as const;
 
 export function ContactPageContent() {
   return (
-    <Container className="section-y grid gap-12 lg:grid-cols-2 lg:gap-16">
-      <Stagger className="space-y-4">
-        {info.map((item) => {
-          const Icon = item.icon;
-          return (
-            <StaggerChild key={item.title}>
-              <div className="flex gap-4 rounded-[var(--radius-md)] border border-border-subtle bg-surface p-5 shadow-[var(--shadow-card)] transition-shadow hover:shadow-[var(--shadow-soft)]">
-                <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-mint text-teal">
-                  <Icon className="size-5" strokeWidth={1.75} />
-                </span>
-                <div>
-                  <h2 className="font-bold text-navy">{item.title}</h2>
-                  <p className="mt-2 text-[15px] leading-relaxed text-muted">
-                    {item.body}
-                  </p>
+    <>
+      <section className="relative overflow-hidden bg-bg-warm py-10 md:py-14 lg:py-16">
+        <div className="pattern-grid pointer-events-none absolute inset-0 opacity-35" aria-hidden />
+        <Container className="relative">
+          <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
+            <div className="lg:col-span-5">
+              <FadeIn>
+                <p className="label-caps">Get in touch</p>
+                <h2 className="title-section mt-4 text-balance">
+                  We&apos;re here to help you{" "}
+                  <span className="text-accent">take the next step.</span>
+                </h2>
+                <p className="text-body mt-4 max-w-md leading-relaxed">
+                  Call, WhatsApp, or send an enquiry — the team will guide you to booking,
+                  directions, or the right type of consultation.
+                </p>
+              </FadeIn>
+
+              <Stagger className="mt-8 space-y-3">
+                {quickActions.map((item) => {
+                  const Icon = item.icon;
+                  return (
+                    <StaggerChild key={item.title}>
+                      <Link
+                        href={item.href}
+                        target={"external" in item && item.external ? "_blank" : undefined}
+                        rel={
+                          "external" in item && item.external ? "noopener noreferrer" : undefined
+                        }
+                        className="focus-ring group flex items-center gap-4 rounded-2xl border border-border-subtle/80 bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:border-teal/30 hover:shadow-[var(--shadow-soft)]"
+                      >
+                        <span className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-mint text-teal transition-colors group-hover:bg-teal group-hover:text-white">
+                          <Icon className="size-5" strokeWidth={1.75} />
+                        </span>
+                        <div className="min-w-0 flex-1">
+                          <p className="text-xs font-bold uppercase tracking-[0.12em] text-teal">
+                            {item.title}
+                          </p>
+                          <p className="font-heading text-lg font-bold text-navy group-hover:text-teal">
+                            {item.highlight}
+                          </p>
+                          <p className="mt-0.5 text-sm text-muted">{item.sub}</p>
+                        </div>
+                        {"external" in item && item.external && (
+                          <ExternalLink
+                            className="size-4 shrink-0 text-muted opacity-0 transition-opacity group-hover:opacity-100"
+                            aria-hidden
+                          />
+                        )}
+                      </Link>
+                    </StaggerChild>
+                  );
+                })}
+              </Stagger>
+
+              <FadeIn delay={0.12} className="mt-8 rounded-2xl border border-teal/15 bg-mint/30 p-6">
+                <div className="flex gap-3">
+                  <Building2 className="size-5 shrink-0 text-teal" aria-hidden />
+                  <div>
+                    <p className="font-semibold text-navy">{doctor.affiliation.name}</p>
+                    <p className="mt-2 text-sm leading-relaxed text-muted">
+                      {doctor.address.hospital}
+                    </p>
+                    <p className="mt-2 inline-flex items-center gap-1.5 text-sm text-muted">
+                      <MapPin className="size-3.5 text-teal" aria-hidden />
+                      Landmark: {doctor.address.landmark}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </StaggerChild>
-          );
-        })}
-        <FadeIn delay={0.2}>
-          <Link
-            href={doctor.booking.manipalProfileUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="focus-ring inline-flex items-center gap-2 text-sm font-semibold text-teal"
-          >
-            Official hospital profile
-            <ExternalLink className="size-4" />
-          </Link>
-          <BookAppointmentLink className="focus-ring mt-4 flex items-center gap-2 text-sm font-semibold text-navy hover:text-teal">
-            <Phone className="size-4" />
-            Book appointment on WhatsApp →
-          </BookAppointmentLink>
-        </FadeIn>
-      </Stagger>
-      <FadeIn delay={0.1}>
-        <ContactForm />
-      </FadeIn>
-    </Container>
+                <p className="mt-4 inline-flex items-center gap-2 text-sm text-muted">
+                  <Clock className="size-4 text-teal" aria-hidden />
+                  Appointments typically Monday–Saturday — confirm slots via phone or WhatsApp.
+                </p>
+              </FadeIn>
+            </div>
+
+            <FadeIn delay={0.08} className="lg:col-span-7">
+              <ContactForm />
+            </FadeIn>
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-t border-border-subtle/80 bg-white py-10 md:py-14">
+        <Container>
+          <FadeIn>
+            <p className="label-caps">Clinic locations</p>
+            <h2 className="title-section mt-3 text-balance">
+              Visit us in <span className="text-accent">Bengaluru</span>
+            </h2>
+          </FadeIn>
+          <Stagger className="mt-8 grid gap-6 md:grid-cols-3">
+            {aboutLocations.map((loc) => (
+              <StaggerChild key={loc.id}>
+                <div className="flex h-full flex-col rounded-[24px] border border-border-subtle/80 bg-bg-warm/50 p-6 shadow-sm">
+                  <h3 className="font-heading text-base font-bold leading-snug text-navy">
+                    {loc.name}
+                  </h3>
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">{loc.address}</p>
+                  <Button asChild variant="secondary" size="sm" className="mt-5 w-full">
+                    <Link href={loc.mapsUrl} target="_blank" rel="noopener noreferrer">
+                      <MapPin className="size-4" aria-hidden />
+                      Open in Maps
+                    </Link>
+                  </Button>
+                </div>
+              </StaggerChild>
+            ))}
+          </Stagger>
+          <FadeIn delay={0.1} className="mt-10 text-center">
+            <BookAppointmentLink className="focus-ring inline-flex items-center gap-2 text-sm font-semibold text-teal hover:text-navy">
+              <MessageCircle className="size-4" />
+              Prefer WhatsApp? Book a consultation →
+            </BookAppointmentLink>
+          </FadeIn>
+        </Container>
+      </section>
+    </>
   );
 }

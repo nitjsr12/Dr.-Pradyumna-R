@@ -14,7 +14,6 @@ export default function PrivacyPolicyPage() {
       <PageHero
         label="Legal"
         title="Privacy Policy"
-        variant="light"
         description="This personal brand website is operated for Dr. Pradyumna R. This page describes how information you submit may be handled."
       />
       <section className="section-y mesh-light pattern-grid">

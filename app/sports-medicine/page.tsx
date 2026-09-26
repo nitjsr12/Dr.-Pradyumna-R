@@ -1,9 +1,8 @@
+import { PageBannerBackground } from "@/components/hero/PageBannerBackground";
 import { Container } from "@/components/ui/Container";
 import { SportsMedicineFeature } from "@/components/sections/SportsMedicineFeature";
 import { SportsMedicineSections } from "@/components/pages/SportsMedicineSections";
-import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { ConsultationCTA } from "@/components/sections/ConsultationCTA";
-import { images } from "@/lib/images";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata(
@@ -15,25 +14,15 @@ export const metadata = pageMetadata(
 export default function SportsMedicinePage() {
   return (
     <>
-      <div className="surface-dark relative overflow-hidden bg-navy pt-[4.75rem] mesh-navy pattern-dots-dark lg:pt-[5.5rem]">
-        <Container className="relative py-10 md:py-14">
+      <div className="hero-banner relative overflow-hidden border-b border-border-subtle pt-[4.75rem] lg:pt-[5.5rem]">
+        <PageBannerBackground />
+        <Container className="relative py-10 md:py-14 lg:pb-16">
           <p className="label-caps-on-dark">Sports medicine</p>
-          <h1 className="title-page mt-5 max-w-3xl text-balance text-white">
+          <h1 className="title-page mt-5 max-w-3xl text-balance">
             Movement is part of the{" "}
             <span className="text-teal-bright">treatment conversation.</span>
           </h1>
         </Container>
-        <div className="container-site relative pb-12">
-          <ImagePlaceholder
-            src={images.athlete}
-            remoteFallback={images.remote.sportsMedicine}
-            alt="Athlete movement placeholder"
-            aspectRatio="aspect-[21/9]"
-            overlay
-            rounded="lg"
-            className="shadow-[0_24px_64px_rgba(0,0,0,0.35)]"
-          />
-        </div>
       </div>
       <SportsMedicineFeature />
       <SportsMedicineSections />

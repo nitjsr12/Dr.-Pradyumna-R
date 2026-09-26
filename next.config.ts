@@ -1,6 +1,14 @@
 import type { NextConfig } from "next";
+import { treatmentLegacyRedirects } from "./data/treatments/redirects";
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      { source: "/expertise", destination: "/area-of-specialties", permanent: true },
+      { source: "/blog/:slug", destination: "/articles/:slug", permanent: true },
+      ...treatmentLegacyRedirects.map((r) => ({ ...r, permanent: true as const })),
+    ];
+  },
   images: {
     qualities: [75, 90],
     remotePatterns: [

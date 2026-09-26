@@ -1,9 +1,21 @@
 /**
- * About page — professional overview and extended profile.
- * Wording aligned with Dr. Pradyumna R’s published profile on drpradyumna.com.
+ * About page — hero subline, professional overview, and extended profile.
  */
 
-export const aboutProfessionalOverview = `Dr. Pradyumna R is an experienced orthopaedic surgeon in Bengaluru, specialising in shoulder surgery, sports medicine, arthroscopy, and joint preservation. He is a Consultant — Arthroscopy, Knee & Shoulder Surgery, Robotic TKR, Joint Replacement Surgeon, and Sports Medicine Specialist — at Manipal Hospital, Kanakapura Road, and also consults at Bangalore Orthopaedic Clinic, BTM Layout. With over 15+ years of experience, he is recognised for shoulder and elbow surgery, sports injury management, and arthroscopic procedures of the knee, shoulder, and hip.`;
+export const aboutHeroSubline =
+  "Orthopaedic Surgeon · Shoulder, Knee & Sports Medicine Specialist · Robotic Joint Replacement · Bengaluru";
+
+export const aboutProfessionalOverviewParagraphs = [
+  `Dr. Pradyumna R is a fellowship-trained orthopaedic surgeon in Bangalore, known for his expertise in shoulder and elbow surgery, sports injury management, and keyhole (arthroscopic) surgery of the knee, shoulder and hip. He is Consultant – Shoulder & Sports Medicine at Manipal Hospitals, Kanakapura Road, with OPD access at Manipal Hospitals, Jayanagar, and also consults at Bangalore Orthopaedic Clinic, BTM Layout.`,
+  `Over 13+ years, he has performed more than 2,000 shoulder arthroscopies, 2,000 knee arthroscopies and 100+ shoulder replacements, along with numerous elbow and ankle surgeries. His work covers ACL and PCL reconstruction, meniscus root repair, rotator cuff repair, Bankart and Latarjet procedures for shoulder instability, cartilage transplantation, and robotic knee replacement.`,
+  `His training spans three international fellowships: Arthroscopy & Sports Medicine under ISAKOS, Shoulder & Elbow Surgery at the Technical University of Munich, Germany, and Complex Shoulder Arthroscopy & Arthroplasty at Seoul National University Bundang Hospital, South Korea. He also holds a FIFA Diploma in Football Medicine. A recipient of the Outlook Health Awards 2024 & 2025, he consults in English, Kannada, Hindi, Telugu and Tamil.`,
+] as const;
+
+export const aboutProfessionalOverviewQuote =
+  "Every patient deserves to understand their condition before deciding on treatment. Surgery only when it's needed, and precision when it is.";
+
+export const aboutDoctorPhotoAlt =
+  "Dr. Pradyumna R, orthopedic surgeon and sports medicine specialist in Bangalore";
 
 export const aboutProfileSections = [
   {

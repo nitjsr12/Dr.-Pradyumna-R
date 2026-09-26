@@ -15,33 +15,18 @@ function blocksToFaqs(
 
 export function BlogPostBody({ blocks }: { blocks: BlogBlock[] }) {
   return (
-    <div className="blog-prose space-y-6">
+    <div className="blog-prose">
       {blocks.map((block, i) => {
         switch (block.type) {
           case "p":
-            return (
-              <p key={i} className="text-[15px] leading-relaxed text-muted md:text-base md:leading-relaxed">
-                {block.text}
-              </p>
-            );
+            return <p key={i}>{block.text}</p>;
           case "h2":
-            return (
-              <h2
-                key={i}
-                className="font-heading text-2xl font-bold tracking-tight text-navy md:text-3xl"
-              >
-                {block.text}
-              </h2>
-            );
+            return <h2 key={i}>{block.text}</h2>;
           case "h3":
-            return (
-              <h3 key={i} className="font-heading text-xl font-bold text-navy">
-                {block.text}
-              </h3>
-            );
+            return <h3 key={i}>{block.text}</h3>;
           case "ul":
             return (
-              <ul key={i} className="list-disc space-y-2 pl-5 text-[15px] leading-relaxed text-muted">
+              <ul key={i}>
                 {block.items.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
@@ -71,10 +56,8 @@ export function BlogPostBody({ blocks }: { blocks: BlogBlock[] }) {
           case "faqs": {
             const faqs = blocksToFaqs(block, `block-${i}`);
             return (
-              <div key={i} className="pt-4">
-                {block.title && (
-                  <h2 className="mb-4 font-heading text-2xl font-bold text-navy">{block.title}</h2>
-                )}
+              <div key={i} className="pt-2">
+                {block.title && <h2>{block.title}</h2>}
                 <FaqAccordion items={faqs} defaultOpenId={null} compact />
               </div>
             );

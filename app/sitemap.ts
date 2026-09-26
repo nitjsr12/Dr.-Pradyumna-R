@@ -1,12 +1,13 @@
 import type { MetadataRoute } from "next";
 import { blogPostSlugs } from "@/data/blog";
+import { treatmentSlugs } from "@/data/treatments";
 import { siteConfig } from "@/lib/utils";
 
 const routes = [
   "",
   "/about",
   "/treatments",
-  "/expertise",
+  "/area-of-specialties",
   "/sports-medicine",
   "/orthopaedics",
   "/patient-resources",
@@ -29,11 +30,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const blogPages = blogPostSlugs.map((slug) => ({
-    url: `${siteConfig.url}/blog/${slug}`,
+    url: `${siteConfig.url}/articles/${slug}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }));
 
-  return [...staticPages, ...blogPages];
+  const treatmentPages = treatmentSlugs.map((slug) => ({
+    url: `${siteConfig.url}/treatments/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.75,
+  }));
+
+  return [...staticPages, ...treatmentPages, ...blogPages];
 }

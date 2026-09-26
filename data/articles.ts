@@ -1,4 +1,8 @@
-/** Educational articles — full guides live under `/blog/[slug]`. */
+/** Educational articles — full guides live under `/articles/[slug]`. */
+
+export function articleHref(slug: string) {
+  return `/articles/${slug}`;
+}
 import { blogPosts } from "@/data/blog";
 import type { BlogPost } from "@/data/blog/types";
 

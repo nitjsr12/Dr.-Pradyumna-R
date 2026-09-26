@@ -3,10 +3,14 @@
  * Local file clips are used where no YouTube id is set yet.
  */
 
+export type AboutMediaLayout = "landscape" | "portrait";
+
 export type AboutMediaItem = {
   id: string;
   label: string;
   caption: string;
+  /** Portrait for vertical clips (e.g. testimonials); default landscape */
+  layout?: AboutMediaLayout;
   youtubeId?: string;
   fileSrc?: string;
 };
@@ -32,7 +36,7 @@ export const aboutMediaItems: AboutMediaItem[] = [
   },
   {
     id: "knee",
-    label: "Knee / Video",
+    label: "Knee Video",
     caption: "Knee arthroscopy and knee treatment pathways.",
     fileSrc: "/videos/credentials/knee-arthroscopy.mp4",
   },
@@ -40,6 +44,7 @@ export const aboutMediaItems: AboutMediaItem[] = [
     id: "testimonial",
     label: "Testimonial",
     caption: "Patient stories in their own words.",
+    layout: "portrait",
     fileSrc: "/videos/testimonials/testimonial-1.mp4",
   },
 ];

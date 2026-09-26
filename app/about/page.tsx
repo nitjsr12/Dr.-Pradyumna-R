@@ -1,13 +1,11 @@
-import { PageHero } from "@/components/hero/PageHero";
 import { AboutPageContent } from "@/components/pages/AboutPageContent";
 import { ConsultationCTA } from "@/components/sections/ConsultationCTA";
 import { JsonLd } from "@/components/json-ld";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
-import { doctor } from "@/data/doctor";
 
 export const metadata = pageMetadata(
-  "About Dr. Pradyumna R | Orthopaedics & Sports Medicine",
-  doctor.overview,
+  "About Dr. Pradyumna R | Orthopedic Surgeon in Bangalore",
+  "Fellowship-trained orthopedic & sports medicine surgeon at Manipal Hospitals, Kanakapura Road. 2,000+ shoulder and 2,000+ knee arthroscopies.",
   "/about"
 );
 
@@ -20,24 +18,7 @@ export default function AboutPage() {
           { name: "About", path: "/about" },
         ])}
       />
-      <PageHero
-        variant="mesh"
-        label="About"
-        title={
-          <>
-            Meet <span className="text-accent">Dr. Pradyumna R</span>
-          </>
-        }
-        description={
-          "Consultant — arthroscopy, knee & shoulder surgery, robotic joint replacement and sports medicine · " +
-          doctor.city
-        }
-      />
       <AboutPageContent />
-      <div
-        className="bg-bg-warm py-5 md:py-6 lg:py-8"
-        aria-hidden
-      />
       <ConsultationCTA />
     </>
   );

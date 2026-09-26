@@ -75,11 +75,11 @@ const themes: Record<
     label: "Recovery",
   },
   "your-doctor": {
-    wash: "from-navy/10 via-gold/15 to-bg-warm",
-    orb: "bg-gold/30",
-    orbAlt: "bg-teal/20",
-    frame: "from-gold via-white to-teal-bright/50",
-    chip: "bg-navy text-white",
+    wash: "from-teal/25 via-mint/80 to-bg-warm",
+    orb: "bg-teal-bright/35",
+    orbAlt: "bg-navy/10",
+    frame: "from-teal-bright via-white to-navy/25",
+    chip: "bg-teal text-white",
     label: "Your Doctor",
   },
 };
@@ -241,16 +241,14 @@ export function DoctorHero() {
               )}
             >
               <div className="relative aspect-[4/5] overflow-hidden rounded-[27px] bg-navy sm:aspect-[5/6] lg:max-h-[560px]">
-                {heroSlides.map((item, i) => (
-                  <SlideMedia
-                    key={item.id}
-                    slide={item}
-                    active={i === index}
-                    play={canPlay && !reduce}
-                  />
-                ))}
+                <SlideMedia
+                  key={slide.id}
+                  slide={slide}
+                  active
+                  play={canPlay && !reduce}
+                />
                 <div
-                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy/45 via-transparent to-white/10"
+                  className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-t from-navy/45 via-transparent to-white/10"
                   aria-hidden
                 />
                 <div className="absolute bottom-4 left-4 right-4 z-20">
@@ -330,17 +328,21 @@ function SlideMedia({
   play: boolean;
 }) {
   const video = slide.video;
-  if (!video) return null;
 
   return (
-    <div
-      className={cn(
-        "absolute inset-0 transition-opacity duration-700 ease-in-out",
-        active ? "z-10 opacity-100" : "z-0 opacity-0"
+    <div className="absolute inset-0 z-0" aria-hidden={!active}>
+      {!video && (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={slide.image}
+          alt={slide.imageAlt}
+          className={cn(
+            "absolute inset-0 size-full object-cover",
+            slide.imagePosition === "right" ? "object-[70%_center]" : "object-center"
+          )}
+        />
       )}
-      aria-hidden={!active}
-    >
-      {video.type === "youtube" && active && play && (
+      {video?.type === "youtube" && active && play && (
         <iframe
           key={video.id}
           src={youtubeSrc(video.id)}
@@ -351,9 +353,10 @@ function SlideMedia({
           className="absolute left-1/2 top-1/2 aspect-video h-full w-auto min-w-full -translate-x-1/2 -translate-y-1/2 border-0"
         />
       )}
-      {video.type === "file" && (
+      {video?.type === "file" && (
         <FileVideo
           src={video.src}
+          poster={slide.image}
           active={active && play}
           label={slide.imageAlt}
           position={slide.imagePosition}
@@ -365,11 +368,13 @@ function SlideMedia({
 
 function FileVideo({
   src,
+  poster,
   active,
   label,
   position,
 }: {
   src: string;
+  poster?: string;
   active: boolean;
   label: string;
   position: HeroSlide["imagePosition"];
@@ -392,6 +397,7 @@ function FileVideo({
     <video
       ref={ref}
       src={src}
+      poster={poster}
       muted
       autoPlay={active}
       loop
