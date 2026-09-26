@@ -356,7 +356,6 @@ function SlideMedia({
       {video?.type === "file" && (
         <FileVideo
           src={video.src}
-          poster={slide.image}
           active={active && play}
           label={slide.imageAlt}
           position={slide.imagePosition}
@@ -368,13 +367,11 @@ function SlideMedia({
 
 function FileVideo({
   src,
-  poster,
   active,
   label,
   position,
 }: {
   src: string;
-  poster?: string;
   active: boolean;
   label: string;
   position: HeroSlide["imagePosition"];
@@ -397,7 +394,6 @@ function FileVideo({
     <video
       ref={ref}
       src={src}
-      poster={poster}
       muted
       autoPlay={active}
       loop
