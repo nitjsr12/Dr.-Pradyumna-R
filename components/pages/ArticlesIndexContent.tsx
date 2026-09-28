@@ -110,7 +110,7 @@ export function ArticlesIndexContent() {
   return (
     <>
       <section className="hero-banner relative overflow-hidden border-b border-border-subtle/80 pt-[4.75rem] lg:pt-[5.5rem]">
-        <PageBannerBackground />
+        <PageBannerBackground imagePosition="articles" />
         <Container className="relative py-10 md:py-14 lg:py-16">
           <FadeIn className="max-w-2xl">
             <p className="label-caps-on-dark">Blogs & guides</p>

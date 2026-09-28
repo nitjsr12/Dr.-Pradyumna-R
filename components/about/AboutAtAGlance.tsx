@@ -53,7 +53,7 @@ function GlanceCard({
           <span className="flex size-11 shrink-0 items-center justify-center rounded-xl border border-white/20 bg-white/10 text-teal-bright backdrop-blur-sm">
             <Icon className="size-5" strokeWidth={1.75} aria-hidden />
           </span>
-          <h3 className="font-heading text-lg font-bold leading-tight text-white sm:text-xl">
+          <h3 className="min-w-0 flex-1 font-heading text-lg font-bold leading-tight text-white sm:text-xl">
             {group.title}
           </h3>
         </div>
@@ -61,9 +61,9 @@ function GlanceCard({
 
       <div className="flex flex-1 flex-col p-5 sm:p-6">
         {isLanguages ? (
-          <ul className="flex flex-wrap gap-2">
+          <ul className="flex flex-wrap content-start gap-2">
             {group.items.map((item) => (
-              <li key={item}>
+              <li key={item} className="flex">
                 <span className="inline-flex items-center rounded-full border border-teal/20 bg-mint/50 px-3.5 py-2 text-sm font-semibold text-navy/90">
                   {item}
                 </span>
@@ -73,12 +73,15 @@ function GlanceCard({
         ) : (
           <ul className="flex flex-1 flex-col gap-3.5">
             {group.items.map((item) => (
-              <li key={item} className="flex gap-3">
+              <li
+                key={item}
+                className="grid grid-cols-[1.25rem_minmax(0,1fr)] items-start gap-x-3"
+              >
                 <span
-                  className="mt-[0.55rem] flex size-5 shrink-0 items-center justify-center rounded-full bg-teal/12 text-teal"
+                  className="mt-1.5 flex size-5 items-center justify-center rounded-full bg-teal/12 text-teal"
                   aria-hidden
                 >
-                  <span className="size-1.5 rounded-full bg-teal" />
+                  <span className="size-1.5 shrink-0 rounded-full bg-teal" />
                 </span>
                 <span className="text-[13px] leading-relaxed text-navy/85 sm:text-sm sm:leading-relaxed">
                   {item}

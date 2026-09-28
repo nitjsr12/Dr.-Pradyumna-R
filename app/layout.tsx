@@ -3,6 +3,7 @@ import { Inter, Manrope, DM_Serif_Display } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { AffiliatedHospitals } from "@/components/sections/AffiliatedHospitals";
 import { MobileStickyCta } from "@/components/layout/MobileStickyCta";
 import { WhatsAppFab } from "@/components/layout/WhatsAppFab";
 import {
@@ -47,6 +48,7 @@ export default function RootLayout({
         <main id="main-content" className="min-w-0 overflow-x-clip">
           {children}
         </main>
+        <AffiliatedHospitals />
         <Footer />
         <WhatsAppFab />
         <MobileStickyCta />

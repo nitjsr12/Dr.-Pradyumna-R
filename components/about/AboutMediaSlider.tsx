@@ -137,7 +137,11 @@ function PlayerShell({
   );
 }
 
-export function AboutMediaSlider() {
+type AboutMediaSliderProps = {
+  variant?: "default" | "opening";
+};
+
+export function AboutMediaSlider({ variant = "default" }: AboutMediaSliderProps) {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const reduce = useReducedMotion();
@@ -158,19 +162,31 @@ export function AboutMediaSlider() {
     return () => window.clearTimeout(id);
   }, [reduce, paused, index, count]);
 
+  const isOpening = variant === "opening";
+  const Root = isOpening ? "div" : "section";
+
   return (
-    <section
-      className="relative overflow-hidden border-b border-border-subtle/80 bg-navy py-10 md:py-12 lg:py-14"
+    <Root
+      className={cn(
+        "relative overflow-hidden",
+        isOpening
+          ? "pb-10 pt-8 md:pb-14 md:pt-10"
+          : "border-b border-border-subtle/80 bg-navy py-10 md:py-12 lg:py-14"
+      )}
       aria-roledescription="carousel"
       aria-label="Doctor media gallery"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_0%,rgba(20,169,161,0.14),transparent_55%)]"
-        aria-hidden
-      />
-      <div className="pattern-dots-dark pointer-events-none absolute inset-0 opacity-15" aria-hidden />
+      {!isOpening && (
+        <>
+          <div
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_0%,rgba(20,169,161,0.14),transparent_55%)]"
+            aria-hidden
+          />
+          <div className="pattern-dots-dark pointer-events-none absolute inset-0 opacity-15" aria-hidden />
+        </>
+      )}
 
       <Container className="relative">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
@@ -331,6 +347,6 @@ export function AboutMediaSlider() {
           </div>
         </div>
       </Container>
-    </section>
+    </Root>
   );
 }

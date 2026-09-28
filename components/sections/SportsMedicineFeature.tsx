@@ -16,6 +16,7 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/button";
 import { FadeIn } from "@/components/animations/Reveal";
+import { SportsMedicineHeroGraphic } from "@/components/illustrations/SportsMedicineHeroGraphic";
 import { cn } from "@/lib/utils";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -314,19 +315,25 @@ export function SportsMedicineFeature() {
       />
 
       <Container className="relative">
-        <FadeIn>
-          <SectionHeading
-            label="Sports medicine"
-            dark
-            title={
-              <>
-                From the sidelines{" "}
-                <span className="text-teal-bright">back to the game.</span>
-              </>
-            }
-            description="A twisted knee on the football pitch. A shoulder that slips out mid-serve. A running niggle that just won't settle. Sports injuries need more than rest and painkillers. As a sports medicine doctor in Bangalore with a FIFA Diploma in Football Medicine, Dr. Pradyumna R treats professional athletes and weekend warriors alike, with one goal: getting you back to the game you love, stronger and safer."
-          />
-        </FadeIn>
+        <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-12 xl:gap-16">
+          <FadeIn className="lg:col-span-7">
+            <SectionHeading
+              className="max-w-none"
+              label="Sports medicine"
+              dark
+              title={
+                <>
+                  From the sidelines{" "}
+                  <span className="text-teal-bright">back to the game.</span>
+                </>
+              }
+              description="A twisted knee on the football pitch. A shoulder that slips out mid-serve. A running niggle that just won't settle. Sports injuries need more than rest and painkillers. As a sports medicine doctor in Bangalore with a FIFA Diploma in Football Medicine, Dr. Pradyumna R treats professional athletes and weekend warriors alike, with one goal: getting you back to the game you love, stronger and safer."
+            />
+          </FadeIn>
+          <FadeIn className="hidden sm:block lg:col-span-5">
+            <SportsMedicineHeroGraphic className="lg:-mr-4 xl:mr-0" />
+          </FadeIn>
+        </div>
 
         <div className="mt-14 lg:mt-16">
           <SpotlightPanel item={current} reduce={Boolean(reduce)} />

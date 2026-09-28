@@ -5,6 +5,8 @@ import { cn } from "@/lib/utils";
 type Props = {
   className?: string;
   imageClassName?: string;
+  /** Override default banner crop (e.g. articles hero). */
+  imagePosition?: "default" | "articles";
   /** 0–100 — higher = darker overlay for text contrast */
   overlayStrength?: "default" | "strong" | "footer";
 };
@@ -18,8 +20,12 @@ const overlayOpacity: Record<NonNullable<Props["overlayStrength"]>, string> = {
 export function PageBannerBackground({
   className,
   imageClassName,
+  imagePosition = "default",
   overlayStrength = "default",
 }: Props) {
+  const positionClass =
+    imagePosition === "articles" ? pageBanner.articlesPosition : pageBanner.position;
+
   return (
     <div className={cn("absolute inset-0", className)} aria-hidden>
       <div className="relative size-full">
@@ -29,7 +35,7 @@ export function PageBannerBackground({
           fill
           quality={90}
           sizes="100vw"
-          className={cn("object-cover", pageBanner.position, imageClassName)}
+          className={cn("object-cover", positionClass, imageClassName)}
         />
       </div>
       <div className={cn("absolute inset-0 bg-navy", overlayOpacity[overlayStrength])} />

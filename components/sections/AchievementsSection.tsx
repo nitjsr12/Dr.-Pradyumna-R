@@ -96,7 +96,7 @@ export function AchievementsSection() {
 
   return (
     <section
-      className="relative overflow-hidden bg-navy text-white"
+      className="relative overflow-hidden bg-navy text-white mesh-navy pattern-dots-dark"
       aria-roledescription="carousel"
       aria-label="Credentials"
       onMouseEnter={() => setPaused(true)}
@@ -108,6 +108,15 @@ export function AchievementsSection() {
         }
       }}
     >
+      <div
+        className="pointer-events-none absolute -left-40 top-0 size-[28rem] rounded-full bg-teal-bright/12 blur-3xl"
+        style={reduce ? undefined : { animation: "hero-drift 20s ease-in-out infinite" }}
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute -right-32 bottom-0 size-80 rounded-full bg-gold/10 blur-3xl"
+        aria-hidden
+      />
       <Container className="relative pt-10 md:pt-14 lg:pt-16">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-xl">

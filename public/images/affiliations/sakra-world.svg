@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" role="img" aria-label="Sakra World Hospital">
+  <g transform="translate(100 28)">
+    <circle cx="-18" cy="0" r="8" fill="#7b4397"/>
+    <circle cx="0" cy="-14" r="8" fill="#8dc63f"/>
+    <circle cx="18" cy="0" r="8" fill="#f7941d"/>
+    <circle cx="0" cy="14" r="8" fill="#ec008c"/>
+  </g>
+  <text x="100" y="62" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#003da5">SAKRA</text>
+</svg>

@@ -1,8 +1,7 @@
 "use client";
 
-import { AboutIntro } from "@/components/about/AboutIntro";
+import { AboutOpening } from "@/components/about/AboutOpening";
 import { AboutProfessionalOverview } from "@/components/about/AboutProfessionalOverview";
-import { AboutMediaSlider } from "@/components/about/AboutMediaSlider";
 import { AboutProfileSection } from "@/components/about/AboutProfileSection";
 import { AboutVisitMaps } from "@/components/about/AboutVisitMaps";
 import { AchievementsSection } from "@/components/sections/AchievementsSection";
@@ -10,8 +9,7 @@ import { AchievementsSection } from "@/components/sections/AchievementsSection";
 export function AboutPageContent() {
   return (
     <>
-      <AboutIntro />
-      <AboutMediaSlider />
+      <AboutOpening />
       <AboutProfessionalOverview />
       <AboutProfileSection />
       <AchievementsSection />

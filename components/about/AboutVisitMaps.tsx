@@ -28,8 +28,8 @@ export function AboutVisitMaps() {
             <span className="text-teal-bright">maps.</span>
           </h2>
           <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-white/80">
-            Consultation at Manipal Hospitals (Kanakapura Road and Jayanagar) and Bangalore
-            Orthopaedic Clinic, BTM Layout.
+            Consultation at Manipal Hospital, Kanakapura Road, and Bangalore Orthopaedic Clinic,
+            BTM Layout.
           </p>
         </FadeIn>
 
@@ -46,7 +46,7 @@ export function AboutVisitMaps() {
                   : "border border-white/20 bg-white/10 text-white/85 hover:bg-white/15"
               )}
             >
-              {loc.name.split("—")[0]?.trim() ?? loc.name}
+              {loc.shortLabel}
             </button>
           ))}
         </div>

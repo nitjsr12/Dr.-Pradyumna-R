@@ -84,7 +84,6 @@ export const aboutProfileHighlights = [
     imagePosition: "object-[22%_center]",
     items: [
       "Manipal Hospital — Kanakapura Road, Bengaluru",
-      "Manipal Hospital — Jayanagar (9th Block), Bengaluru",
       "Bangalore Orthopaedic Clinic — BTM Layout, Bengaluru",
     ],
   },

@@ -82,7 +82,7 @@ export function AboutProfileSection() {
         </div>
 
         <div
-          className="mt-8 flex gap-2 overflow-x-auto pb-1 lg:mt-10"
+          className="mt-8 flex gap-2 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] lg:mt-10 [&::-webkit-scrollbar]:hidden"
           role="tablist"
           aria-label="Profile topics"
         >

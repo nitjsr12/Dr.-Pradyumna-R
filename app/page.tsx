@@ -22,10 +22,6 @@ export default function HomePage() {
       <AboutPreview />
       <AchievementsSection />
       <SportsMedicineFeature />
-      <div
-        className="bg-bg-warm py-5 md:py-6 lg:py-8"
-        aria-hidden
-      />
       <WhenToConsult />
       <BlogSlider />
       <ConsultationCTA />

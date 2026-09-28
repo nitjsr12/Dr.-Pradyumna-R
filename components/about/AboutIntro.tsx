@@ -10,13 +10,21 @@ import { aboutHeroSubline } from "@/data/about-profile";
 import { doctor } from "@/data/doctor";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 const INTRO_VIDEO = "/videos/hero-musculoskeletal.mp4";
 const ease = [0.22, 1, 0.36, 1] as const;
 
-export function AboutIntro() {
+type AboutIntroProps = {
+  /** Rendered inside {@link AboutOpening} — no separate banner or bottom border. */
+  variant?: "default" | "opening";
+};
+
+export function AboutIntro({ variant = "default" }: AboutIntroProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const reduce = useReducedMotion();
+  const isOpening = variant === "opening";
+  const Root = isOpening ? "div" : "section";
 
   useEffect(() => {
     const el = videoRef.current;
@@ -27,15 +35,20 @@ export function AboutIntro() {
   }, [reduce]);
 
   return (
-    <section className="hero-banner relative overflow-hidden border-b border-border-subtle/80 pt-[4.75rem] lg:pt-[5.5rem]">
-      <PageBannerBackground />
+    <Root
+      className={cn(
+        "hero-banner relative overflow-hidden pt-[4.75rem] lg:pt-[5.5rem]",
+        !isOpening && "border-b border-border-subtle/80"
+      )}
+    >
+      {!isOpening && <PageBannerBackground />}
 
-      <Container className="relative py-10 md:py-14 lg:py-16">
+      <Container className={cn("relative", isOpening ? "pb-8 md:pb-10" : "py-10 md:py-14 lg:py-16")}>
         <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-14 xl:gap-16">
           <motion.div
-            className="lg:col-span-6 lg:order-1"
-            initial={reduce ? false : { opacity: 0, x: -24 }}
-            animate={{ opacity: 1, x: 0 }}
+            className="lg:col-span-6"
+            initial={reduce ? false : { opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, ease }}
           >
             <p className="label-caps-on-dark">About</p>
@@ -45,7 +58,7 @@ export function AboutIntro() {
             <p className="text-body mt-5 max-w-xl font-medium md:text-[17px]">{aboutHeroSubline}</p>
             <p className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-white/80">
               <MapPin className="size-4 shrink-0 text-teal-bright" aria-hidden />
-              Kanakapura Road &amp; Jayanagar — {doctor.city}
+              Kanakapura Road &amp; BTM Layout — {doctor.city}
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg" className="bg-teal hover:bg-teal/90">
@@ -66,18 +79,18 @@ export function AboutIntro() {
           </motion.div>
 
           <motion.div
-            className="lg:col-span-6 lg:order-2"
-            initial={reduce ? false : { opacity: 0, x: 24 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.55, delay: 0.08, ease }}
+            className="lg:col-span-6"
+            initial={reduce ? false : { opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, delay: 0.06, ease }}
           >
-            <div className="relative mx-auto max-w-lg lg:max-w-none">
+            <div className="relative mx-auto max-w-lg lg:max-w-none lg:pl-4">
               <div
-                className="absolute -inset-1 rounded-[28px] bg-gradient-to-br from-teal-bright/40 via-white to-gold/30 opacity-90 blur-[2px]"
+                className="pointer-events-none absolute -inset-px rounded-[23px] bg-gradient-to-br from-teal-bright/35 via-teal/10 to-transparent opacity-90"
                 aria-hidden
               />
-              <div className="relative overflow-hidden rounded-[26px] border border-white/80 bg-navy shadow-[var(--shadow-soft)]">
-                <div className="relative aspect-video w-full sm:aspect-[16/10] lg:aspect-video">
+              <div className="relative overflow-hidden rounded-[22px] border border-white/12 bg-black/45 shadow-[0_24px_60px_rgba(0,0,0,0.5)]">
+                <div className="relative aspect-video w-full">
                   {reduce ? (
                     <div className="flex size-full items-center justify-center bg-navy px-6 text-center text-sm text-white/75">
                       Introduction video
@@ -97,18 +110,18 @@ export function AboutIntro() {
                     />
                   )}
                   <div
-                    className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy/40 via-transparent to-transparent"
+                    className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy/55 via-transparent to-transparent"
                     aria-hidden
                   />
+                  <span className="pointer-events-none absolute bottom-4 left-4 rounded-full border border-white/15 bg-navy/75 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-teal-bright backdrop-blur-sm">
+                    Intro video
+                  </span>
                 </div>
-                <p className="border-t border-white/10 bg-navy/90 px-4 py-3 text-center text-[11px] font-bold uppercase tracking-[0.14em] text-teal-bright">
-                  Intro video
-                </p>
               </div>
             </div>
           </motion.div>
         </div>
       </Container>
-    </section>
+    </Root>
   );
 }
