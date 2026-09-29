@@ -10,6 +10,7 @@ import {
   type AboutMediaLayout,
 } from "@/data/about-media";
 import { Container } from "@/components/ui/Container";
+import { DarkSectionBackdrop } from "@/components/ui/DarkSectionBackdrop";
 import { cn } from "@/lib/utils";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -171,24 +172,16 @@ export function AboutMediaSlider({ variant = "default" }: AboutMediaSliderProps)
         "relative overflow-hidden",
         isOpening
           ? "pb-10 pt-8 md:pb-14 md:pt-10"
-          : "border-b border-border-subtle/80 bg-navy py-10 md:py-12 lg:py-14"
+          : "dark-surface border-b border-border-subtle/80 py-10 md:py-12 lg:py-14"
       )}
       aria-roledescription="carousel"
       aria-label="Doctor media gallery"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      {!isOpening && (
-        <>
-          <div
-            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_0%,rgba(20,169,161,0.14),transparent_55%)]"
-            aria-hidden
-          />
-          <div className="pattern-dots-dark pointer-events-none absolute inset-0 opacity-15" aria-hidden />
-        </>
-      )}
+      {!isOpening && <DarkSectionBackdrop />}
 
-      <Container className="relative">
+      <Container className="relative z-10">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-xl">
             <p className="label-caps-on-dark">Media</p>

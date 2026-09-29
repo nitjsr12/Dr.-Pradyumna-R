@@ -20,26 +20,26 @@ export function AffiliatedHospitals() {
           Affiliated Hospitals
         </h2>
 
-        <ul className="mt-8 grid grid-cols-2 gap-4 sm:gap-5 md:mt-10 lg:grid-cols-3 xl:grid-cols-6">
+        <ul className="mt-8 flex justify-center md:mt-10">
           {affiliatedHospitals.map((hospital) => (
-            <li key={hospital.id} className="flex">
+            <li key={hospital.id}>
               <Link
                 href={hospital.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={cardClass}
+                className={`${cardClass} w-[min(100%,240px)]`}
                 aria-label={`${hospital.name} — open link`}
               >
                 <span className="flex flex-1 items-center justify-center py-2">
                   <Image
                     src={hospital.logoSrc}
                     alt={hospital.logoAlt}
-                    width={160}
-                    height={64}
-                    className="h-auto max-h-16 w-full max-w-[160px] object-contain"
+                    width={190}
+                    height={56}
+                    className="h-auto max-h-14 w-full max-w-[190px] object-contain"
                   />
                 </span>
-                <span className="mt-3 font-heading text-[13px] font-bold leading-snug text-navy sm:text-sm">
+                <span className="mt-5 font-heading text-[15px] font-bold leading-snug text-navy">
                   {hospital.name}
                 </span>
               </Link>

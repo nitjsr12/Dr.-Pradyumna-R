@@ -12,6 +12,7 @@ import {
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { credentialsSlides } from "@/data/credentials-slides";
 import { Container } from "@/components/ui/Container";
+import { DarkSectionBackdrop } from "@/components/ui/DarkSectionBackdrop";
 import { cn } from "@/lib/utils";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -96,7 +97,7 @@ export function AchievementsSection() {
 
   return (
     <section
-      className="relative overflow-hidden bg-navy text-white mesh-navy pattern-dots-dark"
+      className="dark-surface"
       aria-roledescription="carousel"
       aria-label="Credentials"
       onMouseEnter={() => setPaused(true)}
@@ -108,16 +109,8 @@ export function AchievementsSection() {
         }
       }}
     >
-      <div
-        className="pointer-events-none absolute -left-40 top-0 size-[28rem] rounded-full bg-teal-bright/12 blur-3xl"
-        style={reduce ? undefined : { animation: "hero-drift 20s ease-in-out infinite" }}
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute -right-32 bottom-0 size-80 rounded-full bg-gold/10 blur-3xl"
-        aria-hidden
-      />
-      <Container className="relative pt-10 md:pt-14 lg:pt-16">
+      <DarkSectionBackdrop />
+      <Container className="relative z-10 pt-10 md:pt-14 lg:pt-16">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-xl">
             <p className="label-caps-on-dark">Credentials</p>
@@ -133,7 +126,7 @@ export function AchievementsSection() {
         </div>
       </Container>
 
-      <div className="relative mt-10 lg:mt-14">
+      <div className="relative z-10 mt-10 lg:mt-14">
         <AnimatePresence mode="wait">
           <motion.div
             key={slide.id}
@@ -174,7 +167,7 @@ export function AchievementsSection() {
         </AnimatePresence>
       </div>
 
-      <Container className="pb-10 pt-2 lg:pb-14">
+      <Container className="relative z-10 pb-10 pt-2 lg:pb-14">
         <div className="h-px bg-white/10" aria-hidden />
         <div
           className="mt-5 flex gap-6 overflow-x-auto"

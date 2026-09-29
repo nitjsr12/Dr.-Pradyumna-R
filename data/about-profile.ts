@@ -81,7 +81,7 @@ export const aboutProfileHighlights = [
     title: "Hospital affiliations",
     icon: "hospital" as const,
     image: "/images/hero/slide-doctor.jpg",
-    imagePosition: "object-[22%_center]",
+    imagePosition: "object-[50%_20%]",
     items: [
       "Manipal Hospital — Kanakapura Road, Bengaluru",
       "Bangalore Orthopaedic Clinic — BTM Layout, Bengaluru",
@@ -92,7 +92,7 @@ export const aboutProfileHighlights = [
     title: "Languages",
     icon: "languages" as const,
     image: "/images/hero/slide-sports.jpg",
-    imagePosition: "object-center",
+    imagePosition: "object-[50%_35%]",
     items: ["English", "Kannada", "Hindi", "Telugu", "Tamil"],
   },
 ] as const;

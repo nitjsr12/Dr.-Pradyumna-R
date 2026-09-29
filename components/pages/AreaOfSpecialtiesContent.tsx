@@ -15,6 +15,7 @@ import {
 } from "@/data/area-of-specialties";
 import { doctor } from "@/data/doctor";
 import { PageBannerBackground } from "@/components/hero/PageBannerBackground";
+import { DarkSectionBackdrop } from "@/components/ui/DarkSectionBackdrop";
 import { BookAppointmentLink } from "@/components/layout/BookAppointmentLink";
 import { FaqAccordion } from "@/components/faq/FaqAccordion";
 import { Container } from "@/components/ui/Container";
@@ -263,11 +264,8 @@ export function AreaOfSpecialtiesContent() {
         </Container>
       </section>
 
-      <section className="relative overflow-hidden border-y border-border-subtle/80 bg-navy py-12 md:py-16">
-        <div
-          className="pointer-events-none absolute inset-0 opacity-25"
-          aria-hidden
-        >
+      <section className="dark-surface border-y border-border-subtle/80 py-12 md:py-16">
+        <div className="pointer-events-none absolute inset-0 opacity-25" aria-hidden>
           <div className="relative size-full">
             <Image
               src="/images/hero/slide-doctor.jpg"
@@ -276,9 +274,10 @@ export function AreaOfSpecialtiesContent() {
               className="object-cover object-[30%_center]"
             />
           </div>
-          <div className="absolute inset-0 bg-navy/88" />
+          <div className="absolute inset-0 bg-gradient-to-br from-navy/92 via-navy/85 to-teal/40" />
         </div>
-        <Container className="relative">
+        <DarkSectionBackdrop variant="overMedia" />
+        <Container className="relative z-10">
           <p className="label-caps-on-dark text-center">Advanced orthopaedic care</p>
           <h2 className="title-section mx-auto mt-4 max-w-xl text-center !text-white">
             Trusted <span className="text-teal-bright">orthopaedic expertise</span>

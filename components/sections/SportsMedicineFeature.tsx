@@ -17,6 +17,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/button";
 import { FadeIn } from "@/components/animations/Reveal";
 import { SportsMedicineHeroGraphic } from "@/components/illustrations/SportsMedicineHeroGraphic";
+import { DarkSectionBackdrop } from "@/components/ui/DarkSectionBackdrop";
 import { cn } from "@/lib/utils";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -300,21 +301,13 @@ export function SportsMedicineFeature() {
 
   return (
     <section
-      className="section-y surface-dark relative overflow-hidden bg-navy mesh-navy pattern-dots-dark"
+      className="section-y surface-dark dark-surface"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      <div
-        className="pointer-events-none absolute -left-40 top-0 size-[28rem] rounded-full bg-teal-bright/12 blur-3xl"
-        style={reduce ? undefined : { animation: "hero-drift 20s ease-in-out infinite" }}
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute -right-32 bottom-0 size-80 rounded-full bg-gold/10 blur-3xl"
-        aria-hidden
-      />
+      <DarkSectionBackdrop />
 
-      <Container className="relative">
+      <Container className="relative z-10">
         <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-12 xl:gap-16">
           <FadeIn className="lg:col-span-7">
             <SectionHeading

@@ -8,6 +8,7 @@ import {
   Phone,
 } from "lucide-react";
 import { PageBannerBackground } from "@/components/hero/PageBannerBackground";
+import { DarkSectionBackdrop } from "@/components/ui/DarkSectionBackdrop";
 import { SiteLogo } from "@/components/layout/SiteLogo";
 import { footerExplore, footerResources, mainNav } from "@/data/navigation";
 import { doctor } from "@/data/doctor";
@@ -24,10 +25,11 @@ const legalLinks = [
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden text-white">
+    <footer className="dark-surface relative overflow-hidden text-white">
       <PageBannerBackground overlayStrength="footer" />
+      <DarkSectionBackdrop variant="overMedia" />
 
-      <div className="relative border-b border-white/10 bg-navy/40 backdrop-blur-[2px]">
+      <div className="relative z-10 border-b border-white/10 bg-navy/40 backdrop-blur-[2px]">
         <div className="container-site relative flex flex-col gap-6 py-10 md:flex-row md:items-center md:justify-between md:py-12">
           <div className="max-w-xl">
             <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-teal-bright">
@@ -57,7 +59,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="relative">
+      <div className="relative z-10">
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.12] [background-image:radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.35)_1px,transparent_0)] [background-size:24px_24px]"
           aria-hidden

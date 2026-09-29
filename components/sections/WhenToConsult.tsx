@@ -10,6 +10,7 @@ import { BookAppointmentLink } from "@/components/layout/BookAppointmentLink";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/button";
+import { DarkSectionBackdrop } from "@/components/ui/DarkSectionBackdrop";
 import { cn } from "@/lib/utils";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -48,7 +49,7 @@ export function WhenToConsult() {
 
   return (
     <section
-      className="relative overflow-hidden bg-navy"
+      className="dark-surface"
       aria-roledescription="carousel"
       aria-label="When to consult"
       onMouseEnter={() => setPaused(true)}
@@ -80,19 +81,9 @@ export function WhenToConsult() {
         className="absolute inset-0 bg-gradient-to-br from-navy/95 via-navy/85 to-teal/70"
         aria-hidden
       />
-      <div
-        className="pointer-events-none absolute -left-20 top-0 size-96 rounded-full bg-teal-bright/30 blur-3xl"
-        style={reduce ? undefined : { animation: "hero-drift 14s ease-in-out infinite" }}
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute -right-16 bottom-0 size-80 rounded-full bg-gold/25 blur-3xl"
-        style={reduce ? undefined : { animation: "hero-drift-alt 17s ease-in-out infinite" }}
-        aria-hidden
-      />
-      <div className="pattern-dots-dark pointer-events-none absolute inset-0 opacity-30" aria-hidden />
+      <DarkSectionBackdrop variant="overMedia" />
 
-      <Container className="relative py-10 md:py-14 lg:py-16">
+      <Container className="relative z-10 py-10 md:py-14 lg:py-16">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <motion.header
             className="max-w-2xl"

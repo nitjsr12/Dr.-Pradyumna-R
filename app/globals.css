@@ -301,6 +301,11 @@
       radial-gradient(ellipse 60% 50% at 100% 80%, rgba(184, 148, 90, 0.06), transparent 40%);
   }
 
+  /** Full-width navy blocks — use with DarkSectionBackdrop component. */
+  .dark-surface {
+    @apply relative overflow-hidden bg-navy text-white;
+  }
+
   .footer-heading {
     color: rgba(255, 255, 255, 0.48);
     @apply text-[11px] font-bold uppercase tracking-[0.14em];

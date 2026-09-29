@@ -6,6 +6,7 @@ import { useState } from "react";
 import { aboutLocations } from "@/data/about-locations";
 import { Container } from "@/components/ui/Container";
 import { FadeIn } from "@/components/animations/Reveal";
+import { DarkSectionBackdrop } from "@/components/ui/DarkSectionBackdrop";
 import { cn } from "@/lib/utils";
 
 export function AboutVisitMaps() {
@@ -13,14 +14,10 @@ export function AboutVisitMaps() {
   const active = aboutLocations.find((loc) => loc.id === activeId) ?? aboutLocations[0];
 
   return (
-    <section className="relative overflow-hidden bg-navy mesh-navy py-10 md:py-14 lg:py-16">
-      <div
-        className="pointer-events-none absolute -right-24 top-0 size-96 rounded-full bg-teal-bright/20 blur-3xl"
-        aria-hidden
-      />
-      <div className="pattern-dots-dark pointer-events-none absolute inset-0 opacity-25" aria-hidden />
+    <section className="dark-surface py-10 md:py-14 lg:py-16">
+      <DarkSectionBackdrop />
 
-      <Container className="relative">
+      <Container className="relative z-10">
         <FadeIn>
           <p className="label-caps-on-dark">Visit</p>
           <h2 className="title-section mt-5 max-w-2xl text-balance !text-white">

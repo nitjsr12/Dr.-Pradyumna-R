@@ -46,6 +46,12 @@ export function PageBannerBackground({
         )}
       />
       <div className="absolute inset-0 bg-teal/10 mix-blend-multiply" />
+      <div className="absolute inset-0 mesh-navy opacity-75" aria-hidden />
+      <div className="pattern-dots-dark absolute inset-0 opacity-[0.14]" aria-hidden />
+      <div
+        className="absolute inset-0 bg-[radial-gradient(ellipse_70%_55%_at_15%_40%,rgba(20,169,161,0.16),transparent_50%)]"
+        aria-hidden
+      />
     </div>
   );
 }

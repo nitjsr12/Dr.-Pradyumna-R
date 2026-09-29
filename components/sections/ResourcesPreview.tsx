@@ -3,11 +3,13 @@ import { resourceSections, disclaimer } from "@/data/resources";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ResourceCard } from "@/components/cards/ResourceCard";
+import { DarkSectionBackdrop } from "@/components/ui/DarkSectionBackdrop";
 
 export function ResourcesPreview() {
   return (
-    <section className="section-y surface-dark relative overflow-hidden bg-navy mesh-navy">
-      <Container className="relative">
+    <section className="section-y surface-dark dark-surface">
+      <DarkSectionBackdrop />
+      <Container className="relative z-10">
         <SectionHeading
           label="Patient resources"
           dark

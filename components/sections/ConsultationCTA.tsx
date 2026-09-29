@@ -16,6 +16,7 @@ import {
 import { doctor } from "@/data/doctor";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/button";
+import { DarkSectionBackdrop } from "@/components/ui/DarkSectionBackdrop";
 import { cn } from "@/lib/utils";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -112,7 +113,7 @@ export function ConsultationCTA() {
   const reduce = useReducedMotion();
 
   return (
-    <section className="relative overflow-hidden bg-navy-deep mesh-navy" aria-labelledby="consult-cta-heading">
+    <section className="dark-surface bg-navy-deep" aria-labelledby="consult-cta-heading">
       <div className="absolute inset-0" aria-hidden>
         <Image
           src="/images/hero/slide-doctor.jpg"
@@ -126,19 +127,9 @@ export function ConsultationCTA() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_20%_50%,rgba(45,212,191,0.16),transparent_55%)]" />
       </div>
 
-      <div
-        className="pointer-events-none absolute -left-32 top-0 size-[28rem] rounded-full bg-teal-bright/20 blur-3xl"
-        style={reduce ? undefined : { animation: "hero-drift 20s ease-in-out infinite" }}
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute -right-24 bottom-0 size-96 rounded-full bg-gold/15 blur-3xl"
-        style={reduce ? undefined : { animation: "hero-drift-alt 22s ease-in-out infinite" }}
-        aria-hidden
-      />
-      <div className="pattern-dots-dark pointer-events-none absolute inset-0 opacity-20" aria-hidden />
+      <DarkSectionBackdrop variant="overMedia" />
 
-      <Container className="relative py-12 md:py-16 lg:py-20">
+      <Container className="relative z-10 py-12 md:py-16 lg:py-20">
         <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-14 xl:gap-20">
           <motion.div
             className="lg:col-span-6 xl:col-span-7"

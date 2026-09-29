@@ -29,11 +29,11 @@ function GlanceCard({
 
   return (
     <motion.article
-      className="group flex h-full flex-col overflow-hidden rounded-[22px] border border-navy/[0.08] bg-white shadow-[var(--shadow-card)] transition-shadow duration-300 hover:shadow-[var(--shadow-soft)]"
+      className="group flex h-full min-h-0 flex-col overflow-hidden rounded-[22px] border border-navy/[0.08] bg-white shadow-[var(--shadow-card)] transition-shadow duration-300 hover:shadow-[var(--shadow-soft)]"
       whileHover={reduce ? undefined : { y: -4 }}
       transition={{ duration: 0.4, ease }}
     >
-      <div className="relative h-[120px] shrink-0 overflow-hidden sm:h-[128px]">
+      <div className="relative h-[128px] shrink-0 overflow-hidden sm:h-[136px]">
         <Image
           src={group.image}
           alt=""
@@ -49,21 +49,21 @@ function GlanceCard({
           className="absolute inset-0 bg-gradient-to-r from-navy/92 via-navy/75 to-navy/55"
           aria-hidden
         />
-        <div className="absolute inset-0 flex items-end gap-3 p-5 sm:p-6">
-          <span className="flex size-11 shrink-0 items-center justify-center rounded-xl border border-white/20 bg-white/10 text-teal-bright backdrop-blur-sm">
+        <div className="absolute inset-x-0 bottom-0 flex min-h-[4.5rem] items-end gap-3 p-5 sm:p-6">
+          <span className="mb-0.5 flex size-11 shrink-0 items-center justify-center rounded-xl border border-white/20 bg-white/10 text-teal-bright backdrop-blur-sm">
             <Icon className="size-5" strokeWidth={1.75} aria-hidden />
           </span>
-          <h3 className="min-w-0 flex-1 font-heading text-lg font-bold leading-tight text-white sm:text-xl">
+          <h3 className="min-h-[2.5rem] min-w-0 flex-1 pb-0.5 font-heading text-lg font-bold leading-snug text-white sm:min-h-[2.75rem] sm:text-xl">
             {group.title}
           </h3>
         </div>
       </div>
 
-      <div className="flex flex-1 flex-col p-5 sm:p-6">
+      <div className="flex min-h-[11.5rem] flex-1 flex-col p-5 sm:min-h-[12.5rem] sm:p-6">
         {isLanguages ? (
           <ul className="flex flex-wrap content-start gap-2">
             {group.items.map((item) => (
-              <li key={item} className="flex">
+              <li key={item}>
                 <span className="inline-flex items-center rounded-full border border-teal/20 bg-mint/50 px-3.5 py-2 text-sm font-semibold text-navy/90">
                   {item}
                 </span>
@@ -71,19 +71,19 @@ function GlanceCard({
             ))}
           </ul>
         ) : (
-          <ul className="flex flex-1 flex-col gap-3.5">
+          <ul className="flex flex-col gap-3.5">
             {group.items.map((item) => (
               <li
                 key={item}
-                className="grid grid-cols-[1.25rem_minmax(0,1fr)] items-start gap-x-3"
+                className="grid grid-cols-[20px_minmax(0,1fr)] items-start gap-x-3"
               >
                 <span
-                  className="mt-1.5 flex size-5 items-center justify-center rounded-full bg-teal/12 text-teal"
+                  className="flex size-5 items-center justify-center justify-self-center rounded-full bg-teal/12 text-teal"
                   aria-hidden
                 >
                   <span className="size-1.5 shrink-0 rounded-full bg-teal" />
                 </span>
-                <span className="text-[13px] leading-relaxed text-navy/85 sm:text-sm sm:leading-relaxed">
+                <span className="pt-0.5 text-[13px] leading-relaxed text-navy/85 sm:text-sm sm:leading-relaxed">
                   {item}
                 </span>
               </li>
@@ -109,9 +109,9 @@ export function AboutAtAGlance() {
           </h3>
         </FadeIn>
 
-        <Stagger className="mt-8 grid items-stretch gap-5 sm:grid-cols-2 lg:mt-10 lg:grid-cols-3 lg:gap-6">
+        <Stagger className="mt-8 grid auto-rows-fr gap-5 sm:grid-cols-2 lg:mt-10 lg:grid-cols-3 lg:gap-6">
           {aboutProfileHighlights.map((group) => (
-            <StaggerChild key={group.id} className="h-full min-h-0">
+            <StaggerChild key={group.id} className="flex h-full min-h-0 flex-col">
               <GlanceCard group={group} reduce={reduce} />
             </StaggerChild>
           ))}
