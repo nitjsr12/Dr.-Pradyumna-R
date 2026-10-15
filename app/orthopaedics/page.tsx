@@ -6,7 +6,7 @@ import { Bone, Move, Activity, HeartPulse, BookOpen, TrendingUp } from "lucide-r
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata(
-  "Orthopaedic Care in Bengaluru",
+  "Orthopaedic Care in Bangalore",
   "Orthopaedic care built around function and movement.",
   "/orthopaedics"
 );

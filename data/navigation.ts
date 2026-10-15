@@ -15,10 +15,21 @@ export const mobileNav = [
 ] as const;
 
 export const footerExplore = [
-  { href: "/about", label: "About Dr. Pradyumna" },
-  { href: "/area-of-specialties", label: "Area of Specialties" },
-  { href: "/sports-medicine", label: "Sports Medicine" },
-  { href: "/orthopaedics", label: "Orthopaedics" },
+  { href: "/about", label: "About Dr. Pradyumna R" },
+  { href: "/articles", label: "Blogs & guides" },
+  { href: "/contact", label: "Contact" },
+  { href: "/faqs", label: "FAQs" },
 ] as const;
 
-export const footerResources = [{ href: "/faqs", label: "FAQs" }] as const;
+export const footerSpecialistServices = [
+  { href: "/sports-medicine", label: "Sports Medicine" },
+  { href: "/orthopaedics", label: "Orthopaedics" },
+  { href: "/area-of-specialties#general-treatments", label: "Treatments & procedures" },
+  { href: "/area-of-specialties#knee-procedures", label: "Knee procedures" },
+  { href: "/area-of-specialties#shoulder-procedures", label: "Shoulder procedures" },
+  { href: "/area-of-specialties#elbow-procedures", label: "Elbow procedures" },
+  { href: "/area-of-specialties#other-procedures", label: "Foot & ankle procedures" },
+  { href: "/area-of-specialties#hip-procedures", label: "Hip procedures" },
+] as const;
+
+export const footerResources = [{ href: "/book-appointment", label: "Book appointment" }] as const;

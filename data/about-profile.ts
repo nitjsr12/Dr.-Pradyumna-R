@@ -3,7 +3,7 @@
  */
 
 export const aboutHeroSubline =
-  "Orthopaedic Surgeon · Shoulder, Knee & Sports Medicine Specialist · Robotic Joint Replacement · Bengaluru";
+  "Orthopaedic Surgeon · Shoulder, Knee & Sports Medicine Specialist · Robotic Joint Replacement · Bangalore";
 
 export const aboutProfessionalOverviewParagraphs = [
   `Dr. Pradyumna R is a fellowship-trained orthopaedic surgeon in Bangalore, known for his expertise in shoulder and elbow surgery, sports injury management, and keyhole (arthroscopic) surgery of the knee, shoulder and hip. He is Consultant – Shoulder & Sports Medicine at Manipal Hospitals, Kanakapura Road, with OPD access at Manipal Hospitals, Jayanagar, and also consults at Bangalore Orthopaedic Clinic, BTM Layout.`,
@@ -15,7 +15,7 @@ export const aboutProfessionalOverviewQuote =
   "Every patient deserves to understand their condition before deciding on treatment. Surgery only when it's needed, and precision when it is.";
 
 export const aboutDoctorPhotoAlt =
-  "Dr. Pradyumna R, orthopedic surgeon and sports medicine specialist in Bangalore";
+  "Dr. Pradyumna R, orthopaedic surgeon and sports medicine specialist in Bangalore";
 
 export const aboutProfileSections = [
   {
@@ -29,35 +29,35 @@ export const aboutProfileSections = [
     id: "repertoire",
     title: "Surgical repertoire & fellowships",
     paragraphs: [
-      `His surgical repertoire includes over 2,000 shoulder arthroscopy procedures, 2,000 knee arthroscopies, more than 100 shoulder replacements, and numerous elbow and ankle surgeries. Dr. Pradyumna completed his MBBS and MS in Orthopaedics, followed by prestigious international fellowships in Arthroscopy of Knee, Shoulder and Sports Medicine under ISAKOS, Shoulder and Elbow Surgery at TUM, Munich, Germany, and Complex Shoulder Arthroscopy and Arthroplasty at SNUBH, Seoul, South Korea. He also holds a FIFA Diploma in Football Medicine, reflecting his commitment to excellence in sports injury care.`,
+      `His surgical repertoire includes over 2,000 shoulder arthroscopy procedures, 2,000 knee arthroscopies, more than 100 shoulder replacements, and numerous elbow and ankle surgeries. Dr. Pradyumna R completed his MBBS and MS in Orthopaedics, followed by prestigious international fellowships in Arthroscopy of Knee, Shoulder and Sports Medicine under ISAKOS, Shoulder and Elbow Surgery at TUM, Munich, Germany, and Complex Shoulder Arthroscopy and Arthroplasty at SNUBH, Seoul, South Korea. He also holds a FIFA Diploma in Football Medicine, reflecting his commitment to excellence in sports injury care.`,
     ],
   },
   {
     id: "expertise",
     title: "Clinical expertise",
     paragraphs: [
-      `His expertise includes rotator cuff repair, SLAP and Bankart lesion treatment, Latarjet procedure, reverse and total shoulder arthroplasty, ACL and PCL reconstruction, meniscus root repair, multi-ligament knee injury management, MPFL reconstruction, cartilage transplantation, and robotic joint replacement surgeries. By using advanced minimally invasive techniques, Dr. Pradyumna has helped thousands of patients regain mobility, return to sports, and lead pain-free lives.`,
+      `His expertise includes rotator cuff repair, SLAP and Bankart lesion treatment, Latarjet procedure, reverse and total shoulder arthroplasty, ACL and PCL reconstruction, meniscus root repair, multi-ligament knee injury management, MPFL reconstruction, cartilage transplantation, and robotic joint replacement surgeries. By using advanced minimally invasive techniques, Dr. Pradyumna R has helped thousands of patients regain mobility, return to sports, and lead pain-free lives.`,
     ],
   },
   {
     id: "research",
     title: "Research & academics",
     paragraphs: [
-      `Apart from his clinical practice, Dr. Pradyumna is actively involved in research and academics. He has published multiple peer-reviewed papers on proximal humerus fractures, femur fracture outcomes, bioinductive collagen patches in rotator cuff repair, and biomechanical aspects of degenerative shoulder arthritis and humeroscapular alignment. His evidence-based approach ensures patients receive current and effective treatment options.`,
+      `Apart from his clinical practice, Dr. Pradyumna R is actively involved in research and academics. He has published multiple peer-reviewed papers on proximal humerus fractures, femur fracture outcomes, bioinductive collagen patches in rotator cuff repair, and biomechanical aspects of degenerative shoulder arthritis and humeroscapular alignment. His evidence-based approach ensures patients receive current and effective treatment options.`,
     ],
   },
   {
     id: "faculty",
     title: "Academic faculty & memberships",
     paragraphs: [
-      `Dr. Pradyumna regularly serves as faculty at national and international orthopaedic conferences and is an active member of renowned organisations such as ISAKOS, SICOT, ESSKA, IAS, SESI, and KAS. His patient-centred approach focuses on accurate diagnosis, personalised treatment, advanced surgical care, and comprehensive rehabilitation to achieve long-term outcomes and improved quality of life.`,
+      `Dr. Pradyumna R regularly serves as faculty at national and international orthopaedic conferences and is an active member of renowned organisations such as ISAKOS, SICOT, ESSKA, IAS, SESI, and KAS. His patient-centred approach focuses on accurate diagnosis, personalised treatment, advanced surgical care, and comprehensive rehabilitation to achieve long-term outcomes and improved quality of life.`,
     ],
   },
   {
     id: "patient-care",
     title: "Patient-centred care",
     paragraphs: [
-      `Known for ethical practice, compassionate care, and clear communication, Dr. Pradyumna R is fluent in English, Hindi, Kannada, Telugu, and Tamil. His dedication to world-class orthopaedic care, combined with expertise in sports medicine and arthroscopic surgery, has made him one of the most trusted orthopaedic surgeons in Bengaluru.`,
+      `Known for ethical practice, compassionate care, and clear communication, Dr. Pradyumna R is fluent in English, Hindi, Kannada, Telugu, and Tamil. His dedication to world-class orthopaedic care, combined with expertise in sports medicine and arthroscopic surgery, has made him one of the most trusted orthopaedic surgeons in Bangalore.`,
     ],
   },
 ] as const;
@@ -83,8 +83,8 @@ export const aboutProfileHighlights = [
     image: "/images/hero/slide-doctor.jpg",
     imagePosition: "object-[50%_20%]",
     items: [
-      "Manipal Hospital — Kanakapura Road, Bengaluru",
-      "Bangalore Orthopaedic Clinic — BTM Layout, Bengaluru",
+      "Manipal Hospital — Kanakapura Road, Bangalore",
+      "Bangalore Orthopaedic Clinic — BTM Layout, Bangalore",
     ],
   },
   {

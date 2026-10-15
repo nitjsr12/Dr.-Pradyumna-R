@@ -226,7 +226,7 @@ export function TestimonialVideos() {
         <div
           className="mt-8 flex flex-wrap gap-2"
           role="tablist"
-          aria-label="Filter testimonial videos by area"
+          aria-label="Filter testimonial videos by knee, shoulder, ankle, elbow, general consultation, or hip"
         >
           {testimonialTopics.map((item) => {
             const selected = item.id === topic;

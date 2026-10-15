@@ -56,7 +56,7 @@ export const shoulderArthroscopyBangalore: TreatmentPage = {
     p("Many procedures take 45 minutes to 2 hours, depending on the repair required."),
     h2("Recovery after shoulder arthroscopy"),
     p(
-      "Recovery is tailored to the procedure. Rotator cuff and labral repairs need a protected phase in a sling followed by structured physiotherapy. Simple debridement may allow quicker motion. Dr. Pradyumna provides a personalised rehab plan and coordinates with your physiotherapist."
+      "Recovery is tailored to the procedure. Rotator cuff and labral repairs need a protected phase in a sling followed by structured physiotherapy. Simple debridement may allow quicker motion. Dr. Pradyumna R provides a personalised rehab plan and coordinates with your physiotherapist."
     ),
     table(
       ["Phase", "Typical focus"],
@@ -148,7 +148,7 @@ export const slapRepairBangalore: TreatmentPage = {
       "Biceps tenodesis or tenotomy — relocating or releasing the biceps when the tear involves the tendon heavily or in older patients",
     ]),
     p(
-      "The choice depends on tear type (SLAP 1–4 patterns), age, sport, associated cuff or instability problems, and your goals. Dr. Pradyumna will explain the recommended option before any procedure."
+      "The choice depends on tear type (SLAP 1–4 patterns), age, sport, associated cuff or instability problems, and your goals. Dr. Pradyumna R will explain the recommended option before any procedure."
     ),
     h2("The SLAP repair procedure"),
     ul([
@@ -250,7 +250,7 @@ export const labrumReconstructionBangalore: TreatmentPage = {
     ]),
     h2("When is Latarjet or bone reconstruction needed?"),
     p(
-      "If CT shows significant glenoid bone loss — common after repeated dislocations — labral repair alone may not restore stability. The Latarjet procedure transfers a coracoid bone block to the front of the socket, increasing bone support and providing a sling effect from the conjoint tendon. Dr. Pradyumna discusses repair versus Latarjet based on your age, sport, dislocation count and imaging."
+      "If CT shows significant glenoid bone loss — common after repeated dislocations — labral repair alone may not restore stability. The Latarjet procedure transfers a coracoid bone block to the front of the socket, increasing bone support and providing a sling effect from the conjoint tendon. Dr. Pradyumna R discusses repair versus Latarjet based on your age, sport, dislocation count and imaging."
     ),
     h2("Recovery after labral surgery"),
     table(
@@ -362,7 +362,7 @@ export const shoulderReplacementBangalore: TreatmentPage = {
       "Component loosening or wear over years",
     ]),
     p(
-      "Modern shoulder implants often last 15–20 years or more with appropriate activity. Dr. Pradyumna will discuss longevity and activity limits for your implant type."
+      "Modern shoulder implants often last 15–20 years or more with appropriate activity. Dr. Pradyumna R will discuss longevity and activity limits for your implant type."
     ),
     faqs([
       {
@@ -385,7 +385,7 @@ export const shoulderReplacementBangalore: TreatmentPage = {
           "Low-impact activities such as walking, swimming or golf are often possible after rehab. Contact sports and heavy lifting require individual surgeon clearance.",
       },
       {
-        question: "How many shoulder replacements has Dr. Pradyumna performed?",
+        question: "How many shoulder replacements has Dr. Pradyumna R performed?",
         answer:
           "He has performed more than 100 shoulder replacements, including total and reverse procedures.",
       },
@@ -457,7 +457,7 @@ export const bankartRepairSurgeryBangalore: TreatmentPage = {
     ),
     h2("Bankart repair vs Latarjet"),
     p(
-      "Bankart repair is appropriate for many patients with a torn labrum and adequate bone. Significant glenoid bone loss, failed previous repair, or certain high-demand contact athletes may need Latarjet (bone block) reconstruction. Dr. Pradyumna will recommend the procedure that matches your imaging and activity level."
+      "Bankart repair is appropriate for many patients with a torn labrum and adequate bone. Significant glenoid bone loss, failed previous repair, or certain high-demand contact athletes may need Latarjet (bone block) reconstruction. Dr. Pradyumna R will recommend the procedure that matches your imaging and activity level."
     ),
     h2("Risks"),
     ul([
@@ -485,7 +485,7 @@ export const bankartRepairSurgeryBangalore: TreatmentPage = {
       {
         question: "Is Bankart repair done as keyhole surgery?",
         answer:
-          "Yes — Dr. Pradyumna performs Bankart repair arthroscopically in most cases, avoiding a large open incision.",
+          "Yes — Dr. Pradyumna R performs Bankart repair arthroscopically in most cases, avoiding a large open incision.",
       },
     ]),
     p(phoneCta),

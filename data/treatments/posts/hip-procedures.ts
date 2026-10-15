@@ -15,7 +15,7 @@ export const hipArthroscopy: TreatmentPage = {
     "FAI surgery Bangalore",
     "hip labral tear",
     "groin pain hip",
-    "Dr Pradyumna R hip surgeon",
+    "Dr. Pradyumna R hip surgeon",
   ],
   blocks: [
     p(
@@ -33,7 +33,7 @@ export const hipArthroscopy: TreatmentPage = {
       "Treatment of selected ligamentum teres and synovial pathology",
     ]),
     p(
-      "A GP referral is helpful but not mandatory. Dr. Pradyumna offers consultation, second opinions and surgical planning for hip and groin pain across Bengaluru."
+      "A GP referral is helpful but not mandatory. Dr. Pradyumna R offers consultation, second opinions and surgical planning for hip and groin pain across Bangalore."
     ),
     h2("What Is Hip Arthroscopy?"),
     p(
@@ -83,7 +83,7 @@ export const hipArthroscopy: TreatmentPage = {
       "Incomplete symptom relief if cartilage damage is advanced",
       "Rare nerve, vessel or abdominal organ injury related to instrument placement",
     ]),
-    p("Dr. Pradyumna will explain your personal risk profile and precautions before surgery."),
+    p("Dr. Pradyumna R will explain your personal risk profile and precautions before surgery."),
     h2("Advantages of Hip Arthroscopy"),
     ul([
       "Small incisions and less soft-tissue disruption than open hip surgery",
@@ -129,7 +129,7 @@ export const hipCartilageRepair: TreatmentPage = {
     "hip microfracture",
     "cartilage damage hip",
     "hip joint preservation",
-    "Dr Pradyumna R",
+    "Dr. Pradyumna R",
   ],
   blocks: [
     p(
@@ -147,7 +147,7 @@ export const hipCartilageRepair: TreatmentPage = {
       "Synovitis and chondral flap stabilisation arthroscopically",
     ]),
     p(
-      "Not every cartilage lesion is repairable arthroscopically. Dr. Pradyumna will review your MRI, symptoms and activity goals to recommend the most appropriate plan."
+      "Not every cartilage lesion is repairable arthroscopically. Dr. Pradyumna R will review your MRI, symptoms and activity goals to recommend the most appropriate plan."
     ),
     h2("What Is Hip Cartilage Repair?"),
     p(
@@ -241,7 +241,7 @@ export const hipFractureSurgery: TreatmentPage = {
     "broken hip treatment",
     "femoral neck fracture",
     "hip replacement fracture",
-    "Dr Pradyumna R orthopaedic",
+    "Dr. Pradyumna R orthopaedic",
   ],
   blocks: [
     p(
@@ -259,7 +259,7 @@ export const hipFractureSurgery: TreatmentPage = {
       "Post-operative physiotherapy planning and fracture precautions",
     ]),
     p(
-      "Treatment is individualised using fracture type, bone quality, age, comorbidities and pre-injury mobility. Dr. Pradyumna coordinates care with anaesthesia and rehabilitation teams at Manipal Hospitals."
+      "Treatment is individualised using fracture type, bone quality, age, comorbidities and pre-injury mobility. Dr. Pradyumna R coordinates care with anaesthesia and rehabilitation teams at Manipal Hospitals."
     ),
     h2("What Is a Hip Fracture?"),
     p(
@@ -337,7 +337,7 @@ export const hipFractureSurgery: TreatmentPage = {
       },
     ]),
     p(
-      "For hip fracture evaluation and surgical care in Bangalore, call +91 91130 25188. Dr. Pradyumna R provides orthopaedic trauma and hip fracture treatment at Manipal Hospitals, serving patients across Bengaluru and Karnataka."
+      "For hip fracture evaluation and surgical care in Bangalore, call +91 91130 25188. Dr. Pradyumna R provides orthopaedic trauma and hip fracture treatment at Manipal Hospitals, serving patients across Bangalore and Karnataka."
     ),
   ],
 };
@@ -356,7 +356,7 @@ export const hipLabralRepair: TreatmentPage = {
     "hip labral tear surgery",
     "groin pain hip",
     "FAI labral tear",
-    "Dr Pradyumna R",
+    "Dr. Pradyumna R",
   ],
   blocks: [
     p(
@@ -374,7 +374,7 @@ export const hipLabralRepair: TreatmentPage = {
       "Combined cartilage and synovial treatment during the same arthroscopy",
     ]),
     p(
-      "Accurate diagnosis requires clinical examination and usually MRI arthrogram or high-quality MRI. Dr. Pradyumna reviews imaging with you and explains whether repair, debridement or non-operative care is most suitable."
+      "Accurate diagnosis requires clinical examination and usually MRI arthrogram or high-quality MRI. Dr. Pradyumna R reviews imaging with you and explains whether repair, debridement or non-operative care is most suitable."
     ),
     h2("What Is Hip Labral Tear Repair?"),
     p(
@@ -422,7 +422,7 @@ export const hipLabralRepair: TreatmentPage = {
       "Temporary numbness from traction",
       "Stiffness if rehab precautions are not balanced with guided motion",
     ]),
-    p("Dr. Pradyumna discusses expected outcomes based on your tear type, age and activity level."),
+    p("Dr. Pradyumna R discusses expected outcomes based on your tear type, age and activity level."),
     h2("Advantages of Hip Labral Repair"),
     ul([
       "Restores labral function where tissue is repairable",
@@ -468,7 +468,7 @@ export const totalHipReplacement: TreatmentPage = {
     "hip arthroplasty Bangalore",
     "hip arthritis surgery",
     "minimally invasive hip replacement",
-    "Dr Pradyumna R",
+    "Dr. Pradyumna R",
   ],
   blocks: [
     p(
@@ -536,7 +536,7 @@ export const totalHipReplacement: TreatmentPage = {
       "Fracture during implant insertion",
       "Wear, loosening or need for revision surgery over many years",
     ]),
-    p("Dr. Pradyumna explains precautions and warning signs such as fever, wound drainage or sudden calf swelling."),
+    p("Dr. Pradyumna R explains precautions and warning signs such as fever, wound drainage or sudden calf swelling."),
     h2("Advantages of Total Hip Replacement"),
     ul([
       "Marked reduction in arthritis pain for appropriately selected patients",
@@ -563,7 +563,7 @@ export const totalHipReplacement: TreatmentPage = {
       },
     ]),
     p(
-      "To schedule total hip replacement consultation in Bangalore, call +91 91130 25188. Dr. Pradyumna R provides hip arthroplasty at Manipal Hospitals, Kanakapura Road, and serves patients from across Bengaluru including Jayanagar, Banashankari and BTM Layout."
+      "To schedule total hip replacement consultation in Bangalore, call +91 91130 25188. Dr. Pradyumna R provides hip arthroplasty at Manipal Hospitals, Kanakapura Road, and serves patients from across Bangalore including Jayanagar, Banashankari and BTM Layout."
     ),
   ],
 };

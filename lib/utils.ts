@@ -9,14 +9,15 @@ export function cn(...inputs: ClassValue[]) {
 export const siteConfig = {
   name: doctor.name,
   title:
-    "Dr. Pradyumna R | Orthopaedics & Sports Medicine Specialist in Bengaluru",
+    "Dr. Pradyumna R | Orthopaedics & Sports Medicine Specialist in Bangalore",
   description:
-    "Personal orthopaedic and sports medicine practice of Dr. Pradyumna R in Bengaluru. Expertise, patient resources and consultation information.",
+    "Personal orthopaedic and sports medicine practice of Dr. Pradyumna R in Bangalore. Expertise, patient resources and consultation information.",
   url: "https://www.drpradyumna.com",
   locale: "en_IN",
   manipalProfileUrl: doctor.booking.manipalProfileUrl,
   appointmentPhone: doctor.booking.centralPhone,
   hospitalPhone: doctor.booking.hospitalLine,
+  contactEmail: doctor.booking.contactEmail,
   hospitalEmail: doctor.booking.hospitalEmail,
   address: {
     line: doctor.affiliation.name,
@@ -26,7 +27,7 @@ export const siteConfig = {
     mapsQuery: "Manipal+Hospital+Kanakapura+Road+Yelachenahalli",
   },
   clinic: {
-    name: "Consultation — Bengaluru",
+    name: "Consultation — Bangalore",
     full: doctor.address.hospital,
     mapsQuery: "Manipal+Hospital+Kanakapura+Road+Yelachenahalli",
   },

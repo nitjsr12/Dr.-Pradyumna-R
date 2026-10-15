@@ -10,7 +10,11 @@ import {
 import { PageBannerBackground } from "@/components/hero/PageBannerBackground";
 import { DarkSectionBackdrop } from "@/components/ui/DarkSectionBackdrop";
 import { SiteLogo } from "@/components/layout/SiteLogo";
-import { footerExplore, footerResources, mainNav } from "@/data/navigation";
+import {
+  footerExplore,
+  footerResources,
+  footerSpecialistServices,
+} from "@/data/navigation";
 import { doctor } from "@/data/doctor";
 import { Button } from "@/components/ui/button";
 
@@ -85,27 +89,12 @@ export function Footer() {
               </p>
             </div>
 
-            <div className="grid gap-8 sm:grid-cols-2 lg:col-span-4">
+            <div className="grid gap-8 sm:grid-cols-2 lg:col-span-5">
               <div>
                 <p className="footer-heading">Explore</p>
                 <ul className="mt-5 space-y-2.5">
                   {footerExplore.map((l) => (
                     <li key={l.href}>
-                      <Link
-                        href={l.href}
-                        className="focus-ring text-sm text-white/70 transition-colors hover:text-teal-bright"
-                      >
-                        {l.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <p className="footer-heading">Site</p>
-                <ul className="mt-5 space-y-2.5">
-                  {mainNav.map((l) => (
-                    <li key={"type" in l ? l.label : l.href}>
                       <Link
                         href={l.href}
                         className="focus-ring text-sm text-white/70 transition-colors hover:text-teal-bright"
@@ -126,9 +115,24 @@ export function Footer() {
                   ))}
                 </ul>
               </div>
+              <div>
+                <p className="footer-heading">Specialist Services</p>
+                <ul className="mt-5 space-y-2.5">
+                  {footerSpecialistServices.map((l) => (
+                    <li key={l.href}>
+                      <Link
+                        href={l.href}
+                        className="focus-ring text-sm text-white/70 transition-colors hover:text-teal-bright"
+                      >
+                        {l.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
-            <div className="lg:col-span-4">
+            <div className="lg:col-span-3">
               <p className="footer-heading">Get in touch</p>
               <ul className="mt-5 grid gap-3">
                 <li>
@@ -189,7 +193,7 @@ export function Footer() {
                 </li>
                 <li>
                   <a
-                    href={`mailto:${doctor.booking.hospitalEmail}`}
+                    href={`mailto:${doctor.booking.contactEmail}`}
                     className="focus-ring flex gap-3 rounded-2xl border border-white/10 bg-navy/50 p-4 backdrop-blur-sm transition-colors hover:border-teal-bright/30 hover:bg-navy/60"
                   >
                     <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-teal-bright/15 text-teal-bright">
@@ -200,7 +204,7 @@ export function Footer() {
                         Email
                       </span>
                       <span className="mt-1 block text-sm font-bold leading-snug text-white break-all">
-                        {doctor.booking.hospitalEmail}
+                        {doctor.booking.contactEmail}
                       </span>
                     </span>
                   </a>
@@ -228,7 +232,7 @@ export function Footer() {
               ))}
             </div>
             <p className="text-xs text-white/45">
-              © {new Date().getFullYear()} Dr. Pradyumna R.
+              © {new Date().getFullYear()} Dr. Pradyumna R
             </p>
           </div>
         </div>

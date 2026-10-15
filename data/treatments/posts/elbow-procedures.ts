@@ -78,7 +78,7 @@ export const elbowArthroscopy: TreatmentPage = {
       "Persistent pain if underlying arthritis is advanced",
       "Reaction to anaesthesia",
     ]),
-    p("Dr. Pradyumna will discuss your individual risks and the expected benefits before you decide on surgery."),
+    p("Dr. Pradyumna R will discuss your individual risks and the expected benefits before you decide on surgery."),
     faqs([
       {
         question: "Is elbow arthroscopy the same as keyhole surgery?",
@@ -166,7 +166,7 @@ export const elbowLigamentReconstruction: TreatmentPage = {
       ]
     ),
     p(
-      "Protocols vary by graft type, associated injuries and sport. Dr. Pradyumna provides a personalised rehab plan coordinated with your physiotherapist."
+      "Protocols vary by graft type, associated injuries and sport. Dr. Pradyumna R provides a personalised rehab plan coordinated with your physiotherapist."
     ),
     h2("Risks"),
     ul([

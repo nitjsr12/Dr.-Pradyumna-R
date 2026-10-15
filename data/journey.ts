@@ -41,9 +41,9 @@ export const professionalTimeline = [
   },
   {
     id: "practice",
-    title: "Consultant, Bengaluru",
+    title: "Consultant, Bangalore",
     detail:
-      "Shoulder & Sports Medicine. Consultant at Manipal Hospital, Kanakapura Road, Bengaluru, with a specialist focus on shoulder, knee and sports medicine.",
+      "Shoulder & Sports Medicine. Consultant at Manipal Hospital, Kanakapura Road, Bangalore, with a specialist focus on shoulder, knee and sports medicine.",
     icon: "hospital" as const,
   },
 ] as const;

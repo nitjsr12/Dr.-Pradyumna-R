@@ -1,6 +1,6 @@
 /**
  * Centralized image paths.
- * TODO: Replace placeholders with Dr. Pradyumna's professional photography.
+ * TODO: Replace placeholders with Dr. Pradyumna R's professional photography.
  */
 
 const local = (path: string) => path;

@@ -6,9 +6,15 @@ import { ConsultationCTA } from "@/components/sections/ConsultationCTA";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata(
-  "Sports Medicine in Bengaluru",
-  "Sports medicine care focused on movement and recovery.",
-  "/sports-medicine"
+  "Sports Medicine in Bangalore",
+  "Sports injury assessment, arthroscopy and return-to-sport planning with a FIFA-diploma sports medicine specialist in Bangalore.",
+  "/sports-medicine",
+  [
+    "sports injury",
+    "sports injury treatment bangalore",
+    "sports medicine bangalore",
+    "sports injury doctor bangalore",
+  ]
 );
 
 export default function SportsMedicinePage() {

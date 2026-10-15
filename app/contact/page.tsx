@@ -19,7 +19,7 @@ export default function ContactPage() {
             <span className="text-accent">conversation.</span>
           </>
         }
-        description="Call, WhatsApp, or send an enquiry — we’ll guide you to booking and directions across Bengaluru clinics."
+        description="Call, WhatsApp, or send an enquiry — we’ll guide you to booking and directions across Bangalore clinics."
       />
       <ContactPageContent />
     </>

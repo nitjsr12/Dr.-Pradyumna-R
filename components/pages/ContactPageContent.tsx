@@ -137,7 +137,7 @@ export function ContactPageContent() {
           <FadeIn>
             <p className="label-caps">Clinic locations</p>
             <h2 className="title-section mt-3 text-balance">
-              Visit us in <span className="text-accent">Bengaluru</span>
+              Visit us in <span className="text-accent">Bangalore</span>
             </h2>
           </FadeIn>
           <Stagger className="mt-8 grid gap-6 md:grid-cols-3">

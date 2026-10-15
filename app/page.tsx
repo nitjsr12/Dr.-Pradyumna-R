@@ -1,6 +1,7 @@
 import { DoctorHero } from "@/components/hero/DoctorHero";
 import { TrustStrip } from "@/components/sections/TrustStrip";
 import { CredentialsBar } from "@/components/sections/CredentialsBar";
+import { HomeDepartmentsSection } from "@/components/sections/HomeDepartmentsSection";
 import { ApproachSection } from "@/components/sections/ApproachSection";
 import { AboutPreview } from "@/components/sections/AboutPreview";
 import { AchievementsSection } from "@/components/sections/AchievementsSection";
@@ -17,6 +18,7 @@ export default function HomePage() {
     <>
       <DoctorHero />
       <TrustStrip />
+      <HomeDepartmentsSection />
       <CredentialsBar />
       <ApproachSection />
       <AboutPreview />

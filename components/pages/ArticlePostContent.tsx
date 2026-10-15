@@ -54,8 +54,7 @@ export function ArticlePostContent({ post, related }: Props) {
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-14">
           <article className="lg:col-span-8">
             <p className="rounded-2xl border border-teal/15 bg-mint/25 px-4 py-3 text-sm leading-relaxed text-navy/85">
-              Educational guide only — not a substitute for an in-person assessment with Dr.
-              Pradyumna R.
+              Educational guide only — not a substitute for an in-person assessment with Dr. Pradyumna R.
             </p>
             <div className="mt-10">
               <BlogPostBody blocks={post.blocks} />

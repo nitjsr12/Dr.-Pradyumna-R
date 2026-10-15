@@ -25,14 +25,14 @@ export type HeroSlide = {
 export const heroSlides: HeroSlide[] = [
   {
     id: "precision",
-    eyebrow: "ORTHOPEDIC SURGEON IN BANGALORE • SPORTS MEDICINE",
+    eyebrow: "ORTHOPAEDIC SURGEON IN BANGALORE • SPORTS MEDICINE",
     headline: [
       { text: "Move Better." },
       { text: "Recover Stronger." },
       { text: "Live Fully.", accent: true },
     ],
     description:
-      "Dr. Pradyumna R is a fellowship-trained orthopedic surgeon in Bangalore, trained in Munich, Seoul and under ISAKOS. With 2,000+ shoulder and 2,000+ knee arthroscopies, he treats ACL, meniscus, rotator cuff and sports injuries through keyhole surgery, so you can return to the activities that matter most.",
+      "Dr. Pradyumna R is a fellowship-trained orthopaedic surgeon in Bangalore, trained in Munich, Seoul and under ISAKOS. With 2,000+ shoulder and 2,000+ knee arthroscopies, he treats ACL, meniscus, rotator cuff and sports injuries through keyhole surgery, so you can return to the activities that matter most.",
     image: "/images/hero/slide-movement.jpg",
     imageAlt: "Keyhole orthopaedic surgery in progress",
     imagePosition: "right",
@@ -41,6 +41,27 @@ export const heroSlides: HeroSlide[] = [
     tagSublabel: "ACL • MENISCUS • ROTATOR CUFF",
     primaryCta: { label: "Book a Consultation", href: bookAppointmentUrl },
     secondaryCta: { label: "Explore Treatments", href: "/treatments" },
+  },
+  {
+    id: "arthroscopy",
+    eyebrow: "MINIMALLY INVASIVE SURGERY • ARTHROSCOPY",
+    headline: [
+      { text: "Smaller Incisions." },
+      { text: "Faster Recovery.", accent: true },
+    ],
+    description:
+      "Where surgery is needed, arthroscopy (keyhole surgery) treats knee, shoulder and hip problems through tiny portals — not large open cuts. Dr. Pradyumna R has performed 2,000+ knee and 2,000+ shoulder arthroscopies, including ACL reconstruction, meniscus repair, rotator cuff and labral work, with less tissue trauma and structured rehab to get you moving again.",
+    image: "/images/hero/slide-precision.jpg",
+    imageAlt: "Minimally invasive arthroscopic orthopaedic surgery",
+    imagePosition: "right",
+    video: { type: "file", src: "/videos/credentials/knee-arthroscopy.mp4" },
+    tagLabel: "MINIMALLY INVASIVE",
+    tagSublabel: "ARTHROSCOPY • KNEE • SHOULDER • HIP",
+    primaryCta: { label: "Book a Consultation", href: bookAppointmentUrl },
+    secondaryCta: {
+      label: "Arthroscopic Surgery",
+      href: "/treatments/arthroscopic-surgery-bangalore",
+    },
   },
   {
     id: "recovery",
@@ -68,7 +89,7 @@ export const heroSlides: HeroSlide[] = [
       { text: "When You Need It.", accent: true },
     ],
     description:
-      "Not every joint problem needs an operation. Dr. Pradyumna starts with a detailed assessment, explains your diagnosis clearly, and where suitable offers non-surgical care like PRP therapy and physiotherapy. Consult him at Manipal Hospitals, Kanakapura Road or Jayanagar, in English, Kannada, Hindi, Telugu or Tamil.",
+      "Not every joint problem needs an operation. Dr. Pradyumna R starts with a detailed assessment, explains your diagnosis clearly, and where suitable offers non-surgical care like PRP therapy and physiotherapy. Consult him at Manipal Hospitals, Kanakapura Road or Jayanagar, in English, Kannada, Hindi, Telugu or Tamil.",
     image: "/images/hero/slide-doctor.jpg",
     imageAlt: "Dr. Pradyumna R speaking with a patient",
     imagePosition: "center",
@@ -76,7 +97,7 @@ export const heroSlides: HeroSlide[] = [
     tagLabel: "DR. PRADYUMNA R",
     tagSublabel: "FIFA DIPLOMA • ISAKOS FELLOW",
     primaryCta: { label: "Book a Consultation", href: bookAppointmentUrl },
-    secondaryCta: { label: "Meet Dr. Pradyumna", href: "/about" },
+    secondaryCta: { label: "Meet Dr. Pradyumna R", href: "/about" },
   },
 ];
 

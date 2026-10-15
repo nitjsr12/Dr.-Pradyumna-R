@@ -87,7 +87,7 @@ function PlaceholderPanel({ alt }: { alt: string }) {
       <p className="mt-3 text-sm font-semibold text-navy">Dr. Pradyumna R</p>
       <p className="mt-1 text-xs text-muted">Professional portrait</p>
       <p className="sr-only">{alt}</p>
-      {/* TODO: Replace with Dr. Pradyumna's professional portrait */}
+      {/* TODO: Replace with Dr. Pradyumna R's professional portrait */}
     </div>
   );
 }

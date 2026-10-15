@@ -6,8 +6,10 @@ export const testimonialTopics = [
   { id: "all", label: "All" },
   { id: "knee", label: "Knee" },
   { id: "shoulder", label: "Shoulder" },
-  { id: "hip", label: "Hip" },
   { id: "ankle", label: "Ankle" },
+  { id: "elbow", label: "Elbow" },
+  { id: "general-consultation", label: "General Consultation" },
+  { id: "hip", label: "Hip" },
 ] as const;
 
 export type TestimonialTopicId = (typeof testimonialTopics)[number]["id"];
@@ -77,5 +79,23 @@ export const testimonialVideos: TestimonialVideo[] = [
     poster: "/images/hero/slide-precision.jpg",
     posterPosition: "object-[50%_center]",
     video: { type: "file", src: "/videos/testimonials/testimonial-3.mp4" },
+  },
+  {
+    id: "story-elbow",
+    title: "Elbow pain care",
+    caption: "Relief from tennis elbow and daily strain.",
+    topic: "elbow",
+    poster: "/images/expertise/sports-medicine.webp",
+    posterPosition: "object-center",
+    video: { type: "file", src: "/videos/testimonials/testimonial-2.mp4" },
+  },
+  {
+    id: "story-general-consultation",
+    title: "General consultation",
+    caption: "Clear answers and a plan from the first visit.",
+    topic: "general-consultation",
+    poster: "/images/expertise/clinic.webp",
+    posterPosition: "object-center",
+    video: { type: "file", src: "/videos/testimonials/testimonial-1.mp4" },
   },
 ];

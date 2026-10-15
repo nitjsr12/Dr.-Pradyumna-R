@@ -93,7 +93,7 @@ export function AboutIntroHero() {
             </p>
             <p className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-white/80">
               <MapPin className="size-4 text-teal-bright" aria-hidden />
-              Kanakapura Road &amp; Jayanagar — Bengaluru
+              Kanakapura Road &amp; Jayanagar — Bangalore
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild variant="teal" size="lg">

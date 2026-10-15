@@ -3,12 +3,14 @@ import { aclTearPost } from "@/data/blog/post-acl";
 import { ankleInstabilityPost } from "@/data/blog/post-ankle";
 import { tennisElbowPost } from "@/data/blog/post-elbow";
 import { hipImpingementPost } from "@/data/blog/post-hip";
+import { jointReplacementPost } from "@/data/blog/post-joint-replacement";
 import { prpKneePost } from "@/data/blog/post-prp";
 import { rotatorCuffPost } from "@/data/blog/post-rotator-cuff";
 
 export const blogPosts: BlogPost[] = [
   aclTearPost,
   rotatorCuffPost,
+  jointReplacementPost,
   hipImpingementPost,
   ankleInstabilityPost,
   tennisElbowPost,

@@ -108,11 +108,15 @@ export function GoogleReviews() {
         <h2 className="title-section mx-auto mt-4 max-w-3xl text-balance text-center">
           Stories of care and recovery.
         </h2>
+        <p className="mx-auto mt-4 max-w-2xl text-center text-sm leading-relaxed text-navy/70 md:text-[15px]">
+          Filter by area of care — knee, shoulder, and{" "}
+          <span className="font-semibold text-navy">back pain</span> treatment.
+        </p>
 
         <div
           className="mx-auto mt-8 flex w-fit max-w-full flex-wrap justify-center gap-1 rounded-full border border-white bg-white/80 p-1 shadow-[var(--shadow-card)] backdrop-blur"
           role="tablist"
-          aria-label="Review categories"
+          aria-label="Filter Google reviews by knee, shoulder, or back pain care"
         >
           {reviewCategories.map((item) => {
             const selected = item === category;

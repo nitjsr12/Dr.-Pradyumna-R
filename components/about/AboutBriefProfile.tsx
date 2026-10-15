@@ -110,7 +110,7 @@ export function AboutBriefProfile() {
           <p className="label-caps">Profile overview</p>
           <h2 className="title-section mt-5 max-w-2xl text-balance">
             A brief profile of{" "}
-            <span className="text-accent">Dr. Pradyumna R.</span>
+            <span className="text-accent">Dr. Pradyumna R</span>
           </h2>
           <p className="text-body mt-4 max-w-3xl">{doctor.overview}</p>
           <p className="text-body mt-4 max-w-3xl">{doctor.approach}</p>

@@ -29,11 +29,13 @@ export const defaultMetadata: Metadata = {
 export function pageMetadata(
   title: string,
   description: string,
-  path: string
+  path: string,
+  keywords?: string[]
 ): Metadata {
   return {
     title,
     description,
+    ...(keywords?.length ? { keywords } : {}),
     alternates: { canonical: path },
     openGraph: {
       title: `${title} | Dr. Pradyumna R`,
@@ -66,14 +68,14 @@ export function medicalDoctorJsonLd() {
       address: {
         "@type": "PostalAddress",
         streetAddress: doctor.address.hospital,
-        addressLocality: "Bengaluru",
+        addressLocality: "Bangalore",
         addressRegion: "Karnataka",
         postalCode: "560062",
         addressCountry: "IN",
       },
       telephone: `+91-${doctor.booking.clinicPhone}`,
     },
-    areaServed: { "@type": "City", name: "Bengaluru" },
+    areaServed: { "@type": "City", name: "Bangalore" },
     url: siteConfig.url,
   };
 }

@@ -256,9 +256,9 @@ export const specialtiesFaqs = [
   },
   {
     id: "specialties-robotic",
-    question: "Does Dr. Pradyumna perform robotic orthopaedic surgery in Bangalore?",
+    question: "Does Dr. Pradyumna R perform robotic orthopaedic surgery in Bangalore?",
     answer:
-      "Yes. Dr. Pradyumna is trained in robotic-assisted total knee replacement (Robotic TKR), offering greater precision and often faster recovery compared to conventional surgery when you are a suitable candidate.",
+      "Yes. Dr. Pradyumna R is trained in robotic-assisted total knee replacement (Robotic TKR), offering greater precision and often faster recovery compared to conventional surgery when you are a suitable candidate.",
   },
   {
     id: "specialties-minimally-invasive",
@@ -270,13 +270,13 @@ export const specialtiesFaqs = [
     id: "specialties-athletes",
     question: "Can athletes be treated at the clinic?",
     answer:
-      "Yes. Dr. Pradyumna specialises in sports medicine, treating recreational and competitive athletes for ACL tears, meniscal injury, rotator cuff problems, shoulder instability, and related conditions.",
+      "Yes. Dr. Pradyumna R specialises in sports medicine, treating recreational and competitive athletes for ACL tears, meniscal injury, rotator cuff problems, shoulder instability, and related conditions.",
   },
   {
     id: "specialties-areas-served",
     question: "Which areas of Bangalore do patients visit from?",
     answer:
-      "Patients visit from across Bengaluru — including Jayanagar, BTM Layout, Kanakapura Road, Indiranagar, Whitefield, JP Nagar, Koramangala, HSR Layout, Electronic City, and neighbouring areas.",
+      "Patients visit from across Bangalore — including Jayanagar, BTM Layout, Kanakapura Road, Indiranagar, Whitefield, JP Nagar, Koramangala, HSR Layout, Electronic City, and neighbouring areas.",
   },
   {
     id: "specialties-book",

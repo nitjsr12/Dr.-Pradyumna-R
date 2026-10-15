@@ -49,7 +49,7 @@ export function ApproachSection() {
       />
       <Container className="relative">
         <FadeIn className="max-w-2xl">
-          <p className="label-caps">The Pradyumna approach</p>
+          <p className="label-caps">Dr. Pradyumna R&apos;s Approach</p>
           <h2 id="approach-heading" className="title-section mt-5 text-balance">
             Care that looks{" "}
             <span className="text-accent">beyond the pain.</span>

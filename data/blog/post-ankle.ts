@@ -2,9 +2,9 @@ import type { BlogPost } from "@/data/blog/types";
 
 export const ankleInstabilityPost: BlogPost = {
   slug: "ankle-instability-treatment-bangalore",
-  topic: "ankle-foot",
-  chipLabel: "ANKLE",
-  conditionName: "ANKLE LIGAMENT CARE",
+  topic: "foot-ankle",
+  chipLabel: "FOOT & ANKLE",
+  conditionName: "FOOT & ANKLE CARE",
   title: "Ankle Sprain That Won't Heal? Signs of Ankle Instability",
   pageTitle: "Ankle Sprain That Won't Heal? Signs of Ankle Instability",
   excerpt:
@@ -17,6 +17,8 @@ export const ankleInstabilityPost: BlogPost = {
   metaDescription:
     "Keep spraining your ankle? Learn the signs of chronic ankle instability, physiotherapy options, ligament repair surgery and recovery.",
   keywords: [
+    "sports injury",
+    "ankle sports injury bangalore",
     "ankle instability surgery bangalore",
     "ankle ligament reconstruction cost bangalore",
     "ankle sprain treatment",

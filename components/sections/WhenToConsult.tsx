@@ -95,7 +95,7 @@ export function WhenToConsult() {
             <p className="label-caps-on-dark">Know the signs</p>
             <h2 className="title-section mt-5 text-balance !text-white">
               When should you see an{" "}
-              <span className="text-teal-bright">orthopedic doctor?</span>
+              <span className="text-teal-bright">orthopaedic doctor?</span>
             </h2>
             <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-white lg:text-base">
               Not every ache needs a specialist. But when pain, stiffness or an old injury starts

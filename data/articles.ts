@@ -14,19 +14,40 @@ export const articleCategories = [
   "Patient Education",
 ] as const;
 
-/** Homepage blog strip filters (counts derived from articles). */
+/** Blog filters & section order — Joint Replacement replaces “Hip” in labels; Hip section stays last. */
 export const blogTopics = [
   { id: "all", label: "All Articles" },
   { id: "knee", label: "Knee" },
   { id: "shoulder", label: "Shoulder" },
-  { id: "hip", label: "Hip" },
-  { id: "ankle-foot", label: "Ankle & Foot" },
   { id: "elbow", label: "Elbow" },
+  { id: "foot-ankle", label: "Foot & Ankle" },
   { id: "non-surgical", label: "Non-Surgical Care" },
+  { id: "joint-replacement", label: "Joint Replacement" },
+  { id: "hip", label: "Hip" },
 ] as const;
 
 export type BlogTopicId = (typeof blogTopics)[number]["id"];
 export type BlogBodyTopic = Exclude<BlogTopicId, "all">;
+
+/** Body-area topics only — order matches `blogTopics` (excludes “All”). */
+export const blogBodyTopics = blogTopics.filter(
+  (t): t is (typeof blogTopics)[number] & { id: BlogBodyTopic } => t.id !== "all"
+);
+
+/** Links for empty speciality sections on the blog index (same layout, placeholder body). */
+export const blogTopicExploreLinks: Partial<
+  Record<BlogBodyTopic, { href: string; cta: string }>
+> = {
+  "foot-ankle": {
+    href: "/area-of-specialties#other-procedures",
+    cta: "Foot & ankle procedures",
+  },
+  "joint-replacement": {
+    href: "/treatments/joint-replacement-surgery-bangalore",
+    cta: "Joint replacement care",
+  },
+  hip: { href: "/area-of-specialties#hip-procedures", cta: "Hip procedures" },
+};
 
 export type SampleArticle = {
   slug: string;

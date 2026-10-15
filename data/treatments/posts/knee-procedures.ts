@@ -34,7 +34,7 @@ const kneeArthroscopyBangalore: TreatmentPage = {
       "Knee Stiffness After Injury or Surgery",
     ]),
     p(
-      "A GP referral is welcome but not required. Dr. Pradyumna is available for knee consultations, second opinions and surgical planning."
+      "A GP referral is welcome but not required. Dr. Pradyumna R is available for knee consultations, second opinions and surgical planning."
     ),
     h2("What Is Knee Arthroscopy?"),
     p(
@@ -231,7 +231,7 @@ const aclReconstructionSurgeryBangalore: TreatmentPage = {
       {
         question: "Which graft is best for ACL reconstruction?",
         answer:
-          "Each graft has advantages. Dr. Pradyumna will recommend the best option for your sport, age and knee.",
+          "Each graft has advantages. Dr. Pradyumna R will recommend the best option for your sport, age and knee.",
       },
       {
         question: "How long before I can return to sport?",

@@ -63,7 +63,7 @@ export function AreaOfSpecialtiesContent() {
             </h1>
             <p className="text-body mt-6 max-w-xl">
               Knee, hip, shoulder and elbow care — arthroscopy, sports medicine, trauma and
-              robotic-assisted joint replacement with Dr. Pradyumna R across Bengaluru.
+              robotic-assisted joint replacement with Dr. Pradyumna R across Bangalore.
             </p>
             <p className="mt-4 font-heading text-base font-semibold text-teal-bright md:text-lg">
               Knee · Hip · Shoulder · Elbow · Sports medicine
@@ -120,7 +120,7 @@ export function AreaOfSpecialtiesContent() {
                   <span className="text-accent">orthopaedic surgeon Bangalore</span>
                 </h2>
                 <p className="text-body mt-5 leading-relaxed">
-                  Fellowship-trained in arthroscopy and sports medicine, Dr. Pradyumna treats
+                  Fellowship-trained in arthroscopy and sports medicine, Dr. Pradyumna R treats
                   patients from paediatric cases to senior citizens and competitive athletes. Care
                   is evidence-based, personalised and focused on clear communication before any
                   procedure.

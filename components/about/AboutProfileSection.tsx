@@ -58,7 +58,7 @@ export function AboutProfileSection() {
             </h2>
             <p className="text-body mt-4 max-w-xl leading-relaxed">
               A detailed look at Dr. Pradyumna R&apos;s surgical background, research and practice in
-              Bengaluru.
+              Bangalore.
             </p>
           </FadeIn>
           <div className="flex shrink-0 items-center gap-2">

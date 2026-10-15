@@ -1,4 +1,4 @@
-export const reviewCategories = ["All", "Knee", "Shoulder", "Back"] as const;
+export const reviewCategories = ["All", "Knee", "Shoulder", "Back Pain"] as const;
 
 export type ReviewCategory = (typeof reviewCategories)[number];
 
@@ -18,7 +18,7 @@ export const googleReviews: GoogleReview[] = [
     category: "Knee",
     href: "https://share.google/NpR9YBZi5XK7nwNL",
     quote:
-      "I initially visited Dr. Pradyuman for knee pain. After evaluation, I was diagnosed with osteoarthritis (OA) and was referred to Dr. Bharath, a physiotherapist, for further treatment. Following the physiotherapy sessions, my pain has significantly reduced, and my overall mobility has improved. I am now able to walk more comfortably and perform my daily activities with greater ease.",
+      "I initially visited Dr. Pradyumna R for knee pain. After evaluation, I was diagnosed with osteoarthritis (OA) and was referred to Dr. Bharath, a physiotherapist, for further treatment. Following the physiotherapy sessions, my pain has significantly reduced, and my overall mobility has improved. I am now able to walk more comfortably and perform my daily activities with greater ease.",
   },
   {
     id: "vikesh-chaubey",
@@ -58,7 +58,7 @@ export const googleReviews: GoogleReview[] = [
     category: "Shoulder",
     href: "https://share.google/ilR6coMRKZGHDkOZU",
     quote:
-      "Consulted Dr. Pradyuman for my shoulder pain and had a positive experience so far. He explained the condition clearly and the treatment is currently in progress. Feeling hopeful and satisfied with the care and guidance provided.",
+      "Consulted Dr. Pradyumna R for my shoulder pain and had a positive experience so far. He explained the condition clearly and the treatment is currently in progress. Feeling hopeful and satisfied with the care and guidance provided.",
   },
   {
     id: "parena-kanwar-dhahiya",
@@ -87,7 +87,7 @@ export const googleReviews: GoogleReview[] = [
   {
     id: "akshay-mishra",
     name: "Akshay Mishra",
-    category: "Back",
+    category: "Back Pain",
     href: "https://share.google/gfHgxvqQjDnskKEMi",
     quote:
       "I injured my back during lifting weights at gym. I googled for back pain doctors near me and found Dr Pradyumna. He is god send. When i went to his clinic, he did a thorough examination and suggested an MRI. Upon investigation, it was found i had a disc bulge in my L4, L5. I was apprehensive to get operated and asked the doctor to suggest alternative options. I tried physiotherapy and exercises, however the pain kept coming back as mentioned in initial consultation by Dr Pradyumna. However, this time i decided to go for Discectomy and dr pradyumna did my surgery. He went extra mile to put me at ease and kudos to his physiotherapy team who did a solid rehabilitation after surgery that am 100% recovered and pain free. Will recommend Dr pradyumna for any spine related issues and back pain. Thank you doctor.",
@@ -95,7 +95,7 @@ export const googleReviews: GoogleReview[] = [
   {
     id: "anchal-chauhan",
     name: "Anchal Chauhan",
-    category: "Back",
+    category: "Back Pain",
     href: "https://share.google/AoTqwte31Cme2WtOR",
     quote:
       "Took my mother for her back pain. I cannot explain how happy I was with Dr Pradyumna’s treatment and explaining. He gave a few tablets and suggested physiotherapy. My mother is feeling better now. Thanks Dr Pradyumna. Definitely recommend him for any orthopedic issues.",
@@ -103,7 +103,7 @@ export const googleReviews: GoogleReview[] = [
   {
     id: "gyan-p-mishra",
     name: "Gyan P Mishra",
-    category: "Back",
+    category: "Back Pain",
     href: "https://share.google/dzMc5sLnVqqWNMTRX",
     quote:
       "Dr Pradyumna R is very professional and helpful. He will listen to your problem patiently and check properly then he will suggest the treatment. I am feeling lucky to visit his clinic for my back pain treatment.",

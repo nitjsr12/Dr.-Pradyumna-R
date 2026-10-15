@@ -8,18 +8,18 @@ export const doctor = {
   shortName: "DR. PRADYUMNA R",
   descriptor: "Orthopaedics & Sports Medicine",
   tagline: "Precision in movement",
-  location: "Bengaluru, India",
-  city: "Bengaluru",
+  location: "Bangalore, India",
+  city: "Bangalore",
 
   role: "Consultant – Shoulder and Sports Medicine",
   affiliation: {
     name: "Manipal Hospital, Kanakapura Road",
-    city: "Bengaluru, Karnataka",
+    city: "Bangalore, Karnataka",
     note:
       "Professional affiliation. This website is Dr. Pradyumna R's personal brand—not Manipal Hospitals' website.",
   },
 
-  overview: `Dr. Pradyumna R is a Consultant, Shoulder and Sports Medicine at Manipal Hospital, Kanakapura Road, Bengaluru, specialising in shoulder and elbow surgery, sports injury management and arthroscopic procedures of the shoulder, knee and hip.`,
+  overview: `Dr. Pradyumna R is a Consultant, Shoulder and Sports Medicine at Manipal Hospital, Kanakapura Road, Bangalore, specialising in shoulder and elbow surgery, sports injury management and arthroscopic procedures of the shoulder, knee and hip.`,
   approach: `His approach to orthopaedic care is centred on accurate assessment, personalised treatment and restoring movement, helping patients move forward with confidence.`,
 
   experienceNote:
@@ -72,13 +72,15 @@ export const doctor = {
     clinicPhoneDisplay: "91130 25188",
     centralPhone: "1800 102 5555",
     hospitalLine: "080-22221111",
+    /** Primary clinic / personal brand enquiries (footer, contact). */
+    contactEmail: "drpradyorthocare@gmail.com",
     hospitalEmail: "info@manipalhospitals.com",
-    mapsQuery: "Manipal Hospital Kanakapura Road Bengaluru",
+    mapsQuery: "Manipal Hospital Kanakapura Road Bangalore",
   },
 
   address: {
     hospital:
-      "No.241/359/358/314/13/3, Konanakunte Village, Ward No.197, Vasanthapura, Uttarahalli Hobli, Kanakapura Road, Bengaluru, Karnataka 560062",
+      "No.241/359/358/314/13/3, Konanakunte Village, Ward No.197, Vasanthapura, Uttarahalli Hobli, Kanakapura Road, Bangalore, Karnataka 560062",
     landmark: "Yelachenahalli Metro Station",
   },
 

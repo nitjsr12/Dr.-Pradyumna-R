@@ -16,6 +16,8 @@ export const aclTearPost: BlogPost = {
   metaDescription:
     "Learn ACL tear symptoms, when surgery is needed, how keyhole ACL reconstruction works, and a realistic recovery timeline. By Dr. Pradyumna R.",
   keywords: [
+    "sports injury",
+    "sports injury treatment bangalore",
     "best acl surgeon in bangalore",
     "acl tear treatment",
     "acl reconstruction recovery",

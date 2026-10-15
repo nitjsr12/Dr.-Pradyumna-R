@@ -149,7 +149,7 @@ export function ConsultationCTA() {
             <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-white/80 lg:text-base">
               Whether it&apos;s joint pain that won&apos;t settle, a sports injury holding you
               back, or a surgery decision you&apos;re unsure about, one honest conversation can
-              change everything. Meet Dr. Pradyumna R, orthopedic doctor on Kanakapura Road, for
+              change everything. Meet Dr. Pradyumna R, orthopaedic doctor on Kanakapura Road, for
               a clear diagnosis and a treatment plan built around your life.
             </p>
 

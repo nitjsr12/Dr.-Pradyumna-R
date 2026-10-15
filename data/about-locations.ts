@@ -3,6 +3,11 @@
  * Embed URLs open the location in Google Maps.
  */
 
+import {
+  affiliatedGmbLinks,
+  bangaloreOrthopaedicClinicAddress,
+} from "@/data/affiliated-hospitals";
+
 export type AboutLocation = {
   id: string;
   name: string;
@@ -16,23 +21,30 @@ export type AboutLocation = {
 export const aboutLocations: AboutLocation[] = [
   {
     id: "kanakapura",
-    name: "Manipal Hospital — Kanakapura Road",
-    shortLabel: "Manipal — Kanakapura Road",
+    name: "Manipal Hospital, Kanakapura Road",
+    shortLabel: "Manipal, Kanakapura Road",
     address:
-      "Kanakapura Main Rd, Yelachenahalli, Bengaluru, Karnataka 560062 (near Yelachenahalli Metro)",
-    mapsUrl:
-      "https://www.google.com/maps/search/?api=1&query=Manipal+Hospital+Kanakapura+Road+Bengaluru",
+      "Kanakapura Main Rd, Yelachenahalli, Bangalore, Karnataka 560062 (near Yelachenahalli Metro)",
+    mapsUrl: affiliatedGmbLinks.manipalKanakapura,
     embedSrc:
-      "https://www.google.com/maps?q=Manipal+Hospital+Kanakapura+Road+Bengaluru&output=embed",
+      "https://www.google.com/maps?q=Manipal+Hospital+Kanakapura+Road+Bangalore&output=embed",
+  },
+  {
+    id: "jayanagar",
+    name: "Manipal Hospital, Jayanagar",
+    shortLabel: "Manipal, Jayanagar",
+    address: "45/1, 45th Cross, Jayanagar 9th Block, Bangalore, Karnataka 560069",
+    mapsUrl: affiliatedGmbLinks.manipalJayanagar,
+    embedSrc:
+      "https://www.google.com/maps?q=Manipal+Hospital+Jayanagar+Bangalore&output=embed",
   },
   {
     id: "btm",
-    name: "Bangalore Orthopaedic Clinic — BTM Layout",
+    name: "Bangalore Orthopaedic Clinic, BTM Layout",
     shortLabel: "Bangalore Orthopaedic Clinic",
-    address: "BTM Layout 2nd Stage, Bengaluru, Karnataka 560076",
-    mapsUrl:
-      "https://www.google.com/maps/search/?api=1&query=Bangalore+Orthopaedic+Clinic+BTM+Layout",
+    address: bangaloreOrthopaedicClinicAddress,
+    mapsUrl: affiliatedGmbLinks.bangaloreOrthopaedicClinic,
     embedSrc:
-      "https://www.google.com/maps?q=BTM+Layout+2+Stage+Orthopaedic+Clinic+Bengaluru&output=embed",
+      "https://www.google.com/maps?q=BTM+Layout+2+Stage+Orthopaedic+Clinic+Bangalore&output=embed",
   },
 ];

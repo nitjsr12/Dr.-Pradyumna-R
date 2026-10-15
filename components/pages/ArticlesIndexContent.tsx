@@ -7,6 +7,8 @@ import { ArrowRight, Clock, Search } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import {
   articleHref,
+  blogBodyTopics,
+  blogTopicExploreLinks,
   blogTopics,
   sampleArticles,
   type BlogTopicId,
@@ -107,6 +109,8 @@ export function ArticlesIndexContent() {
     return filtered;
   }, [filtered, showFeatured, featured]);
 
+  const showGroupedSections = topic === "all" && !query.trim();
+
   return (
     <>
       <section className="hero-banner relative overflow-hidden border-b border-border-subtle/80 pt-[4.75rem] lg:pt-[5.5rem]">
@@ -118,9 +122,9 @@ export function ArticlesIndexContent() {
               Move better. <span className="text-accent">Know better.</span>
             </h1>
             <p className="text-body mt-6 max-w-xl">
-              Doctor-written guides on knee, shoulder, hip, ankle and elbow care — clear
-              explanations to help you prepare for a consultation. Educational only, not medical
-              advice.
+              Doctor-written guides on knee, shoulder, elbow, foot &amp; ankle, non-surgical care,
+              joint replacement and hip care — clear explanations to help you prepare for a
+              consultation. Educational only, not medical advice.
             </p>
             <p className="mt-4 text-sm font-medium text-teal-bright/90">
               {sampleArticles.length} guides · Sports medicine & orthopaedics
@@ -213,8 +217,51 @@ export function ArticlesIndexContent() {
             </motion.div>
           )}
 
-          {gridArticles.length === 0 ? (
+          {gridArticles.length === 0 && !showGroupedSections ? (
             <p className="mt-12 text-center text-muted">No guides match your search.</p>
+          ) : showGroupedSections ? (
+            <div className="mt-10 space-y-12 lg:mt-12 lg:space-y-14">
+              {blogBodyTopics.map((section) => {
+                const sectionArticles = gridArticles.filter((a) => a.topic === section.id);
+                const explore = blogTopicExploreLinks[section.id];
+                return (
+                  <FadeIn key={section.id}>
+                    <div>
+                      <p className="label-caps">{section.label}</p>
+                      <h3 className="font-heading mt-3 text-xl font-bold text-navy md:text-2xl">
+                        {section.label} guides
+                      </h3>
+                      {sectionArticles.length > 0 ? (
+                        <Stagger className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+                          {sectionArticles.map((article) => (
+                            <StaggerChild key={article.slug}>
+                              <ArticleCard article={article} />
+                            </StaggerChild>
+                          ))}
+                        </Stagger>
+                      ) : (
+                        <article className="mt-6 rounded-[22px] border border-navy/[0.08] bg-white p-6 shadow-[var(--shadow-card)] sm:p-8">
+                          <p className="text-sm leading-relaxed text-navy/70">
+                            Patient guides for {section.label.toLowerCase()} will be added here
+                            soon. In the meantime, you can read about related care on the site or
+                            book a consultation for personalised advice.
+                          </p>
+                          {explore && (
+                            <Link
+                              href={explore.href}
+                              className="focus-ring mt-4 inline-flex items-center gap-2 text-sm font-semibold text-teal hover:text-navy"
+                            >
+                              {explore.cta}
+                              <ArrowRight className="size-4" aria-hidden />
+                            </Link>
+                          )}
+                        </article>
+                      )}
+                    </div>
+                  </FadeIn>
+                );
+              })}
+            </div>
           ) : (
             <Stagger className="mt-10 grid gap-6 sm:grid-cols-2 lg:mt-12 lg:grid-cols-3 lg:gap-8">
               {gridArticles.map((article) => (

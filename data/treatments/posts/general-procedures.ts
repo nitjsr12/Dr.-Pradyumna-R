@@ -16,7 +16,7 @@ export const arthroscopicSurgery: TreatmentPage = {
       "Dr. Pradyumna R is a fellowship-trained arthroscopic surgeon in Bangalore, with more than 2,000 shoulder arthroscopies and 2,000 knee arthroscopies to his name. He consults at Manipal Hospitals, Kanakapura Road, Manipal Hospitals, Jayanagar, and Bangalore Orthopaedic Clinic, BTM Layout."
     ),
     p(
-      "Arthroscopic surgery, also called keyhole surgery, is a minimally invasive way to diagnose and treat problems inside a joint. Dr. Pradyumna specialises in arthroscopic and reconstructive surgery of the shoulder, knee, hip, elbow and ankle. He has a special interest in joint preservation: cartilage repair, meniscus repair and ligament reconstruction for active patients who want to keep their own joints healthy for longer."
+      "Arthroscopic surgery, also called keyhole surgery, is a minimally invasive way to diagnose and treat problems inside a joint. Dr. Pradyumna R specialises in arthroscopic and reconstructive surgery of the shoulder, knee, hip, elbow and ankle. He has a special interest in joint preservation: cartilage repair, meniscus repair and ligament reconstruction for active patients who want to keep their own joints healthy for longer."
     ),
     h3("Arthroscopic procedures offered"),
     ul([
@@ -27,14 +27,14 @@ export const arthroscopicSurgery: TreatmentPage = {
       "Ankle Arthroscopy",
     ]),
     p(
-      "A GP referral is welcome but not required. Dr. Pradyumna is available for consultations, second opinions and surgical planning for all joint and sports-related problems."
+      "A GP referral is welcome but not required. Dr. Pradyumna R is available for consultations, second opinions and surgical planning for all joint and sports-related problems."
     ),
     h2("What Is Arthroscopic Surgery?"),
     p(
       "Arthroscopic surgery is a procedure used to look inside a joint and treat damaged cartilage, ligaments, tendons and other structures. The surgeon inserts an arthroscope, a thin tube with a high-definition camera, through a small incision. The camera shows the inside of the joint on a screen, and specialised instruments are passed through one or two other small incisions to carry out the repair."
     ),
     p(
-      "Because the incisions are usually less than a centimetre long, there is far less disruption to the surrounding muscles and tissues than in traditional open surgery. The technique requires specialised training. Dr. Pradyumna completed fellowships in arthroscopy under ISAKOS, at TUM Munich (Germany) and at SNUBH Seoul (South Korea)."
+      "Because the incisions are usually less than a centimetre long, there is far less disruption to the surrounding muscles and tissues than in traditional open surgery. The technique requires specialised training. Dr. Pradyumna R completed fellowships in arthroscopy under ISAKOS, at TUM Munich (Germany) and at SNUBH Seoul (South Korea)."
     ),
     h2("When Should You Consider Arthroscopic Surgery?"),
     p("Arthroscopy may be recommended if you have:"),
@@ -63,7 +63,7 @@ export const arthroscopicSurgery: TreatmentPage = {
     p("Most procedures take between 30 minutes and 2 hours, depending on how complex the repair is."),
     h2("What Care Is Needed After Arthroscopic Surgery?"),
     p(
-      "Many arthroscopic procedures are done as day-care or with a one-night hospital stay. More complex reconstructions may need a slightly longer stay. Dr. Pradyumna will give you a personalised recovery plan, which usually includes:"
+      "Many arthroscopic procedures are done as day-care or with a one-night hospital stay. More complex reconstructions may need a slightly longer stay. Dr. Pradyumna R will give you a personalised recovery plan, which usually includes:"
     ),
     ul([
       "Keeping the dressing clean and dry until the stitches are reviewed",
@@ -88,7 +88,7 @@ export const arthroscopicSurgery: TreatmentPage = {
       "Reaction to anaesthesia",
       "Numbness around the incision sites",
     ]),
-    p("Dr. Pradyumna will discuss your individual risks before surgery and take every precaution to minimise them."),
+    p("Dr. Pradyumna R will discuss your individual risks before surgery and take every precaution to minimise them."),
     h2("Advantages of Arthroscopic Surgery"),
     p("Compared with traditional open surgery, arthroscopy offers:"),
     ul([
@@ -373,7 +373,7 @@ export const jointReplacementSurgery: TreatmentPage = {
       {
         question: "Is robotic knee replacement better than conventional knee replacement?",
         answer:
-          "Robotic assistance improves the precision of implant positioning. Both techniques can give excellent results in experienced hands, and Dr. Pradyumna will advise which suits your knee.",
+          "Robotic assistance improves the precision of implant positioning. Both techniques can give excellent results in experienced hands, and Dr. Pradyumna R will advise which suits your knee.",
       },
       {
         question: "When can I climb stairs after knee replacement?",
@@ -394,6 +394,12 @@ export const sportsMedicineSolutions: TreatmentPage = {
   metaTitle: "Sports Medicine Doctor in Bangalore | Sports Injury Treatment",
   metaDescription:
     "ACL, meniscus, shoulder and ankle sports injury treatment in Bangalore. FIFA-diploma sports medicine specialist Dr. Pradyumna R. Book today.",
+  keywords: [
+    "sports injury",
+    "sports injury treatment bangalore",
+    "sports medicine doctor bangalore",
+    "sports injury specialist bangalore",
+  ],
   excerpt:
     "FIFA-diploma sports medicine — from ACL and shoulder instability to safe return-to-sport planning for athletes and active adults.",
   coverImage: "/images/expertise/sports-medicine.webp",
@@ -582,7 +588,7 @@ export const painManagementSpecialist: TreatmentPage = {
       "Temporary rise in blood sugar after steroid injections, important for people with diabetes",
       "Skin changes at the injection site (rare, with steroids)",
     ]),
-    p("Dr. Pradyumna will explain which treatments suit you and any specific risks before starting."),
+    p("Dr. Pradyumna R will explain which treatments suit you and any specific risks before starting."),
     h2("Advantages of Non-Surgical Pain Management"),
     ul([
       "Treats the root cause, not just the symptoms",

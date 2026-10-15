@@ -18,7 +18,7 @@ export const prpKneePost: BlogPost = {
   keywords: [
     "prp therapy for knee pain bangalore",
     "non surgical knee treatment bangalore",
-    "prp injection orthopedic bangalore",
+    "prp injection orthopaedic bangalore",
   ],
   ctaHeading: "Get Expert Advice",
   ctaLine:

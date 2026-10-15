@@ -66,6 +66,14 @@ const themes: Record<
     chip: "bg-teal text-white",
     label: "Precision",
   },
+  arthroscopy: {
+    wash: "from-teal/22 via-mint/75 to-bg-warm",
+    orb: "bg-teal-bright/32",
+    orbAlt: "bg-navy/10",
+    frame: "from-teal-bright via-white to-navy/22",
+    chip: "bg-teal text-white",
+    label: "Arthroscopy",
+  },
   recovery: {
     wash: "from-teal/20 via-mint/70 to-bg-warm",
     orb: "bg-teal-bright/30",
@@ -173,7 +181,7 @@ export function DoctorHero() {
             </div>
 
             <div
-              className="mt-8 grid grid-cols-3 gap-2 sm:mt-10"
+              className="mt-8 grid grid-cols-2 gap-2 sm:mt-10 lg:grid-cols-4"
               role="tablist"
               aria-label="Choose slide"
             >

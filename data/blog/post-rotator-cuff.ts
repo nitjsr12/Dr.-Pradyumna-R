@@ -16,6 +16,8 @@ export const rotatorCuffPost: BlogPost = {
   metaDescription:
     "Understand rotator cuff tear symptoms, non-surgical options, keyhole repair and recovery time. Expert guidance from shoulder specialist Dr. Pradyumna R.",
   keywords: [
+    "sports injury",
+    "shoulder sports injury bangalore",
     "rotator cuff tear treatment bangalore",
     "shoulder specialist doctor bangalore",
     "shoulder pain doctor bangalore",
@@ -88,7 +90,7 @@ export const rotatorCuffPost: BlogPost = {
     },
     {
       type: "p",
-      text: "Arthroscopic rotator cuff repair reattaches the tendon to the bone through small keyhole incisions. In selected cases, newer techniques such as bioinductive collagen patches may be used to support tendon healing. This is an area Dr. Pradyumna has researched.",
+      text: "Arthroscopic rotator cuff repair reattaches the tendon to the bone through small keyhole incisions. In selected cases, newer techniques such as bioinductive collagen patches may be used to support tendon healing. This is an area Dr. Pradyumna R has researched.",
     },
     { type: "h2", text: "Recovery After Rotator Cuff Repair" },
     {

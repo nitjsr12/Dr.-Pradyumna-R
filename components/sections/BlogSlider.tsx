@@ -170,7 +170,8 @@ export function BlogSlider() {
             <span className="text-accent">Make better decisions.</span>
           </h2>
           <p className="text-body mt-4 max-w-xl">
-            Clear, doctor-written guides on shoulder, knee, hip, ankle and elbow problems: what
+            Clear, doctor-written guides on knee, shoulder, elbow, foot & ankle, non-surgical care,
+            joint replacement and hip care: what
             causes them, when to worry, and every treatment option from physiotherapy and PRP to
             keyhole surgery. Written and reviewed by Dr. Pradyumna R.
           </p>
