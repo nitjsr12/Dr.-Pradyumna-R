@@ -10,7 +10,7 @@ export const jointReplacementPost: BlogPost = {
   excerpt:
     "Severe arthritis doesn't always mean living with pain. Learn when joint replacement is considered, robotic knee options, and a realistic recovery timeline.",
   readingTime: "6 min",
-  coverImage: "/images/expertise/knee.webp",
+  coverImage: "/images/blog/hip-replacement.jpg",
   category: "Orthopaedics",
   metaTitle: "Joint Replacement Guide Bangalore | Knee & Hip Replacement",
   metaDescription:

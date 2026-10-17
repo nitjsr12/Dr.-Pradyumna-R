@@ -10,7 +10,8 @@ export const prpKneePost: BlogPost = {
   excerpt:
     "Can an injection from your own blood ease knee pain and delay surgery? An honest look at PRP therapy, its benefits and its limits.",
   readingTime: "5 min",
-  coverImage: "/images/expertise/knee.webp",
+  coverImage: "/images/blog/knee-joint.jpg",
+  coverPosition: "object-[48%_35%]",
   category: "Recovery",
   metaTitle: "PRP Therapy for Knee Pain in Bangalore | Benefits & Limits",
   metaDescription:

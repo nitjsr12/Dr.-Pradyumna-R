@@ -10,7 +10,7 @@ export const aclTearPost: BlogPost = {
   excerpt:
     "Heard a pop and felt your knee give way? Here's what an ACL tear means and how long it really takes to get back to sport.",
   readingTime: "6 min",
-  coverImage: "/images/expertise/knee.webp",
+  coverImage: "/images/blog/knee-joint.jpg",
   category: "Sports Medicine",
   metaTitle: "ACL Tear Treatment in Bangalore | Surgery & Recovery Guide",
   metaDescription:

@@ -10,8 +10,8 @@ export const tennisElbowPost: BlogPost = {
   excerpt:
     "Pain on the outer elbow when you grip, type or lift? Most people with tennis elbow have never played tennis. Here's what helps.",
   readingTime: "5 min",
-  coverImage: "/images/expertise/shoulder.webp",
-  coverPosition: "object-[70%_center]",
+  coverImage: "/images/blog/surgery-arthroscopy.webp",
+  coverPosition: "object-[88%_38%] scale-[1.35]",
   category: "Orthopaedics",
   metaTitle: "Tennis Elbow Treatment in Bangalore | Causes, PRP & Recovery",
   metaDescription:

@@ -10,7 +10,7 @@ export const hipImpingementPost: BlogPost = {
   excerpt:
     "Pain when sitting long, squatting or getting out of a car isn't always arthritis. Here's what hip impingement is and how it's treated.",
   readingTime: "5 min",
-  coverImage: "/images/expertise/sports-medicine.webp",
+  coverImage: "/images/blog/hip-running-pain.webp",
   category: "Orthopaedics",
   metaTitle: "Hip Impingement (FAI) Treatment in Bangalore | Hip Arthroscopy",
   metaDescription:
