@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { ExternalLink, MapPin } from "lucide-react";
 import { affiliatedOrganizations } from "@/data/affiliated-hospitals";
 import { Container } from "@/components/ui/Container";
@@ -76,31 +75,33 @@ export function AffiliatedHospitals() {
                 <ul className="mt-6 space-y-2 border-t border-navy/10 pt-5 text-left">
                   {org.locations.map((location) => (
                     <li key={location.id}>
-                      <Link
-                        href={location.gmbHref}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="focus-ring group flex items-start gap-2.5 rounded-xl px-2 py-2 transition-colors hover:bg-mint/50"
-                      >
-                        <MapPin
-                          className="mt-0.5 size-4 shrink-0 text-teal group-hover:text-navy"
-                          aria-hidden
-                        />
-                        <span className="min-w-0 flex-1">
-                          <span className="block text-sm font-semibold leading-snug text-navy group-hover:text-teal">
-                            {location.name}
-                          </span>
-                          {location.address && (
-                            <span className="mt-1 block text-xs leading-relaxed text-navy/65">
-                              {location.address}
-                            </span>
-                          )}
-                          <span className="mt-0.5 inline-flex items-center gap-1 text-xs font-medium text-muted group-hover:text-teal/90">
-                            View on Google Maps
-                            <ExternalLink className="size-3" aria-hidden />
-                          </span>
-                        </span>
-                      </Link>
+                      <div className="rounded-xl px-2 py-2 transition-colors hover:bg-mint/50">
+                        <div className="flex items-start gap-2.5">
+                          <MapPin
+                            className="mt-0.5 size-4 shrink-0 text-teal"
+                            aria-hidden
+                          />
+                          <div className="min-w-0 flex-1">
+                            <p className="text-sm font-semibold leading-snug text-navy">
+                              {location.name}
+                            </p>
+                            {location.address && (
+                              <p className="mt-1 text-xs leading-relaxed text-navy/65">
+                                {location.address}
+                              </p>
+                            )}
+                            <a
+                              href={location.gmbHref}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="focus-ring mt-2 inline-flex items-center gap-1.5 text-xs font-semibold text-teal hover:text-navy"
+                            >
+                              View on Google Maps
+                              <ExternalLink className="size-3.5" aria-hidden />
+                            </a>
+                          </div>
+                        </div>
+                      </div>
                     </li>
                   ))}
                 </ul>

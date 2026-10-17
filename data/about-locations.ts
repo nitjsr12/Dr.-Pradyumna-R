@@ -4,6 +4,7 @@
  */
 
 import {
+  affiliatedGmbEmbeds,
   affiliatedGmbLinks,
   bangaloreOrthopaedicClinicAddress,
 } from "@/data/affiliated-hospitals";
@@ -26,8 +27,7 @@ export const aboutLocations: AboutLocation[] = [
     address:
       "Kanakapura Main Rd, Yelachenahalli, Bangalore, Karnataka 560062 (near Yelachenahalli Metro)",
     mapsUrl: affiliatedGmbLinks.manipalKanakapura,
-    embedSrc:
-      "https://www.google.com/maps?q=Manipal+Hospital+Kanakapura+Road+Bangalore&output=embed",
+    embedSrc: affiliatedGmbEmbeds.manipalKanakapura,
   },
   {
     id: "jayanagar",
@@ -35,8 +35,7 @@ export const aboutLocations: AboutLocation[] = [
     shortLabel: "Manipal, Jayanagar",
     address: "45/1, 45th Cross, Jayanagar 9th Block, Bangalore, Karnataka 560069",
     mapsUrl: affiliatedGmbLinks.manipalJayanagar,
-    embedSrc:
-      "https://www.google.com/maps?q=Manipal+Hospital+Jayanagar+Bangalore&output=embed",
+    embedSrc: affiliatedGmbEmbeds.manipalJayanagar,
   },
   {
     id: "btm",
@@ -44,7 +43,6 @@ export const aboutLocations: AboutLocation[] = [
     shortLabel: "Bangalore Orthopaedic Clinic",
     address: bangaloreOrthopaedicClinicAddress,
     mapsUrl: affiliatedGmbLinks.bangaloreOrthopaedicClinic,
-    embedSrc:
-      "https://www.google.com/maps?q=BTM+Layout+2+Stage+Orthopaedic+Clinic+Bangalore&output=embed",
+    embedSrc: affiliatedGmbEmbeds.bangaloreOrthopaedicClinic,
   },
 ];

@@ -18,8 +18,8 @@ export default function HomePage() {
     <>
       <DoctorHero />
       <TrustStrip />
-      <HomeDepartmentsSection />
       <CredentialsBar />
+      <HomeDepartmentsSection />
       <ApproachSection />
       <AboutPreview />
       <AchievementsSection />

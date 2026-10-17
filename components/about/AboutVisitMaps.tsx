@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { ExternalLink, MapPin } from "lucide-react";
 import { useState } from "react";
 import { aboutLocations } from "@/data/about-locations";
@@ -67,7 +66,7 @@ export function AboutVisitMaps() {
             </p>
             <h3 className="mt-4 font-heading text-xl font-bold text-white">{active.name}</h3>
             <p className="mt-3 text-sm leading-relaxed text-white/80">{active.address}</p>
-            <Link
+            <a
               href={active.mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
@@ -75,7 +74,7 @@ export function AboutVisitMaps() {
             >
               Open in Google Maps
               <ExternalLink className="size-4" aria-hidden />
-            </Link>
+            </a>
           </div>
         </div>
       </Container>
